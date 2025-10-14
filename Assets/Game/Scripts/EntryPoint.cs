@@ -1,15 +1,54 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Security.Cryptography;
+using UnityEngine;
 
 public class EntryPoint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static EntryPoint Instance { get; private set; }
+    public static event System.Action onAwake; 
+    public static event System.Action onStart;
+    public static event System.Action onUpdate; 
+    public static event System.Action onFixedUpdate; 
+    public static event System.Action onLateUpdate; 
+    public static event System.Action onEnable; 
+    public static event System.Action onDisable; 
+    public static event System.Action onDestroy; 
+    
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        
+        onAwake?.Invoke();
+    }
+
+    private void Start()
+    {
+        onStart?.Invoke();
+    }
+    
+    private void Update()
+    {
+        //onUpdate?.Invoke();
+    }
+
+    private void OnEnable()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
+    {
+        
+    }
+
+    private void OnDestroy()
     {
         
     }

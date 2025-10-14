@@ -10,12 +10,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private Animator _animator;
     private Camera _camera;
+
+    private void Start()
+    {
+        _camera = Camera.main;
+    }
+
     private void Update()
     {
         Vector2 inputDirection = _playerInput.actions["Move"].ReadValue<Vector2>();
         Vector2 mousePosition = Mouse.current.position.ReadValue();
 
-        Vector2 mouseDirection = GetComponent<Camera>().ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y, GetComponent<Camera>().transform.position.z * -1)) - Vector3.one / 2;
+        Vector2 mouseDirection = _camera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y, _camera.transform.position.z * -1)) - Vector3.one / 2;
         mouseDirection.Normalize();
         
         if (inputDirection.Equals(Vector2.zero))

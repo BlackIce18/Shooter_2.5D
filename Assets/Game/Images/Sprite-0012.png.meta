@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce0ebcda86a32294a950c8025b939158
+guid: fb7a9fdb0e782d84f990f78a451608f1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,51 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _down attack_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2de2a39f1ce84db4bb005ec8d62f0cd3
-      internalID: -1220627927
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _down attack_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7f54a432f8a1cf4992d19573654c8e6
-      internalID: -1550308912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _down attack_2
+      name: Sprite-0012_0
       rect:
         serializedVersion: 2
         x: 0
@@ -182,8 +138,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f7096f712cd64c40b935f568a15016f
-      internalID: 527102402
+      spriteID: 1cc8df0bd53299d4dbadf610b2f9f72c
+      internalID: 198686754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0012_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f95412f5d1c1843895b344643333bf
+      internalID: 769892480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0012_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc564eadb933154db6f192059eb7e8e
+      internalID: -375155232
       vertices: []
       indices: 
       edges: []
@@ -192,7 +192,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 63b4c8049625bd14082703a5568a1991
+    spriteID: 85e3e55d5f2743948951f58b0ffb74c9
     internalID: 0
     vertices: []
     indices: 
@@ -204,9 +204,9 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      _down attack_0: -1220627927
-      _down attack_1: -1550308912
-      _down attack_2: 527102402
+      Sprite-0012_0: 198686754
+      Sprite-0012_1: 769892480
+      Sprite-0012_2: -375155232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
