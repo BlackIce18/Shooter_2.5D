@@ -23,3 +23,15 @@ public struct DeathEvent
         this.target = target;
     }
 }
+
+public struct SoundEvent
+{
+    public GameObject target;
+    public AudioClip audioClip;
+
+    public SoundEvent(GameObject target, AudioClip audioClip)
+    {
+        this.target = target;
+        this.audioClip = audioClip;
+    }
+}

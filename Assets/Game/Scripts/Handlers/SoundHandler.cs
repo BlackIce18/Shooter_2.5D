@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemySoundHandler : MonoBehaviour
+public class SoundHandler : MonoBehaviour
 {
     [SerializeField] private AudioSource _source;
 
@@ -19,9 +19,9 @@ public class EnemySoundHandler : MonoBehaviour
 
     private void OnDamage(DamageEvent e)
     {
-        if (e.target.TryGetComponent(out EnemyAudioData enemyAudio))
+        if (e.target.TryGetComponent(out AudioData audioData))
         {
-            var clip = enemyAudio.soundSet?.hitSound;
+            var clip = audioData.soundSet?.hitSound;
             if (clip != null)
             {
                 _source.PlayOneShot(clip);
@@ -31,7 +31,7 @@ public class EnemySoundHandler : MonoBehaviour
 
     private void OnDeath(DeathEvent e)
     {
-        if(e.target.TryGetComponent(out EnemyAudioData enemyAudio))
+        if(e.target.TryGetComponent(out AudioData enemyAudio))
         {
             var clip = enemyAudio.soundSet?.deathSound;
             if(clip != null) 

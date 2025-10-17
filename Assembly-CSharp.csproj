@@ -47,19 +47,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Game\Scripts\Events\Events.cs" />
-    <Compile Include="Assets\Game\Scripts\DamageFlash.cs" />
+    <Compile Include="Assets\Game\Scripts\Attack\AttackHitbox.cs" />
+    <Compile Include="Assets\Game\Scripts\Camera\CameraMovement.cs" />
+    <Compile Include="Assets\Game\Scripts\Handlers\SoundHandler.cs" />
     <Compile Include="Assets\Game\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Game\Scripts\EventBus.cs" />
-    <Compile Include="Assets\Game\Scripts\CameraMovement.cs" />
-    <Compile Include="Assets\Game\Scripts\ScriptableObjects\EnemySoundSet.cs" />
-    <Compile Include="Assets\Game\Scripts\Enemies\EnemyAudioData.cs" />
+    <Compile Include="Assets\Game\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Game\Scripts\Handlers\HealthSystem.cs" />
+    <Compile Include="Assets\Game\Scripts\Handlers\EnemyDeathHandler.cs" />
+    <Compile Include="Assets\Game\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Game\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Game\Scripts\Enemies\EnemySoundHandler.cs" />
-    <Compile Include="Assets\Game\Scripts\AttackHitbox.cs" />
-    <Compile Include="Assets\Game\Scripts\PlayerAttack.cs" />
-    <Compile Include="Assets\Game\Scripts\Enemies\Enemy.cs" />
+    <Compile Include="Assets\Game\Scripts\Audio\AudioData.cs" />
+    <Compile Include="Assets\Game\Scripts\ScriptableObjects\DamageSoundSet.cs" />
+    <Compile Include="Assets\Game\Scripts\Handlers\TakeDamageHandler.cs" />
     <Compile Include="Assets\Game\Scripts\EntryPoint.cs" />
+    <Compile Include="Assets\Game\Scripts\Attack\DamageFlash.cs" />
     <None Include="Assets\Resources\BillingMode.json" />
     <Reference Include="UnityEngine">
       <HintPath>U:\Unity\Editor\6000.2.6f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
