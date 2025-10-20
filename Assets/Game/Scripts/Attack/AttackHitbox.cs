@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AttackHitbox : MonoBehaviour
 {
-    public event System.Action<IDamagable> OnHit;
 
     private HashSet<IDamagable> _hitTargets = new HashSet<IDamagable>();
 
@@ -20,7 +19,6 @@ public class AttackHitbox : MonoBehaviour
             if (!_hitTargets.Contains(target))
             {
                 _hitTargets.Add(target);
-                OnHit?.Invoke(target);
             }
         }
     }

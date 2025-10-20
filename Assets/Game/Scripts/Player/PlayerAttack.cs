@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private AttackHitbox _hitbox;
     private bool _canAttack = true;
-    [SerializeField] private float _extraDelayAfterAnimation = 0.2f;
+    [SerializeField] private float _timeBetweenAttack = 0.2f;
+    private float _currentTimeBetweenAttack = 0;
+    [SerializeField] private float _dashResetTime = 0.2f;
     private Mouse _mouse;
     private bool _isDashing = false;
     private float _damage = 1;
@@ -28,23 +31,36 @@ public class PlayerAttack : MonoBehaviour
         _targetPosition = _animator.transform.parent.localPosition;
         _mouse = Mouse.current;
         _hitbox.gameObject.SetActive(false);
-        _hitbox.OnHit += HandleHit;
+        _currentTimeBetweenAttack = 0;
     }
 
     private void Update()
     {
-        if (_mouse.leftButton.wasPressedThisFrame && _canAttack)
+        if (_currentTimeBetweenAttack <= 0)
         {
-            Attack();
-            OnAttackAnimationEnd();
+            if (_mouse.leftButton.wasPressedThisFrame && _canAttack)
+            {
+                Attack();
+                _canAttack = false;
+                _animator.SetTrigger("IsAttack");
+                _animator.SetBool("IsAttacking", true);
+                _animator.SetFloat("AttackNumber", _attackNumber);
+                _hitbox.gameObject.SetActive(true);
+                StartCoroutine(ResetDashAfterDelay());
+                StartCoroutine(ResetAttack());
+            }
+            if (_isDashing)
+            {
+                if (_attackNumber == 0)
+                    MicroDash(_animator.transform, 0.08f);
+                if (_attackNumber == 1)
+                    MicroDash(_animator.transform, 0.12f);
+            }
         }
-
-        if (_isDashing)
+        else
         {
-            if (_attackNumber == 0)
-                MicroDash(_animator.transform, 0.08f);
-            if (_attackNumber == 1)
-                MicroDash(_animator.transform, 0.12f);
+           
+            _currentTimeBetweenAttack -= Time.deltaTime;
         }
     }
 
@@ -59,48 +75,39 @@ public class PlayerAttack : MonoBehaviour
         {
             // Use the hit variable to determine what was clicked on.
         }
+        
         //Debug.Log(_targetPosition);
     }
 
     private void MicroDash(Transform objectPosition, float distance)
     {
         mousePosition = _mouse.position.ReadValue();
-        mouseDirection =
-            _camera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y,
-                _camera.transform.position.z * -1)) - Vector3.one / 2;
+        mouseDirection = _camera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y, _camera.transform.position.z * -1)) - Vector3.one / 2;
         mouseDirection.Normalize();
         //_targetPosition = _animator.transform.parent.localPosition + (new Vector3(mouseDirection.x, 0, mouseDirection.y) * distance);
-        _targetPosition = _animator.transform.parent.localPosition +
-                          new Vector3(mouseDirection.x, 0, mouseDirection.y) * distance;
+        _targetPosition = _animator.transform.parent.localPosition + new Vector3(mouseDirection.x, 0, mouseDirection.y) * distance;
         //objectPosition.RotateAround(objectPosition.parent.transform.position, new Vector3(objectPosition.rotation.x, mouseDirection.x, objectPosition.rotation.z), 0.5f * Time.deltaTime);
-        objectPosition.parent.localPosition =
-            Vector3.SmoothDamp(objectPosition.parent.localPosition, _targetPosition, ref _velocity, 0.1f);
+        objectPosition.parent.localPosition = Vector3.SmoothDamp(objectPosition.parent.localPosition, _targetPosition, ref _velocity, 0.1f);
     }
 
-    public void OnAttackAnimationEnd()
+    private IEnumerator ResetAttack()
     {
-        Debug.Log("Work");
-        StartCoroutine(ResetAttackAfterDelay());
+        yield return new WaitForSeconds(0.25f);
+        _animator.SetBool("IsAttacking", false); 
+        _hitbox.gameObject.SetActive(false);
+        yield return new WaitForSeconds(_timeBetweenAttack - 0.25f);
+        _canAttack = true;
+        _animator.ResetTrigger("IsAttack");
+
+        _currentTimeBetweenAttack = _timeBetweenAttack;
     }
 
-    private IEnumerator ResetAttackAfterDelay()
+    private IEnumerator ResetDashAfterDelay()
     {
         _isDashing = true;
-        _canAttack = false;
-        _animator.SetTrigger("IsAttack");
-        _animator.SetBool("IsAttacking", !_canAttack);
-        _animator.SetFloat("AttackNumber", _attackNumber);
-        _hitbox.gameObject.SetActive(true);
-        
-        yield return new WaitForSeconds(_extraDelayAfterAnimation);
-        
-        _canAttack = true;
+        yield return new WaitForSeconds(_dashResetTime);
         _isDashing = false;
-        _animator.ResetTrigger("IsAttack");
-        _animator.SetBool("IsAttacking", !_canAttack);
-        _hitbox.gameObject.SetActive(false);
     }
-
     private void HandleHit(IDamagable target)
     {
         target.TakeDamage(_damage);
