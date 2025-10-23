@@ -40,13 +40,14 @@ public class EnemyChaseState : IState<EnemyFSM>
     {
         if (!owner.CanSeePlayer)
         {
+            // Двигаться n секунд в точку, где последний раз видел игрока
             owner.FSM.ChangeState(new EnemyIdleState());
             return;
         }
 
         if (owner.InAttackRange)
         {
-            owner.FSM.ChangeState(new EnemyChaseState());
+            owner.FSM.ChangeState(new EnemyAttackState());
             return;
         }
 
@@ -87,5 +88,40 @@ public class EnemyPatrolState : IState<EnemyFSM>
     public void Exit(EnemyFSM owner)
     {
         Debug.Log($"{owner.name} покидает Patrol");
+    }
+}
+
+public class EnemyAttackState : IState<EnemyFSM>
+{
+    private float _attackCooldown;
+    public void Enter(EnemyFSM owner)
+    {
+        Debug.Log($"{owner.name} Attack!");
+        _attackCooldown = 1.0f;
+
+        //EventBus.Publish(new SoundEvent(null, owner.));
+    }
+
+    public void Update(EnemyFSM owner)
+    {
+        _attackCooldown -= UnityEngine.Time.deltaTime;
+
+        if (_attackCooldown <= 0)
+        {
+            if (owner.InAttackRange)
+            {
+                _attackCooldown = 1.0f;
+                EventBus.Publish(new DamageEvent(owner.player.gameObject, 10, owner.transform.position));
+            }
+        }
+        else
+        {
+            owner.FSM.ChangeState(new EnemyChaseState());
+        }
+    }
+
+    public void Exit(EnemyFSM owner)
+    {
+        Debug.Log($"{owner.name} прекращает Attack");
     }
 }
