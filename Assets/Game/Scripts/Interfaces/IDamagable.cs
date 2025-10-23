@@ -1,4 +1,4 @@
 public interface IDamagable
 {
-    void TakeDamage(float damage);
+    void OnTakeDamage(DamageEvent e);
 }

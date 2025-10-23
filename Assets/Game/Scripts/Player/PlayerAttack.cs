@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _dashResetTime = 0.2f;
     private Mouse _mouse;
     private bool _isDashing = false;
-    private float _damage = 1;
+    //private float _damage = 1;
 
     private Vector3 mousePosition;
     private Vector2 mouseDirection;
@@ -32,8 +32,8 @@ public class PlayerAttack : MonoBehaviour
         _mouse = Mouse.current;
         _hitbox.gameObject.SetActive(false);
         _currentTimeBetweenAttack = 0;
+        _hitbox.OnHit += HandleHit;
     }
-
     private void Update()
     {
         if (_currentTimeBetweenAttack <= 0)
@@ -108,9 +108,10 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(_dashResetTime);
         _isDashing = false;
     }
-    private void HandleHit(IDamagable target)
+    private void HandleHit(HealthHandler target)
     {
-        target.TakeDamage(_damage);
+        //target.TakeDamage(_damage);
+        EventBus.Publish(new DamageEvent(gameObject, 10, Vector3.zero));
     }
 
 }

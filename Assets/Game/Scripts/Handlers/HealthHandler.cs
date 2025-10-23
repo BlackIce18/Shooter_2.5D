@@ -1,8 +1,6 @@
-using System;
 using UnityEngine;
-
 [RequireComponent(typeof(AudioData))]
-public class HealthSystem : MonoBehaviour, IDamagable
+public class HealthHandler : MonoBehaviour
 {
     [SerializeField] private float _health = 30;
     [SerializeField] private Animator _animator;
@@ -21,13 +19,17 @@ public class HealthSystem : MonoBehaviour, IDamagable
             }
         }
     }
+    
+    private void OnEnable() => EventBus.Subscribe<DamageEvent>(OnTakeDamage);
+    private void OnDisable() => EventBus.Unsubscribe<DamageEvent>(OnTakeDamage);
 
-    public void TakeDamage(float damage)
+    public void OnTakeDamage(DamageEvent e)
     {
-        Health -= damage;
-        
-        EventBus.Publish(new DamageEvent(gameObject, damage, Vector3.zero));
+        if(e.target == null) return;
+        Health -= e.damage;
+        var animator = GetComponent<Animator>();
+        animator?.SetTrigger("WasAttacked");
         EventBus.Publish(new SoundEvent(gameObject, _audioData.soundSet.hitSound));
-        Debug.Log($"{gameObject.name} получил {damage} урона. Осталось: {Health}");
+        Debug.Log($"{Health} осталось хп");
     }
 }

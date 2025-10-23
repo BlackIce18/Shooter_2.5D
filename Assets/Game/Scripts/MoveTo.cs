@@ -18,8 +18,13 @@ public class MoveTo : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    public void Move(Transform goal)
+    {
+        agent.destination = goal.position;
+    }
     private void Update()
     {
-        agent.destination = _goal.position;
+        if(_goal)
+            Move(_goal);
     }
 }

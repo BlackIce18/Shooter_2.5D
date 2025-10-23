@@ -7,35 +7,28 @@ public class SoundHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus.Subscribe<DamageEvent>(OnDamage);
-        EventBus.Subscribe<DeathEvent>(OnDeath);
+        EventBus.Subscribe<SoundEvent>(OnSoundEvent);
     }
 
     private void OnDisable()
     {
-        EventBus.Unsubscribe<DamageEvent>(OnDamage);
-        EventBus.Unsubscribe<DeathEvent>(OnDeath);
+        EventBus.Unsubscribe<SoundEvent>(OnSoundEvent);
     }
 
-    private void OnDamage(DamageEvent e)
+    private void OnSoundEvent(SoundEvent e)
     {
-        if (e.target.TryGetComponent(out AudioData audioData))
+        if (e.audioClip != null)
+        {
+            var clip = e.audioClip;
+            _source.PlayOneShot(clip);
+        }
+        else if (e.target.TryGetComponent(out AudioData audioData))
         {
             var clip = audioData.soundSet?.hitSound;
             if (clip != null)
             {
                 _source.PlayOneShot(clip);
             }
-        }
-    }
-
-    private void OnDeath(DeathEvent e)
-    {
-        if(e.target.TryGetComponent(out AudioData enemyAudio))
-        {
-            var clip = enemyAudio.soundSet?.deathSound;
-            if(clip != null) 
-                _source.PlayOneShot(clip);
         }
     }
 }

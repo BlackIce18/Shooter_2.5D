@@ -1,4 +1,5 @@
-﻿/.idea/.idea.Shooter_2.5D/.idea/.gitignore
+﻿/[Aa]ssets/Game/**/*.meta
+/.idea/.idea.Shooter_2.5D/.idea/.gitignore
 /.idea/.idea.Shooter_2.5D/.idea/encodings.xml
 /.idea/.idea.Shooter_2.5D/.idea/indexLayout.xml
 

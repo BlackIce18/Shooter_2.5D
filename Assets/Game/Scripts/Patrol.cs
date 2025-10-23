@@ -7,17 +7,26 @@ namespace Game.Scripts
     public class Patrol : MonoBehaviour
     {
         [SerializeField] private List<Transform> _patrolPoints;
+        public List<Transform> PatrolPoints
+        {
+            get => _patrolPoints;
+            private set => _patrolPoints = value;
+        }
         [SerializeField] private MoveTo _navMeshAgentMover;
         public float maxOffset = 0.12f;
         private int _currentPoint = 0;
 
+        public Transform CurrentPoint
+        {
+            get => _patrolPoints[_currentPoint];
+        }
         private void Start()
         {
             _navMeshAgentMover.GetComponent<MoveTo>();
-            _navMeshAgentMover.Goal = _patrolPoints[_currentPoint].transform;
+            //_navMeshAgentMover.Goal = _patrolPoints[_currentPoint].transform;
         }
 
-        private void Update()
+        public void MoveBetweenPoints()
         {
             if (Vector3.Distance(_navMeshAgentMover.transform.position, _navMeshAgentMover.Goal.position) <= maxOffset)
             {

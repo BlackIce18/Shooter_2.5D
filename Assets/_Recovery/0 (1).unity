@@ -1508,14 +1508,14 @@ GameObject:
   - component: {fileID: 1334555937}
   - component: {fileID: 1334555936}
   - component: {fileID: 1334555935}
-  - component: {fileID: 1334555943}
   - component: {fileID: 1334555934}
+  - component: {fileID: 1334555944}
+  - component: {fileID: 1334555943}
   - component: {fileID: 1334555942}
   - component: {fileID: 1334555945}
   - component: {fileID: 1334555947}
   - component: {fileID: 1334555946}
   - component: {fileID: 1334555948}
-  - component: {fileID: 1334555949}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1645,9 +1645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bdf3f486d0e1c42bfa04d5800f189b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TakeDamageHandler
-  _health: 30
-  _animator: {fileID: 1334555942}
-  _audioData: {fileID: 1334555943}
 --- !u!114 &1334555937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,7 +1762,7 @@ Animator:
   m_GameObject: {fileID: 1334555933}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 27b22bd28d6adf74aa1cb99197162e61, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1790,6 +1787,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioData
   soundSet: {fileID: 11400000, guid: 121faf1243eaf2442abd8f2ec9c4c1f7, type: 2}
+--- !u!114 &1334555944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334555933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149ef794b27b7084686eced54965f903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
+  _health: 30
+  _animator: {fileID: 1334555942}
+  _audioData: {fileID: 1334555943}
 --- !u!54 &1334555945
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1864,27 +1876,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatrolSystem
   _patrolPoints:
-  - {fileID: 1584855907}
-  - {fileID: 1931398367}
+  - {fileID: 1584855906}
+  - {fileID: 1931398366}
   _navMeshAgentMover: {fileID: 1334555946}
   maxOffset: 0.12
---- !u!114 &1334555949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334555933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ecd89cc8e36caa42815606da03bb040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyFSM
-  navMeshAgentMover: {fileID: 1334555946}
-  patrol: {fileID: 1334555948}
-  InAttackRange: 0
-  CanSeePlayer: 0
-  player: {fileID: 1779101750}
 --- !u!1 &1367024466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,6 +2131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584855907}
+  - component: {fileID: 1584855906}
   m_Layer: 0
   m_Name: PatrolPoint_1
   m_TagString: Untagged
@@ -2143,6 +2139,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1584855906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584855905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44668b038831b6f42a4320d42e108c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PatrolPoint
 --- !u!4 &1584855907
 Transform:
   m_ObjectHideFlags: 0
@@ -2152,7 +2160,7 @@ Transform:
   m_GameObject: {fileID: 1584855905}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.76872, y: 0.207, z: -7.41412}
+  m_LocalPosition: {x: 0.76872, y: 0.166, z: -7.41412}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2555,7 +2563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1769204581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2691,6 +2699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1931398367}
+  - component: {fileID: 1931398366}
   m_Layer: 0
   m_Name: PatrolPoint_2
   m_TagString: Untagged
@@ -2698,6 +2707,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1931398366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931398365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44668b038831b6f42a4320d42e108c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PatrolPoint
 --- !u!4 &1931398367
 Transform:
   m_ObjectHideFlags: 0
@@ -2707,7 +2728,7 @@ Transform:
   m_GameObject: {fileID: 1931398365}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.76872, y: 0.207, z: -5.98}
+  m_LocalPosition: {x: 0.76872, y: 0.166, z: -5.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2823,5 +2844,5 @@ SceneRoots:
   - {fileID: 1961622956}
   - {fileID: 1779101750}
   - {fileID: 1334555941}
-  - {fileID: 707007709}
   - {fileID: 1576216644}
+  - {fileID: 707007709}

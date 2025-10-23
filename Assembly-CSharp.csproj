@@ -48,20 +48,23 @@
   <ItemGroup>
     <Compile Include="Assets\Game\Scripts\Events\Events.cs" />
     <Compile Include="Assets\Game\Scripts\Attack\AttackHitbox.cs" />
+    <Compile Include="Assets\Game\Scripts\FSM\StateMachine.cs" />
+    <Compile Include="Assets\Game\Scripts\FSM\Enemies\EnemyFSM.cs" />
+    <Compile Include="Assets\Game\Scripts\Handlers\HealthHandler.cs" />
     <Compile Include="Assets\Game\Scripts\Camera\CameraMovement.cs" />
     <Compile Include="Assets\Game\Scripts\Handlers\SoundHandler.cs" />
     <Compile Include="Assets\Game\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Game\Scripts\EventBus.cs" />
     <Compile Include="Assets\Game\Scripts\Patrol.cs" />
     <Compile Include="Assets\Game\Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\Game\Scripts\Handlers\HealthSystem.cs" />
     <Compile Include="Assets\Game\Scripts\Handlers\EnemyDeathHandler.cs" />
     <Compile Include="Assets\Game\Scripts\Player\PlayerAttack.cs" />
+    <Compile Include="Assets\Game\Scripts\FSM\Enemies\States\EnemyStates.cs" />
     <Compile Include="Assets\Game\Scripts\MoveTo.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Game\Scripts\Audio\AudioData.cs" />
     <Compile Include="Assets\Game\Scripts\ScriptableObjects\DamageSoundSet.cs" />
-    <Compile Include="Assets\Game\Scripts\Handlers\TakeDamageHandler.cs" />
+    <Compile Include="Assets\Game\Scripts\Interfaces\IState.cs" />
     <Compile Include="Assets\Game\Scripts\EntryPoint.cs" />
     <Compile Include="Assets\Game\Scripts\Attack\DamageFlash.cs" />
     <None Include="Assets\Resources\BillingMode.json" />
