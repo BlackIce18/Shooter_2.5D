@@ -25,7 +25,7 @@ public class HealthHandler : MonoBehaviour
 
     public void OnTakeDamage(DamageEvent e)
     {
-        if(e.target == null) return;
+        if(e.target != gameObject) return;
         Health -= e.damage;
         var animator = GetComponent<Animator>();
         animator?.SetTrigger("WasAttacked");
