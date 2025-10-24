@@ -23,7 +23,6 @@ namespace Game.Scripts
         private void Start()
         {
             _navMeshAgentMover.GetComponent<MoveTo>();
-            //_navMeshAgentMover.Goal = _patrolPoints[_currentPoint].transform;
         }
 
         public void MoveBetweenPoints()

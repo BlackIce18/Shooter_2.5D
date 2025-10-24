@@ -2067,11 +2067,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ecd89cc8e36caa42815606da03bb040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFSM
-  navMeshAgentMover: {fileID: 1334555946}
-  patrol: {fileID: 1334555948}
   InAttackRange: 0
   CanSeePlayer: 0
-  player: {fileID: 1779101750}
+  _navMeshAgent: {fileID: 1334555946}
+  _patrol: {fileID: 1334555948}
+  _player: {fileID: 1779101750}
+  _visionSystem: {fileID: 1334555951}
 --- !u!114 &1334555950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2096,12 +2097,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e41dc821c174e4aaa6cef1cf3e8570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VisionSystem
-  _viewDistance: 3
+  _viewDistance: 1
   _viewAngle: 120
   _viewRadius: 0.5
   _eyeHeight: 0
-  _chaseTime: 3
+  _chaseTime: 1
   _collider: {fileID: 670865889}
+  _player: {fileID: 1779101750}
 --- !u!1 &1367024466
 GameObject:
   m_ObjectHideFlags: 0

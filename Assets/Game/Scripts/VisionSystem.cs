@@ -10,24 +10,31 @@ public class VisionSystem : MonoBehaviour
     [SerializeField] private float _eyeHeight = 1f;
     [SerializeField] private float _chaseTime = 3f;
     [SerializeField] private SphereCollider _collider;
-    
-    private Transform _player;
+    [SerializeField] private Transform _player;
     private float _chaseTimer;
+    private EnemyFSM _enemyFsm;
     private bool _canSeePlayer;
 
-    private EnemyFSM _enemyFsm;
+    private Vector3 _playerLastPosition;
+
+    public Vector3 PlayerLastPosition
+    {
+        get => _playerLastPosition;
+        private set => _playerLastPosition = value;
+    }
 
     private void Awake()
     {
         _enemyFsm = GetComponent<EnemyFSM>();
-        _player = _enemyFsm.player;
         _collider.isTrigger = true;
+        _playerLastPosition = _player.position;
     }
 
     private void Update()
     {
         if (_canSeePlayer)
         {
+            
             _chaseTimer = _chaseTime;
         }
         else if (_chaseTimer > 0)
@@ -39,6 +46,7 @@ public class VisionSystem : MonoBehaviour
         {
             _canSeePlayer = true;
             _enemyFsm.CanSeePlayer = true;
+            _playerLastPosition = _player.position;
         }
         else
         {
@@ -95,27 +103,6 @@ public class VisionSystem : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        /*if (_player == null) return;
-
-        Vector3 origin = transform.position + Vector3.up * _eyeHeight;
-        Vector3 dir = (_player.position - origin).normalized;
-        Vector3 endPoint = origin + dir * _viewDistance;
-
-        // Цвет в зависимости от видимости
-        Gizmos.color = _canSeePlayer ? Color.green : Color.red;
-
-        // Отрисовка центрального направления
-        Gizmos.DrawLine(origin, endPoint);
-
-        // Отрисовка "капсулы" (условно, визуализация радиуса)
-        // Нарисуем диски в начале и конце
-        Gizmos.DrawWireSphere(origin, _viewRadius);
-        Gizmos.DrawWireSphere(endPoint, _viewRadius);
-
-        // Боковые линии для наглядности "конуса"
-        Vector3 right = Vector3.Cross(Vector3.up, dir).normalized * _viewRadius;
-        Gizmos.DrawLine(origin + right, endPoint + right);
-        Gizmos.DrawLine(origin - right, endPoint - right);*/
         Vector3 forwardOffset = transform.forward * 0.05f;
         Vector3 origin = transform.position + Vector3.up * _eyeHeight + forwardOffset;
 

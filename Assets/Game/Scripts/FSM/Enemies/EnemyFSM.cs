@@ -3,15 +3,38 @@ using Game.Scripts;
 using UnityEditor;
 using UnityEngine;
 
+// EnemyStates, VisionSystem using this class
 public class EnemyFSM : MonoBehaviour
 {
-    public MoveTo navMeshAgentMover;
-    public Patrol patrol;
     public bool InAttackRange;
     public bool CanSeePlayer;
     public StateMachine<EnemyFSM> FSM;
-    public Transform player;
+    [SerializeField] private MoveTo _navMeshAgent;
+    [SerializeField] private Patrol _patrol;
+    [SerializeField] private Transform _player;
+    [SerializeField] private VisionSystem _visionSystem;
+    public Transform Player { 
+        get => _player;
+        private set => _player = value;
+    }
 
+    public MoveTo NavMeshAgent
+    {
+        get => _navMeshAgent;
+        private set => _navMeshAgent = value;
+    }
+
+    public Patrol Patrol
+    {
+        get => _patrol;
+        private set => _patrol = value;
+    }
+
+    public VisionSystem VisionSystem
+    {
+        get => _visionSystem;
+        private set => _visionSystem = value;
+    }
     private void Start()
     {
         FSM = new StateMachine<EnemyFSM>(this);
