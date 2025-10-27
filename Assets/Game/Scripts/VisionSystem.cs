@@ -34,7 +34,6 @@ public class VisionSystem : MonoBehaviour
     {
         if (_canSeePlayer)
         {
-            
             _chaseTimer = _chaseTime;
         }
         else if (_chaseTimer > 0)
@@ -45,13 +44,13 @@ public class VisionSystem : MonoBehaviour
         if (_player && IsPlayerVisible())
         {
             _canSeePlayer = true;
-            _enemyFsm.CanSeePlayer = true;
+            _enemyFsm.canSeePlayer = true;
             _playerLastPosition = _player.position;
         }
         else
         {
             _canSeePlayer = false;
-            _enemyFsm.CanSeePlayer = _chaseTimer > 0;
+            _enemyFsm.canSeePlayer = _chaseTimer > 0;
         }
     }
 
@@ -68,7 +67,7 @@ public class VisionSystem : MonoBehaviour
         
         // Если игрок вплотную — считаем, что видим его
         float distanceToPlayer = Vector3.Distance(_player.position, transform.position);
-        if (distanceToPlayer < 1f)
+        if (distanceToPlayer <= 1f)
             return true;
 
         

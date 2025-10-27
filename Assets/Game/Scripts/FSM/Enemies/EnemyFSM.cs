@@ -6,9 +6,10 @@ using UnityEngine;
 // EnemyStates, VisionSystem using this class
 public class EnemyFSM : MonoBehaviour
 {
-    public bool InAttackRange;
-    public bool CanSeePlayer;
-    public StateMachine<EnemyFSM> FSM;
+    public bool inAttackRange;
+    public bool canSeePlayer;
+    public bool canAttack = true;
+    public StateMachine<EnemyFSM> Fsm;
     [SerializeField] private MoveTo _navMeshAgent;
     [SerializeField] private Patrol _patrol;
     [SerializeField] private Transform _player;
@@ -37,13 +38,13 @@ public class EnemyFSM : MonoBehaviour
     }
     private void Start()
     {
-        FSM = new StateMachine<EnemyFSM>(this);
-        FSM.ChangeState(new EnemyIdleState());
+        Fsm = new StateMachine<EnemyFSM>(this);
+        Fsm.ChangeState(new EnemyIdleState());
     }
 
     private void Update()
     {
-        FSM.Update();
+        Fsm.Update();
     }
 
     private void OnDrawGizmos()

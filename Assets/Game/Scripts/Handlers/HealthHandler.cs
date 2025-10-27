@@ -1,10 +1,26 @@
 using UnityEngine;
+using UnityEngine.Serialization;
+
+public enum TargetType
+{
+    Enemy,
+    Player,
+    Destructible, // бочки, ящики, кусты
+    Neutral       // NPC
+}
 [RequireComponent(typeof(AudioData))]
 public class HealthHandler : MonoBehaviour
 {
+
     [SerializeField] private float _health = 30;
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioData _audioData;
+    [SerializeField] private TargetType _targetType;
+
+    public TargetType TargetType
+    {
+        get => _targetType;
+    }
     public float Health
     {
         get { return _health; }

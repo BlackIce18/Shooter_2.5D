@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _dashResetTime = 0.2f;
     private Mouse _mouse;
     private bool _isDashing = false;
-    //private float _damage = 1;
+    [SerializeField] private float _damage = 1;
 
     private Vector3 mousePosition;
     private Vector2 mouseDirection;
@@ -50,9 +50,9 @@ public class PlayerAttack : MonoBehaviour
                 StartCoroutine(ResetAttack());
             }
             if (_isDashing)
-            {
+            {/*
                 if (_attackNumber == 0)
-                    MicroDash(_animator.transform, 0.08f);
+                    MicroDash(_animator.transform, 0.08f);*/
                 if (_attackNumber == 1)
                     MicroDash(_animator.transform, 0.12f);
             }
@@ -70,7 +70,7 @@ public class PlayerAttack : MonoBehaviour
         Ray ray = _camera.ScreenPointToRay(mousePosition);
 
         _attackNumber++;
-        if (_attackNumber == 2) _attackNumber = 0;
+        if (_attackNumber == 3) _attackNumber = 0;
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             // Use the hit variable to determine what was clicked on.
@@ -108,10 +108,9 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(_dashResetTime);
         _isDashing = false;
     }
-    private void HandleHit(HealthHandler target)
+    private void HandleHit(HealthHandler target) 
     {
-        //target.TakeDamage(_damage);
-        EventBus.Publish(new DamageEvent(target.gameObject, 10, Vector3.zero));
+        EventBus.Publish(new DamageEvent(target.gameObject, _damage, Vector3.zero));
     }
 
 }
