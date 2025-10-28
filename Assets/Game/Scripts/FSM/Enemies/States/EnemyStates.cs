@@ -5,7 +5,7 @@ public class EnemyIdleState : IState<EnemyFSM>
     public void Enter(EnemyFSM owner)
     {
         _timer = Random.Range(1f, 3f);
-        Debug.Log($"{owner.name} вошел в стостояние IDLE");
+        //Debug.Log($"{owner.name} вошел в стостояние IDLE");
     }
 
     public void Update(EnemyFSM owner)
@@ -30,14 +30,14 @@ public class EnemyIdleState : IState<EnemyFSM>
 
     public void Exit(EnemyFSM owner)
     {
-        Debug.Log($"{owner.name} покидает IDLE");
+        //Debug.Log($"{owner.name} покидает IDLE");
     }
 }
 public class EnemyChaseState : IState<EnemyFSM>
 {
     public void Enter(EnemyFSM owner)
     {
-        Debug.Log($"{owner.name} преследует игрока");
+        //Debug.Log($"{owner.name} преследует игрока");
     }
 
     public void Update(EnemyFSM owner)
@@ -64,14 +64,14 @@ public class EnemyChaseState : IState<EnemyFSM>
 
     public void Exit(EnemyFSM owner)
     {
-        Debug.Log($"{owner.name} покидает Chase");
+        //Debug.Log($"{owner.name} покидает Chase");
     }
 }
 public class EnemyPatrolState : IState<EnemyFSM>
 {
     public void Enter(EnemyFSM owner)
     {
-        Debug.Log($"{owner.name} начинает патрулирование");
+        //Debug.Log($"{owner.name} начинает патрулирование");
         
         owner.NavMeshAgent.Goal = owner.Patrol.CurrentPoint;
     }
@@ -94,7 +94,7 @@ public class EnemyPatrolState : IState<EnemyFSM>
 
     public void Exit(EnemyFSM owner)
     {
-        Debug.Log($"{owner.name} покидает Patrol");
+        //Debug.Log($"{owner.name} покидает Patrol");
     }
 }
 
@@ -103,7 +103,7 @@ public class EnemyAttackState : IState<EnemyFSM>
     private float _attackCooldown;
     public void Enter(EnemyFSM owner)
     {
-        Debug.Log($"{owner.name} Attack!");
+        //Debug.Log($"{owner.name} Attack!");
         _attackCooldown = 1.0f;
     }
 
@@ -113,9 +113,11 @@ public class EnemyAttackState : IState<EnemyFSM>
         {
             if (owner.inAttackRange)
             {
-                owner.transform.LookAt(owner.Player);                 
+                // Rotate to Player
+                //owner.transform.LookAt(owner.Player);
+
                 _attackCooldown = 1.0f;
-                Debug.Log("AttackState");
+                //Debug.Log("AttackState");
                 EventBus.Publish(new DamageEvent(owner.Player.gameObject, 1, owner.transform.position));
             }
         }
@@ -131,6 +133,6 @@ public class EnemyAttackState : IState<EnemyFSM>
 
     public void Exit(EnemyFSM owner)
     {
-        Debug.Log($"{owner.name} прекращает Attack");
+        //Debug.Log($"{owner.name} прекращает Attack");
     }
 }
