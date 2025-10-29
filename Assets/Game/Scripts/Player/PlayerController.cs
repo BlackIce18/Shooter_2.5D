@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [Header("Smoothing")] 
     [SerializeField] private float _acceleration = 10f; // Как быстро набирается скорость
     [SerializeField] private float _deceleration = 12f; // Как быстро останавливается
-
+    
     private Vector3 _currentVelocity;
     private Vector3 _targetVelocity;
     private Vector2 _inputDirection;
@@ -78,7 +78,8 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = Vector2.zero;
         if (!mouseDirection.Equals(Vector2.zero) && !isMoving)
         {
-            direction = new Vector2(Mathf.Round(mouseDirection.x), Mathf.Round(mouseDirection.y));
+            direction = mouseDirection;
+            AnimatorRotateSprite(new Vector2(Mathf.Round(mouseDirection.x), Mathf.Round(mouseDirection.y)));
         }
         else if (isMoving)
         {

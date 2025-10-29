@@ -2081,8 +2081,8 @@ MonoBehaviour:
   _animator: {fileID: 763785013}
   _rigidbody: {fileID: 1779101752}
   _collider: {fileID: 1779101753}
-  _acceleration: 10
-  _deceleration: 12
+  _acceleration: 6
+  _deceleration: 8
   _playerRadius: 0.15
   _playerHeight: 0.15
   _collisionMask:
@@ -2100,12 +2100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3603bd4893925374e9352006ff9b6aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dash
-  _dashSpeed: 10
-  dashDuration: 0.2
+  _dashSpeed: 5
+  dashDuration: 0.08
   collisionMask:
     serializedVersion: 2
     m_Bits: 64
-  useRigidbody: 1
   _rigidbody: {fileID: 1779101752}
 --- !u!114 &821116535
 MonoBehaviour:
