@@ -68,7 +68,7 @@ public class BulletSpawner : MonoBehaviour
     {
         Vector3 spawnPos = _spawnPoint.position;
         bullet.transform.position = spawnPos;
-        Collider targetCollider = _enemyFsm.Collider;
+        Collider targetCollider = _enemyFsm.Player.Collider;
         Debug.Log(targetCollider.transform.position);
         Vector3 targetCenter = targetCollider.bounds.center;
         //Vector3 targetCenter = _enemyFsm.Player.gameObject.transform.position;
