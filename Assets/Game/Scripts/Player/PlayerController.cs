@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour
         get => _dashDirection;
     }
 
+    public Transform Transform => _player.transform;
+    public Vector3 TargetVelocity => _targetVelocity;
+    public Vector3 CurrentVelocity => _currentVelocity;
+    public Collider Collider => _collider;
     private void Start()
     {
         //_rigidbody = GetComponent<Rigidbody>();

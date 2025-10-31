@@ -11,18 +11,19 @@ public class EnemyIdleState : IState<EnemyFSM>
     public void Update(EnemyFSM owner)
     {
         _timer -= Time.deltaTime;
-        if (owner.inAttackRange)
+        if (owner.InAttackRange)
         {
             owner.Fsm.ChangeState(new EnemyAttackState());
             return;
         }
-        if (owner.canSeePlayer)
+        if (owner.CanSeePlayer)
         {
+            owner.LookAt(owner.PlayerPosition);
             owner.Fsm.ChangeState(new EnemyChaseState());
             return;
         }
 
-        if (_timer <= 0 && !owner.canSeePlayer && !owner.inAttackRange)
+        if (_timer <= 0 && !owner.CanSeePlayer && !owner.InAttackRange)
         {
             owner.Fsm.ChangeState(new EnemyPatrolState());
         }
@@ -35,31 +36,36 @@ public class EnemyIdleState : IState<EnemyFSM>
 }
 public class EnemyChaseState : IState<EnemyFSM>
 {
+    private bool _movingToLastPos;
     public void Enter(EnemyFSM owner)
     {
         //Debug.Log($"{owner.name} преследует игрока");
+        _movingToLastPos = false;
     }
 
     public void Update(EnemyFSM owner)
     {
-        if (owner.inAttackRange)
+        if (owner.InAttackRange)
         {
             owner.Fsm.ChangeState(new EnemyAttackState());
             return;
         }
-        if (!owner.canSeePlayer)
+        if (!owner.CanSeePlayer)
         {
-            if (Vector3.Distance(owner.VisionSystem.PlayerLastPosition, owner.transform.position) >= 1f)
+            if (!_movingToLastPos)
             {
-                owner.NavMeshAgent.MoveToPoint(owner.VisionSystem.PlayerLastPosition);
+                owner.MoveTo(owner.VisionSystem.PlayerLastPosition);
+                _movingToLastPos = true;
             }
-            else
+            if (Vector3.Distance(owner.VisionSystem.PlayerLastPosition, owner.transform.position) <= 1f)
             {
                 owner.Fsm.ChangeState(new EnemyIdleState());
+                
             }
             return;
         }
-        owner.NavMeshAgent.Goal = owner.Player;
+        _movingToLastPos = false;
+        owner.NavMeshAgent.Goal = owner.Player.transform;
     }
 
     public void Exit(EnemyFSM owner)
@@ -78,12 +84,12 @@ public class EnemyPatrolState : IState<EnemyFSM>
 
     public void Update(EnemyFSM owner)
     {
-        if (owner.inAttackRange)
+        if (owner.InAttackRange)
         {
             owner.Fsm.ChangeState(new EnemyAttackState());
             return;
         }
-        if (owner.canSeePlayer)
+        if (owner.CanSeePlayer)
         {
             owner.Fsm.ChangeState(new EnemyChaseState());
             return;
@@ -109,26 +115,12 @@ public class EnemyAttackState : IState<EnemyFSM>
 
     public void Update(EnemyFSM owner)
     {
-        if (owner.canAttack)
-        {
-            if (owner.inAttackRange)
-            {
-                // Rotate to Player
-                //owner.transform.LookAt(owner.Player);
-
-                _attackCooldown = 1.0f;
-                //Debug.Log("AttackState");
-                EventBus.Publish(new DamageEvent(owner.Player.gameObject, 1, owner.transform.position));
-            }
-        }
-        else if (owner.inAttackRange &&  owner.canAttack)
-        {
-            return;
-        }
-        else
+        if (!owner.InAttackRange)
         {
             owner.Fsm.ChangeState(new EnemyChaseState());
+            return;
         }
+        owner.Attack();
     }
 
     public void Exit(EnemyFSM owner)

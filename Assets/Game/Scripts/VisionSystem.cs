@@ -11,52 +11,55 @@ public class VisionSystem : MonoBehaviour
     [SerializeField] private float _chaseTime = 3f;
     [SerializeField] private SphereCollider _collider;
     [SerializeField] private Transform _player;
+    
     private float _chaseTimer;
-    private EnemyFSM _enemyFsm;
     private bool _canSeePlayer;
-
+    private bool _playerInTrigger;
     private Vector3 _playerLastPosition;
 
-    public Vector3 PlayerLastPosition
-    {
-        get => _playerLastPosition;
-        private set => _playerLastPosition = value;
-    }
+    public bool CanSeePlayer => _canSeePlayer;
+    public Vector3 PlayerLastPosition => _playerLastPosition;
+    public event Action<bool> OnVisibilityChanged;
 
     private void Awake()
     {
-        _enemyFsm = GetComponent<EnemyFSM>();
-        _collider.isTrigger = true;
-        _playerLastPosition = _player.position;
+        if (_collider != null)
+            _collider.isTrigger = true;
     }
 
     private void Update()
     {
-        if (_canSeePlayer)
-        {
-            _chaseTimer = _chaseTime;
-        }
-        else if (_chaseTimer > 0)
-        {
-            _chaseTimer -= Time.deltaTime;
-        }
-
-        if (_player && IsPlayerVisible())
+        bool previousState = _canSeePlayer;
+        bool playerVisible = _player && IsPlayerVisible();
+        if (playerVisible)
         {
             _canSeePlayer = true;
-            _enemyFsm.canSeePlayer = true;
+            _chaseTimer = _chaseTime;
             _playerLastPosition = _player.position;
         }
         else
         {
-            _canSeePlayer = false;
-            _enemyFsm.canSeePlayer = _chaseTimer > 0;
+            if (_chaseTime > 0)
+            {
+                _chaseTimer -= Time.deltaTime;
+                _canSeePlayer = true;
+            }
+            else
+            {
+                _canSeePlayer = false;
+            }
+        }
+
+        if (previousState != _canSeePlayer)
+        {
+            OnVisibilityChanged?.Invoke(_canSeePlayer);
         }
     }
 
     private bool IsPlayerVisible()
     {
         if (_player == null) return false;
+        if (_playerInTrigger) return true;
         
         Vector3 forwardOffset = transform.forward * 0.05f;
         Vector3 origin = transform.position + Vector3.up * _eyeHeight + forwardOffset;
@@ -65,17 +68,10 @@ public class VisionSystem : MonoBehaviour
         float angleToPlayer = Vector3.Angle(transform.forward, dirToPlayer);
         if (angleToPlayer > _viewAngle * 0.5f) return false;
         
-        // Если игрок вплотную — считаем, что видим его
-        float distanceToPlayer = Vector3.Distance(_player.position, transform.position);
-        if (distanceToPlayer <= 1f)
-            return true;
-
-        
         if (Physics.CapsuleCast(origin, origin + Vector3.up * _eyeHeight, _viewRadius, dirToPlayer, out RaycastHit hit, _viewDistance))
         {
             if (hit.transform.CompareTag("Player"))
             {
-                Debug.Log("True");
                 return true;
             }
         }
@@ -87,8 +83,7 @@ public class VisionSystem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Collide");
-            _canSeePlayer = true;
+            _playerInTrigger = true;
         }
     }
 
@@ -96,7 +91,7 @@ public class VisionSystem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _canSeePlayer = false;
+            _playerInTrigger = false;
         }
     }
 

@@ -11,7 +11,7 @@ public class StateMachine<T>
     private readonly T _owner;
     private IState<T> _currentState;
     public IState<T> CurrentState => _currentState;
-    
+
     public StateMachine(T owner)
     {
         _owner = owner;
@@ -19,8 +19,8 @@ public class StateMachine<T>
 
     public void ChangeState(IState<T> newState)
     {
-        if(_currentState == newState) return;
-        
+        if (_currentState == newState) return;
+
         _currentState?.Exit(_owner);
         _currentState = newState;
         _currentState?.Enter(_owner);

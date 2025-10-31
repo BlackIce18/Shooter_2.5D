@@ -1110,9 +1110,8 @@ GameObject:
   - component: {fileID: 736737233}
   - component: {fileID: 736737232}
   - component: {fileID: 736737231}
-  - component: {fileID: 736737230}
   - component: {fileID: 736737229}
-  - component: {fileID: 736737228}
+  - component: {fileID: 736737246}
   - component: {fileID: 736737245}
   m_Layer: 0
   m_Name: Enemy (1)
@@ -1121,24 +1120,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &736737228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736737227}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6426843a40555834389030fe6d5a21c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  _animator: {fileID: 736737235}
-  _hitbox: {fileID: 745663444}
-  _timeBetweenAttack: 0.2
-  _damage: 1
-  _enemyFsm: {fileID: 736737230}
-  _attackDistance: 1
 --- !u!114 &736737229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,25 +1139,6 @@ MonoBehaviour:
   _chaseTime: 1
   _collider: {fileID: 323322802}
   _player: {fileID: 1779101750}
---- !u!114 &736737230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736737227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ecd89cc8e36caa42815606da03bb040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyFSM
-  inAttackRange: 0
-  canSeePlayer: 0
-  canAttack: 1
-  _navMeshAgent: {fileID: 736737232}
-  _patrol: {fileID: 736737231}
-  _player: {fileID: 1779101750}
-  _visionSystem: {fileID: 736737229}
 --- !u!114 &736737231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,7 +1146,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736737227}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51a830745c5bd694780a7792ff0430a3, type: 3}
   m_Name: 
@@ -1521,9 +1483,9 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 808609032}
   - {fileID: 323322803}
   - {fileID: 810141977}
-  - {fileID: 808609032}
   - {fileID: 1324467600}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1539,15 +1501,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8362a3a003f36e44844b0d77e8889eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletSpawner
-  spawnPoint: {fileID: 808609032}
+  _spawnPoint: {fileID: 808609032}
   _poolBulletList: {fileID: 1324467600}
   _worldBulletParent: {fileID: 159552714}
   _activeBullets: []
   _defaultCapacity: 20
   _maxPoolCount: 100
   _bulletPrefab: {fileID: 3991175022601827074, guid: 9a1d87c51b71d0f4fbf4e7b87bfd26ef, type: 3}
-  _enemyFsm: {fileID: 736737230}
+  _enemyFsm: {fileID: 736737246}
   collectionCheck: 1
+--- !u!114 &736737246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736737227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd70e2b7c2a589848a76c72c2c713ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WarriorEnemy
+  _navMeshAgent: {fileID: 736737232}
+  _visionSystem: {fileID: 736737229}
+  _patrol: {fileID: 736737231}
+  _player: {fileID: 821116533}
+  _collider: {fileID: 736737241}
+  _animator: {fileID: 736737235}
+  _hitbox: {fileID: 745663444}
+  _attackDistance: 1
+  _damage: 1
+  _attackDelay: 0.2
 --- !u!1 &745663443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,8 +2115,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808609031}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.523}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.22, z: 0.52299976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2913,7 +2897,6 @@ GameObject:
   - component: {fileID: 1334555947}
   - component: {fileID: 1334555946}
   - component: {fileID: 1334555948}
-  - component: {fileID: 1334555949}
   - component: {fileID: 1334555951}
   - component: {fileID: 1334555952}
   m_Layer: 0
@@ -3271,25 +3254,6 @@ MonoBehaviour:
   - {fileID: 1931398367}
   _navMeshAgentMover: {fileID: 1334555946}
   maxOffset: 0.12
---- !u!114 &1334555949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334555933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ecd89cc8e36caa42815606da03bb040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyFSM
-  inAttackRange: 0
-  canSeePlayer: 0
-  canAttack: 1
-  _navMeshAgent: {fileID: 1334555946}
-  _patrol: {fileID: 1334555948}
-  _player: {fileID: 1779101750}
-  _visionSystem: {fileID: 1334555951}
 --- !u!114 &1334555951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3318,15 +3282,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1334555933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6426843a40555834389030fe6d5a21c2, type: 3}
+  m_Script: {fileID: 11500000, guid: dd70e2b7c2a589848a76c72c2c713ee2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  m_EditorClassIdentifier: Assembly-CSharp::WarriorEnemy
+  _navMeshAgent: {fileID: 1334555946}
+  _visionSystem: {fileID: 1334555951}
+  _patrol: {fileID: 1334555948}
+  _player: {fileID: 821116533}
+  _collider: {fileID: 1334555938}
   _animator: {fileID: 1118768806}
   _hitbox: {fileID: 1699301916}
-  _timeBetweenAttack: 0.2
-  _damage: 1
-  _enemyFsm: {fileID: 1334555949}
   _attackDistance: 1
+  _damage: 1
+  _attackDelay: 0.2
 --- !u!1 &1367024466
 GameObject:
   m_ObjectHideFlags: 0
