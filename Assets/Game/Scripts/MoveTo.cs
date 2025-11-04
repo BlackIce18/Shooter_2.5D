@@ -7,14 +7,22 @@ public class MoveTo : MonoBehaviour
 {
     private Transform _goal;
     private NavMeshAgent agent;
+    [SerializeField] private float _moveSpeed = 1f;
     public Transform Goal
     {
         get => _goal;
         set => _goal = value;
     }
+
+    public float MoveSpeed
+    {
+        get => _moveSpeed;
+        set => _moveSpeed = value;
+    }
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = _moveSpeed;
     }
 
     public void Move(Transform goal)

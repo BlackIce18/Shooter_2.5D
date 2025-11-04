@@ -1111,8 +1111,8 @@ GameObject:
   - component: {fileID: 736737232}
   - component: {fileID: 736737231}
   - component: {fileID: 736737229}
-  - component: {fileID: 736737246}
   - component: {fileID: 736737245}
+  - component: {fileID: 736737246}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -1169,6 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c5f8e65328c2f4b9a882baa18fda17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveTo
+  _moveSpeed: 0.5
 --- !u!195 &736737233
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1509,6 +1510,7 @@ MonoBehaviour:
   _maxPoolCount: 100
   _bulletPrefab: {fileID: 3991175022601827074, guid: 9a1d87c51b71d0f4fbf4e7b87bfd26ef, type: 3}
   _enemyFsm: {fileID: 736737246}
+  _bulletData: {fileID: 11400000, guid: 43057272e3fd4e44ab30966a945a8e0d, type: 2}
   collectionCheck: 1
 --- !u!114 &736737246
 MonoBehaviour:
@@ -1519,19 +1521,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 736737227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd70e2b7c2a589848a76c72c2c713ee2, type: 3}
+  m_Script: {fileID: 11500000, guid: aa23e939153da3946a420ef533068cae, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WarriorEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::RangedEnemy
   _navMeshAgent: {fileID: 736737232}
   _visionSystem: {fileID: 736737229}
   _patrol: {fileID: 736737231}
   _player: {fileID: 821116533}
   _collider: {fileID: 736737241}
-  _animator: {fileID: 736737235}
-  _hitbox: {fileID: 745663444}
+  _attackRate: 1
+  _bulletSpawner: {fileID: 736737245}
   _attackDistance: 1
+  _safeDistance: 0.8
+  _projectileSpeed: 10
   _damage: 1
-  _attackDelay: 0.2
+  _animator: {fileID: 736737235}
 --- !u!1 &745663443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,6 +3219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c5f8e65328c2f4b9a882baa18fda17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveTo
+  _moveSpeed: 1
 --- !u!195 &1334555947
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3290,6 +3295,7 @@ MonoBehaviour:
   _patrol: {fileID: 1334555948}
   _player: {fileID: 821116533}
   _collider: {fileID: 1334555938}
+  _attackRate: 1
   _animator: {fileID: 1118768806}
   _hitbox: {fileID: 1699301916}
   _attackDistance: 1

@@ -14,6 +14,7 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private int _maxPoolCount = 100;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private EnemyFSM _enemyFsm;
+    [SerializeField] private BulletData _bulletData;
     
     // throw an exception if we try to return an existing item, already in the pool
     [SerializeField] private bool collectionCheck = true;
@@ -42,21 +43,12 @@ public class BulletSpawner : MonoBehaviour
         {
             _objectPool.Release(obj);
         }
-
-        StartCoroutine(a());
     }
-
-    private IEnumerator a()
-    {
-        yield return new WaitForSeconds(2);
-        Bullet bullet = GetFromPool();
-        StartCoroutine(a());
-    }
-
     private Bullet CreateNewBullet()
     {
         GameObject newBullet = Instantiate(_bulletPrefab, _spawnPoint.position, Quaternion.identity, _poolBulletList);
         Bullet bullet = newBullet.GetComponent<Bullet>();
+        bullet.Initialize(_bulletData);
         bullet.onLifeTimeEnd += OnBulletLifeTimeEnd;
         bullet.gameObject.SetActive(false);
         bullet.SetPool(_objectPool);

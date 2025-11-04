@@ -5,18 +5,13 @@ using UnityEngine.Pool;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private float _lifeTime;
-    [SerializeField] private float _damage;
+    [Tooltip("BulletSpawner must use Initialize")]
+    [SerializeField] private BulletData _bulletData;
+    
+    private IObjectPool<Bullet> _objectPool;
     [SerializeField] private Collider _collider;
     [SerializeField] private AttackHitbox _hitbox;
     private Vector3 _direction;
-    
-    [Header("Smoothing")] 
-    [SerializeField] private float _acceleration = 10f; // Как быстро набирается скорость
-    [SerializeField] private float _deceleration = 12f; // Как быстро останавливается
-    [SerializeField] private bool _useAcceleration = true;
-    private IObjectPool<Bullet> _objectPool;
 
     public void SetPool(IObjectPool<Bullet> _pool)
     {
@@ -34,7 +29,11 @@ public class Bullet : MonoBehaviour
 
     private float _currentLifeTime = 0;
     private Vector3 _currentVelocity;
-    public float Speed => _speed;
+    public float Speed => _bulletData.speed;
+    public void Initialize(BulletData data)
+    {
+        _bulletData = data;
+    }
     private void Start()
     {
         _hitbox.OnHit += HandleHit;
@@ -62,16 +61,16 @@ public class Bullet : MonoBehaviour
         
         _currentLifeTime += Time.deltaTime;
         
-        if (_currentLifeTime >= _lifeTime)
+        if (_currentLifeTime >= _bulletData.lifeTime)
         {
             onLifeTimeEnd?.Invoke(this);
             return;
         }
         
-        Vector3 _targetVelocity = _direction * _speed;
+        Vector3 _targetVelocity = _direction * _bulletData.speed;
         Debug.DrawRay(transform.position, Direction * 3f, Color.red, 2f);
-        _currentVelocity = Vector3.MoveTowards(_currentVelocity, _targetVelocity, (_targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.fixedDeltaTime);
-        if (_useAcceleration)
+        _currentVelocity = Vector3.MoveTowards(_currentVelocity, _targetVelocity, (_targetVelocity.magnitude > 0 ? _bulletData.acceleration : _bulletData.deceleration) * Time.fixedDeltaTime);
+        if (_bulletData.useAcceleration)
             // Если без ускорения, но точно в цель
             transform.position += _targetVelocity * Time.fixedDeltaTime;
         else
@@ -80,6 +79,6 @@ public class Bullet : MonoBehaviour
     private void HandleHit(HealthHandler target)
     {
         _objectPool.Release(this);
-        EventBus.Publish(new DamageEvent(target.gameObject, _damage, Vector3.zero));
+        EventBus.Publish(new DamageEvent(target.gameObject, _bulletData.damage, Vector3.zero));
     }
 }
