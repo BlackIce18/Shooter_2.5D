@@ -9,15 +9,15 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private Transform _poolBulletList;
     [SerializeField] private Transform _worldBulletParent;
     [SerializeField] private List<Bullet> _activeBullets;
-    private IObjectPool<Bullet> _objectPool;
     [SerializeField] private int _defaultCapacity = 20;
     [SerializeField] private int _maxPoolCount = 100;
     [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private EnemyFSM _enemyFsm;
+    //[SerializeField] private EnemyFSM _enemyFsm;
     [SerializeField] private BulletData _bulletData;
     
     // throw an exception if we try to return an existing item, already in the pool
     [SerializeField] private bool collectionCheck = true;
+    private IObjectPool<Bullet> _objectPool;
     private void Awake()
     {
         _objectPool = new ObjectPool<Bullet>(
@@ -49,14 +49,14 @@ public class BulletSpawner : MonoBehaviour
         GameObject newBullet = Instantiate(_bulletPrefab, _spawnPoint.position, Quaternion.identity, _poolBulletList);
         Bullet bullet = newBullet.GetComponent<Bullet>();
         bullet.Initialize(_bulletData);
-        bullet.onLifeTimeEnd += OnBulletLifeTimeEnd;
-        bullet.gameObject.SetActive(false);
         bullet.SetPool(_objectPool);
+        bullet.onLifeTimeEnd += OnBulletLifeTimeEnd;
         
+        bullet.gameObject.SetActive(false);
         return bullet;
     }
     // invoked when returning an item to the object pool
-    public void OnGetFromPool(Bullet bullet)
+    /*public void OnGetFromPool(Bullet bullet)
     {
         Vector3 spawnPos = _spawnPoint.position;
         bullet.transform.position = spawnPos;
@@ -67,12 +67,20 @@ public class BulletSpawner : MonoBehaviour
 
         float distance = Vector3.Distance(spawnPos, targetCenter);
         float timeToTarget = distance / bullet.Speed;
-        
+
         Vector3 predictedPos = targetCenter + _enemyFsm.Player.CurrentVelocity * timeToTarget;
         bullet.Direction = (predictedPos - spawnPos).normalized;
         bullet.gameObject.transform.SetParent(_worldBulletParent);
         bullet.Enable();
+    }*/
+
+    private void OnGetFromPool(Bullet bullet)
+    {
+        bullet.transform.position = _spawnPoint.position;
+        bullet.transform.SetParent(_worldBulletParent);
+        bullet.Enable();
     }
+    
     public Bullet GetFromPool()
     {
         if (_objectPool.CountInactive > 0)
@@ -86,7 +94,7 @@ public class BulletSpawner : MonoBehaviour
     public void OnReleaseToPool(Bullet bullet)
     { 
         bullet.Disable();
-        bullet.gameObject.transform.SetParent(_poolBulletList);
+        bullet.transform.SetParent(_poolBulletList);
     }
 
     public void OnBulletLifeTimeEnd(Bullet bullet)
@@ -98,5 +106,28 @@ public class BulletSpawner : MonoBehaviour
     private void OnDestroyPooledObject(Bullet bullet)
     {
         Destroy(bullet.gameObject);
+    }
+
+    public void ShootAt(Vector3 targetPosition)
+    {
+        var bullet = _objectPool.Get();
+        bullet.Direction = (targetPosition - _spawnPoint.position).normalized;
+    }
+
+    public void ShootAtTarget(Transform target, Vector3 targetVelocity)
+    {
+        var bullet = _objectPool.Get();
+
+        float distance = Vector3.Distance(_spawnPoint.position, target.position);
+        float timeToTarget = distance / bullet.Speed;
+
+        Vector3 predictedPos = target.position + targetVelocity * timeToTarget;
+        bullet.Direction = (predictedPos - _spawnPoint.position).normalized;
+    }
+
+    public void ShootInDirection(Vector3 direction)
+    {
+        var bullet = _objectPool.Get();
+        bullet.Direction = direction.normalized;
     }
 }

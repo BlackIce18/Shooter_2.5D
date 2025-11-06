@@ -22,7 +22,7 @@ public class RangedEnemy : EnemyFSM
     {
         _attackCooldownTimer -= Time.deltaTime;
         Fsm.Update();
-        Debug.Log("123");
+
         //base.Update();
         float dist = Vector3.Distance(transform.position, PlayerPosition);
         
