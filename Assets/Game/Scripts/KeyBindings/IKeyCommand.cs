@@ -1,6 +1,7 @@
 using System;
+using UnityEngine;
 
-public interface IKeyCommand
+public abstract class KeyCommand : MonoBehaviour
 {
-    void Execute();
+    abstract public void Execute();
 }
