@@ -11,15 +11,15 @@ public abstract class EnemyFSM : MonoBehaviour, IEnemy
     [SerializeField] private Patrol _patrol;
     [SerializeField] private PlayerController _player;
     [SerializeField] protected Collider _collider;
-    [SerializeField] protected float _attackRate = 1f;
+    [SerializeField] protected Characteristics characteristics;
     protected float _attackCooldownTimer;
     public Patrol Patrol => _patrol;
     public VisionSystem VisionSystem => _visionSystem;
     public MoveTo NavMeshAgent => _navMeshAgent;
     public bool CanAttack => _attackCooldownTimer <= 0f;
     public float AttackRate { 
-        get => _attackRate;
-        protected set => _attackRate = value;
+        get => characteristics.Current.attackRate;
+        protected set => characteristics.Current.attackRate = value;
     }
     public Transform Transform => transform;
     public Collider Collider => _collider;

@@ -21,6 +21,7 @@ public class PlayerAttack : MonoBehaviour
     private Mouse _mouse;
     private bool _isDashing = false;
     [SerializeField] private float _damage = 1;
+    [SerializeField] private Characteristics _characteristics;
 
     private Vector3 mousePosition;
     private Vector2 mouseDirection;
@@ -110,7 +111,8 @@ public class PlayerAttack : MonoBehaviour
     }
     private void HandleHit(HealthHandler target) 
     {
-        EventBus.Publish(new DamageEvent(target.gameObject, _damage, Vector3.zero));
+        Debug.Log(_characteristics.Current.attack);
+        EventBus.Publish(new DamageEvent(target.gameObject, _characteristics.Current.attack, Vector3.zero));
     }
 
 }

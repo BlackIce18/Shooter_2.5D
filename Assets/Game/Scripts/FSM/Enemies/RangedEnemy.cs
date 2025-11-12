@@ -4,13 +4,11 @@ using UnityEngine;
 public class RangedEnemy : EnemyFSM
 {
     [SerializeField] private BulletSpawner _bulletSpawner;
-    [SerializeField] private float _attackDistance = 6f;
     [SerializeField] private float _safeDistance = 2.5f;
     [SerializeField] private float _projectileSpeed = 10f;
     [SerializeField] private float _damage = 1f;
     [SerializeField] private Animator _animator;
-
-    public override bool InAttackRange => Vector3.Distance(transform.position, PlayerPosition) <= _attackDistance;
+    public override bool InAttackRange => Vector3.Distance(transform.position, PlayerPosition) <= characteristics.Current.attackDistance;
 
     protected override void Awake()
     {
@@ -33,12 +31,12 @@ public class RangedEnemy : EnemyFSM
                 if(!(Fsm.CurrentState is EnemyRetreatState))
                     Fsm.ChangeState(new EnemyRetreatState(safeDistance: _safeDistance, duration: 1.5f));
             }
-            else if (dist <= _attackDistance && CanAttack)
+            else if (dist <= characteristics.Current.attackDistance && CanAttack)
             {
                 if(!(Fsm.CurrentState is EnemyAttackState))
                     Fsm.ChangeState(new EnemyAttackState());
             }
-            else if (dist > _attackDistance)
+            else if (dist > characteristics.Current.attackDistance)
             {
                 if(!(Fsm.CurrentState is EnemyRetreatState))
                     Fsm.ChangeState(new EnemyChaseState());

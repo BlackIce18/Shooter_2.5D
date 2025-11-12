@@ -5,9 +5,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class MoveTo : MonoBehaviour
 {
+    [SerializeField] private Characteristics _characteristics;
     private Transform _goal;
     private NavMeshAgent agent;
-    [SerializeField] private float _moveSpeed = 1f;
     public Transform Goal
     {
         get => _goal;
@@ -16,13 +16,13 @@ public class MoveTo : MonoBehaviour
 
     public float MoveSpeed
     {
-        get => _moveSpeed;
-        set => _moveSpeed = value;
+        get => _characteristics.Current.speed;
+        set => _characteristics.Current.speed = value;
     }
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = _moveSpeed;
+        agent.speed = _characteristics.Current.speed;
     }
 
     public void Move(Transform goal)

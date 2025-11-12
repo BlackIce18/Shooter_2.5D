@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,11 +12,11 @@ public enum TargetType
 [RequireComponent(typeof(AudioData))]
 public class HealthHandler : MonoBehaviour
 {
-
-    [SerializeField] private float _health = 30;
+    [SerializeField] private Characteristics _characteristics;
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioData _audioData;
     [SerializeField] private TargetType _targetType;
+    private float _health;
 
     public TargetType TargetType
     {
@@ -38,6 +39,11 @@ public class HealthHandler : MonoBehaviour
     
     private void OnEnable() => EventBus.Subscribe<DamageEvent>(OnTakeDamage);
     private void OnDisable() => EventBus.Unsubscribe<DamageEvent>(OnTakeDamage);
+
+    private void Awake()
+    {
+        _health = _characteristics.Current.health;
+    }
 
     public void OnTakeDamage(DamageEvent e)
     {

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private Characteristics characteristics;
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody _rigidbody;
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _acceleration = 10f; // Как быстро набирается скорость
     [SerializeField] private float _deceleration = 12f; // Как быстро останавливается
     
+    private float _moveSpeed;
     private Vector3 _currentVelocity;
     private Vector3 _targetVelocity;
     private Vector2 _inputDirection;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         
         _camera = Camera.main;
+        _moveSpeed = characteristics.Current.speed;
     }
 
     private void FixedUpdate()
