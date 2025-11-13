@@ -20,5 +20,7 @@ public abstract class Item : ScriptableObject
     public virtual void OnPickUp() { }
     public virtual void OnDrop() { }
 
+    public Sprite Icon => _icon;
+    public Vector2 Size => _size;
     public abstract void Use(GameObject user);
 }

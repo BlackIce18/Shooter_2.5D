@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _dashResetTime = 0.2f;
     private Mouse _mouse;
     private bool _isDashing = false;
-    [SerializeField] private float _damage = 1;
+    //[SerializeField] private float _damage = 1;
     [SerializeField] private Characteristics _characteristics;
 
     private Vector3 mousePosition;

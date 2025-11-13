@@ -34,7 +34,20 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private Characteristics characteristics;
     [SerializeField] private List<Equipment> _currentEquipmentList;
 
-    public event Action OnEquipmentChanged;
+    public event Action<EquipmentSlot, EquipmentItems> OnEquipmentChanged;
+    
+    [SerializeField] private Equipment _equipmentTest;
+
+    private void Start()
+    {
+        TryEquipItem(_equipmentTest.slot, _equipmentTest.item);
+    }
+
+    private void Awake()
+    {
+        UpdateCharacteristics();
+    }
+
     public bool CheckCompatibility(EquipmentItems item)
     {
         return true;
@@ -49,14 +62,18 @@ public class EquipmentManager : MonoBehaviour
         var sameSlot = _currentEquipmentList.Find(e => e.slot == slot);
         if (sameSlot != null)
         {
-            UnequipItem(sameSlot.item);
+            if (sameSlot.item != null)
+            {
+                // Move to Inventory
+                UnequipItem(sameSlot.item);
+            }
             _currentEquipmentList.Remove(sameSlot);
         }
 
         Equipment newEquipment = new(slot, newItem);
         EquipItem(newEquipment.item);
         _currentEquipmentList.Add(newEquipment);
-        OnEquipmentChanged?.Invoke();
+        OnEquipmentChanged?.Invoke(slot, newItem);
     }
     
     public void UpdateCharacteristics()
@@ -64,6 +81,7 @@ public class EquipmentManager : MonoBehaviour
         characteristics.ResetToBase();
         foreach (var eq in _currentEquipmentList)
         {
+            if(eq.item == null) continue;
             EquipItem(eq.item);
         }
     }

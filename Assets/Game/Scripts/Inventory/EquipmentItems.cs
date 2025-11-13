@@ -12,7 +12,6 @@ public struct ItemStats
 public class EquipmentItems : Item
 {
     [SerializeField] private EquipmentSlot _equipmentSlot;
-
     [SerializeField] private ItemStats _itemStats;
     //[SerializeField] private List<RuneItem> _sockets = new();
 

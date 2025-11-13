@@ -16,7 +16,6 @@ public class HealthHandler : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioData _audioData;
     [SerializeField] private TargetType _targetType;
-    private float _health;
 
     public TargetType TargetType
     {
@@ -24,12 +23,12 @@ public class HealthHandler : MonoBehaviour
     }
     public float Health
     {
-        get { return _health; }
+        get { return _characteristics.Current.health; }
         set
         {
-            _health = value;
+            _characteristics.Current.health = value;
 
-            if (_health <= 0)
+            if (_characteristics.Current.health <= 0)
             {
                 EventBus.Publish(new DeathEvent(gameObject));
                 EventBus.Publish(new SoundEvent(gameObject, _audioData.soundSet.deathSound));
@@ -39,11 +38,6 @@ public class HealthHandler : MonoBehaviour
     
     private void OnEnable() => EventBus.Subscribe<DamageEvent>(OnTakeDamage);
     private void OnDisable() => EventBus.Unsubscribe<DamageEvent>(OnTakeDamage);
-
-    private void Awake()
-    {
-        _health = _characteristics.Current.health;
-    }
 
     public void OnTakeDamage(DamageEvent e)
     {
