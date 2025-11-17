@@ -34,7 +34,8 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private Characteristics characteristics;
     [SerializeField] private List<Equipment> _currentEquipmentList;
 
-    public event Action<EquipmentSlot, EquipmentItems> OnEquipmentChanged;
+    public event Action<EquipmentSlot, EquipmentItems> OnEquip;
+    public event Action<EquipmentSlot, EquipmentItems> OnUnequip;
     
     [SerializeField] private Equipment _equipmentTest;
 
@@ -66,6 +67,7 @@ public class EquipmentManager : MonoBehaviour
             {
                 // Move to Inventory
                 UnequipItem(sameSlot.item);
+                OnUnequip?.Invoke(sameSlot.slot, sameSlot.item);
             }
             _currentEquipmentList.Remove(sameSlot);
         }
@@ -73,7 +75,7 @@ public class EquipmentManager : MonoBehaviour
         Equipment newEquipment = new(slot, newItem);
         EquipItem(newEquipment.item);
         _currentEquipmentList.Add(newEquipment);
-        OnEquipmentChanged?.Invoke(slot, newItem);
+        OnEquip?.Invoke(slot, newItem);
     }
     
     public void UpdateCharacteristics()

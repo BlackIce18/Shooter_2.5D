@@ -12,7 +12,7 @@ public abstract class Item : ScriptableObject
     [SerializeField] private string _name;
     [SerializeField] private string _description;
     [SerializeField] private Sprite _icon;
-    [Tooltip("1x1, 2x1 etc")][SerializeField] private Vector2 _size;
+    [Tooltip("1x1, 2x1 etc")][SerializeField] private Vector2Int _size;
     [SerializeField] private int _maxStack = 1;
     [SerializeField] private ItemType _itemType;
     [SerializeField] private int _requiredLevel = 1;
@@ -21,6 +21,6 @@ public abstract class Item : ScriptableObject
     public virtual void OnDrop() { }
 
     public Sprite Icon => _icon;
-    public Vector2 Size => _size;
+    public Vector2Int Size => _size;
     public abstract void Use(GameObject user);
 }
