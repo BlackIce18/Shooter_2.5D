@@ -2,17 +2,20 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class InventoryItemUI : InventoryCell/*, IDragHandler, IBeginDragHandler, IEndDragHandler*/
+public class InventoryItemUI : MonoBehaviour /*, IDragHandler, IBeginDragHandler, IEndDragHandler*/
 {
-    [SerializeField] private EquipmentSlot _equipmentSlot;
+    /*[SerializeField] private EquipmentSlot _equipmentSlot;
     [SerializeField] private EquipmentManager _equipmentManager;
     [SerializeField] private GameObject _prefab;
-    private GameObject prefabInstance;
+    private GameObject prefabInstance;*/
 
     public EquipmentItems data;
+    public Image Icon;
     public Vector2Int OriginalSize => data != null ? data.Size : Vector2Int.one;
     public Vector2Int CurrentSize { get; private set; }
+    public RectTransform Rect => (RectTransform)transform;
     public List<InventoryCell> occupiedCells = new List<InventoryCell>();
     [HideInInspector] public InventoryGrid originalGrid;
     [HideInInspector] public Vector2Int originalStartPos;
@@ -26,7 +29,9 @@ public class InventoryItemUI : InventoryCell/*, IDragHandler, IBeginDragHandler,
     {
         this.data = data;
         CurrentSize = data.Size;
-        if (Image != null && data.Icon != null) Image.sprite = data.Icon;
+        if (Icon != null && data.Icon != null) Icon.sprite = data.Icon;
+
+        Rect.sizeDelta = new Vector2(data.Size.x * originalGrid.CellSize.x, data.Size.y * originalGrid.CellSize.y);
     }
     /*private void Start()
     {
@@ -78,7 +83,7 @@ public class InventoryItemUI : InventoryCell/*, IDragHandler, IBeginDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-      
+
         //Destroy(prefabInstance);
     }*/
 }

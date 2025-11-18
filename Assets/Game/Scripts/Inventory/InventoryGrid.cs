@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventoryGrid : MonoBehaviour
 {
@@ -10,8 +11,12 @@ public class InventoryGrid : MonoBehaviour
     public Vector2Int Size => _size;
 
     [SerializeField] private List<InventoryCell> _cellsList = new();
+    [SerializeField] private GridLayoutGroup _gridLayoutGroup;
     private InventoryCell[,] _cells;
     private Dictionary<Vector2Int, InventoryCell> _map = new();
+    public Transform slotsContainer;
+    public Transform itemsContainer;
+    public Vector2 CellSize => _gridLayoutGroup.cellSize;
     private void Awake()
     {
         BuildMap();
@@ -159,7 +164,7 @@ public class InventoryGrid : MonoBehaviour
         avg /= item.occupiedCells.Count;
 
         item.Rect.position = avg;
-        item.Rect.SetParent(transform, true);
+        item.Rect.SetParent(itemsContainer, true);
     }
 
     public InventoryCell GetCellUnderPointer(Vector2 screenPos)
@@ -179,5 +184,23 @@ public class InventoryGrid : MonoBehaviour
             if (parentCell != null) return parentCell;
         }
         return null;
+    }
+
+    public bool TryAddItem(EquipmentItems data, GameObject itemPrefab, Transform parentOverride = null)
+    {
+        if (!TryFindSpace(data.Size, out Vector2Int pos))
+        {
+            Debug.Log("No space in inventory");
+            return false;
+        }
+        Transform parent = parentOverride != null ? parentOverride : itemsContainer;
+        GameObject obj = Instantiate(itemPrefab, parent);
+        InventoryItemUI ui = obj.GetComponent<InventoryItemUI>();
+
+        ui.originalGrid = this;
+        ui.SetData(data);
+        
+        PlaceItemAt(ui, pos);
+        return true;
     }
 }
