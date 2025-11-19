@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,14 +26,12 @@ public class DragAndDropController : MonoBehaviour
         _ghostImage.gameObject.SetActive(false);
     }
 
-    private void Update()
+    public void OnDragUpdate(Vector2 screenPos)
     {
         if (!_isDragging) return;
-
-        Vector2 mousePos = Input.mousePosition;
-        _ghostImage.transform.position = mousePos;
-
-        InventoryCell cell = _grid.GetCellUnderPointer(mousePos);
+        
+        _ghostImage.transform.position = screenPos;
+        InventoryCell cell = _grid.GetCellUnderPointer(screenPos);
         if (cell == null)
         {
             _grid.ClearAllHighlights();
@@ -43,16 +41,16 @@ public class DragAndDropController : MonoBehaviour
         Vector2Int startPos = cell.position;
         startPos.x = Mathf.Clamp(startPos.x, 0, _grid.Size.x - _draggedItem.CurrentSize.x);
         startPos.y = Mathf.Clamp(startPos.y, 0, _grid.Size.y - _draggedItem.CurrentSize.y);
-        
+
         _grid.HighlightArea(startPos, _draggedItem.CurrentSize);
     }
 
     public void StartDrag(InventoryItemUI item)
     {
-        if(item == null) return;
+        if (item == null) return;
 
         _draggedItem = item;
-        _originGrid = item.originalGrid;
+        _originGrid = item.grid;
         _originStart = item.originalStartPos;
 
         _originGrid?.RemoveItem(item);
@@ -94,8 +92,8 @@ public class DragAndDropController : MonoBehaviour
         Vector2Int startPos = cell.position;
         startPos.x = Mathf.Clamp(startPos.x, 0, _grid.Size.x - _draggedItem.CurrentSize.x);
         startPos.y = Mathf.Clamp(startPos.y, 0, _grid.Size.y - _draggedItem.CurrentSize.y);
-        
-        if(_grid.CanPlaceAt(startPos, _draggedItem.CurrentSize))
+
+        if (_grid.CanPlaceAt(startPos, _draggedItem.CurrentSize))
         {
             _grid.PlaceItemAt(_draggedItem, startPos);
             ClearDragState();
@@ -110,7 +108,7 @@ public class DragAndDropController : MonoBehaviour
             {
                 _grid.RemoveItem(other);
                 _originGrid.RemoveItem(_draggedItem);
-                
+
                 _grid.PlaceItemAt(_draggedItem, startPos);
                 _originGrid.PlaceItemAt(other, _originStart);
 
@@ -118,7 +116,7 @@ public class DragAndDropController : MonoBehaviour
                 return;
             }
         }
-        
+
         _originGrid.PlaceItemAt(_draggedItem, _originStart);
         ClearDragState();
     }

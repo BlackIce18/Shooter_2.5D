@@ -9,5 +9,9 @@ public class InventoryTest : MonoBehaviour
     private void Start()
     {
         grid.TryAddItem(sword, itemPrefab);
+        grid.TryAddItem(sword, itemPrefab);
+        grid.TryAddItem(sword, itemPrefab);
+        grid.TryAddItem(sword, itemPrefab);
+        grid.TryAddItem(sword, itemPrefab);
     }
 }

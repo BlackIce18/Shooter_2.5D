@@ -16,15 +16,16 @@ public class InventoryCell : MonoBehaviour
     public void SetItem(InventoryItemUI item)
     {
         occupiedItem = item;
-        if(item != null && !item.occupiedCells.Contains(this))
-            item.occupiedCells.Add(this);
+        
+        if(item != null && !item.OccupiedCells.Contains(this))
+            item.OccupiedCells.Add(this);
     }
 
     public void Clear()
     {
         if (occupiedItem != null)
         {
-            occupiedItem.occupiedCells.Remove(this);
+            occupiedItem.OccupiedCells.Remove(this);
         }
 
         occupiedItem = null;

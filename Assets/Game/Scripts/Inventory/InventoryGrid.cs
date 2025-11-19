@@ -63,7 +63,7 @@ public class InventoryGrid : MonoBehaviour
     public void PlaceItemAt(InventoryItemUI item, Vector2Int startPosition)
     {
         RemoveItem(item);
-        item.originalGrid = this;
+        item.grid = this;
         item.originalStartPos = startPosition;
 
         for (int x = 0; x < item.CurrentSize.x; x++)
@@ -73,21 +73,24 @@ public class InventoryGrid : MonoBehaviour
                 var p = new Vector2Int(startPosition.x + x, startPosition.y + y);
                 var cell = GetCell(p);
                 if(cell == null) continue;
+                
                 cell.SetItem(item);
+                item.OccupiedCells.Add(cell);
             }
-            
-            AnchorItemToCell(item);
         }
+        AnchorItemToCell(item);
     }
 
     public void RemoveItem(InventoryItemUI item)
     {
         if(item == null) return;
-        foreach (var cell in item.occupiedCells.ToList())
+        /*
+        foreach (var cell in item.OccupiedCells.ToList())
         {
             cell.Clear();
         }
-        item.occupiedCells.Clear();
+        */
+        item.OccupiedCells.Clear();
     }
 
     public HashSet<InventoryItemUI> GetUniqueItemsInArea(Vector2Int startPost, Vector2Int size)
@@ -111,7 +114,7 @@ public class InventoryGrid : MonoBehaviour
     {
         for (int x = 0; x <= _size.x - size.x; x++)
         {
-            for (int y = 0; y < _size.y - size.y; y++)
+            for (int y = 0; y <= _size.y - size.y; y++)
             {
                 var p = new Vector2Int(x, y);
                 if (CanPlaceAt(p, size))
@@ -126,45 +129,20 @@ public class InventoryGrid : MonoBehaviour
         return false;
     }
 
-    public void HighlightArea(Vector2Int startPos, Vector2Int size)
-    {
-        bool ok = CanPlaceAt(startPos, size);
-        Color c = ok ? Color.green : Color.red;
-        ClearAllHighlights();
-
-        for (int x = 0; x < size.x; x++)
-        {
-            for (int y = 0; y < size.y; y++)
-            {
-                var p = new Vector2Int(startPos.x + x, startPos.y + y);
-                var cell = GetCell(p);
-                cell?.Highlight(c, 0.45f);
-            }
-        }
-    }
-
-    public void ClearAllHighlights()
-    {
-        foreach (var c in _cellsList)
-        {
-            c?.ClearHighlight();
-        }
-    }
 
     private void AnchorItemToCell(InventoryItemUI item)
     {
-        if(item.occupiedCells.Count == 0) return;
+        if(item.OccupiedCells.Count == 0) return;
 
         Vector3 avg = Vector3.zero;
-        foreach (var cell in item.occupiedCells)
+        foreach (var cell in item.OccupiedCells)
         {
-            avg += (Vector3)cell.Rect.position;
+            avg += cell.Rect.position;
         }
 
-        avg /= item.occupiedCells.Count;
-
+        avg /= item.OccupiedCells.Count;
         item.Rect.position = avg;
-        item.Rect.SetParent(itemsContainer, true);
+        item.Rect.SetParent(itemsContainer, false);
     }
 
     public InventoryCell GetCellUnderPointer(Vector2 screenPos)
@@ -193,14 +171,39 @@ public class InventoryGrid : MonoBehaviour
             Debug.Log("No space in inventory");
             return false;
         }
+        
         Transform parent = parentOverride != null ? parentOverride : itemsContainer;
         GameObject obj = Instantiate(itemPrefab, parent);
         InventoryItemUI ui = obj.GetComponent<InventoryItemUI>();
-
-        ui.originalGrid = this;
-        ui.SetData(data);
         
+        ui.grid = this;
+        ui.SetData(data);
         PlaceItemAt(ui, pos);
+        
         return true;
+    }
+    public void HighlightArea(Vector2Int startPos, Vector2Int size)
+    {
+        bool ok = CanPlaceAt(startPos, size);
+        Color c = ok ? Color.green : Color.red;
+        ClearAllHighlights();
+
+        for (int x = 0; x < size.x; x++)
+        {
+            for (int y = 0; y < size.y; y++)
+            {
+                var p = new Vector2Int(startPos.x + x, startPos.y + y);
+                var cell = GetCell(p);
+                cell?.Highlight(c, 0.45f);
+            }
+        }
+    }
+
+    public void ClearAllHighlights()
+    {
+        foreach (var c in _cellsList)
+        {
+            c?.ClearHighlight();
+        }
     }
 }

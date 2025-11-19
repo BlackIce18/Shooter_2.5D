@@ -4,86 +4,59 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItemUI : MonoBehaviour /*, IDragHandler, IBeginDragHandler, IEndDragHandler*/
+public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    /*[SerializeField] private EquipmentSlot _equipmentSlot;
-    [SerializeField] private EquipmentManager _equipmentManager;
-    [SerializeField] private GameObject _prefab;
-    private GameObject prefabInstance;*/
-
     public EquipmentItems data;
     public Image Icon;
     public Vector2Int OriginalSize => data != null ? data.Size : Vector2Int.one;
     public Vector2Int CurrentSize { get; private set; }
     public RectTransform Rect => (RectTransform)transform;
-    public List<InventoryCell> occupiedCells = new List<InventoryCell>();
-    [HideInInspector] public InventoryGrid originalGrid;
+    private List<InventoryCell> _occupiedCells = new List<InventoryCell>();
+    public List<InventoryCell> OccupiedCells => _occupiedCells;
+    [HideInInspector] public InventoryGrid grid;
     [HideInInspector] public Vector2Int originalStartPos;
-
+    private CanvasGroup _canvasGroup;
+    
     private void Awake()
     {
         CurrentSize = OriginalSize;
     }
 
-    public void SetData(EquipmentItems data)
+    private void Start()
     {
-        this.data = data;
-        CurrentSize = data.Size;
-        if (Icon != null && data.Icon != null) Icon.sprite = data.Icon;
-
-        Rect.sizeDelta = new Vector2(data.Size.x * originalGrid.CellSize.x, data.Size.y * originalGrid.CellSize.y);
-    }
-    /*private void Start()
-    {
-        if (IsEmpty)
-        {
-            Image.gameObject.SetActive(false);
-        }
+        _canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    private void OnEnable()
+    public void SetData(EquipmentItems item)
     {
-        _equipmentManager.OnEquip += Equip;
-        _equipmentManager.OnUnequip += Unequip;
+        data = item;
+        CurrentSize = item.Size;
+        if (Icon != null && item.Icon != null) Icon.sprite = item.Icon;
+        
+        Rect.sizeDelta = new Vector2(item.Size.x * grid.CellSize.x, item.Size.y * grid.CellSize.y);
     }
-
-    private void OnDisable()
-    {
-        _equipmentManager.OnEquip -= Equip;
-        _equipmentManager.OnUnequip -= Unequip;
-    }
-
-    private void Equip(EquipmentSlot slot, EquipmentItems item)
-    {
-        if (_equipmentSlot == slot)
-        {
-            Image.gameObject.SetActive(true);
-            Image.sprite = item.Icon;
-        }
-    }
-
-    private void Unequip(EquipmentSlot slot, EquipmentItems item)
-    {
-        if (_equipmentSlot == slot)
-        {
-            Image.gameObject.SetActive(false);
-            Image.sprite = null;
-        }
-    }
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        prefabInstance = Instantiate(_prefab, eventData.pointerCurrentRaycast.screenPosition, Quaternion.identity, this.transform.parent);
-        prefabInstance.SetActive(true);
-    }
-
     public void OnDrag(PointerEventData eventData)
     {
-        prefabInstance.transform.position = eventData.pointerCurrentRaycast.screenPosition;
+        DragAndDropController.Instance?.OnDragUpdate(eventData.position);
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        _canvasGroup.blocksRaycasts = false;
+        DragAndDropController.Instance?.StartDrag(this);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        _canvasGroup.blocksRaycasts = true;
+        DragAndDropController.Instance?.EndDrag();
+    }
 
-        //Destroy(prefabInstance);
-    }*/
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            data.Use(gameObject);
+        }
+    }
 }
