@@ -16,6 +16,7 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     [HideInInspector] public InventoryGrid grid;
     [HideInInspector] public Vector2Int originalStartPos;
     private CanvasGroup _canvasGroup;
+    [SerializeField] private GameObject _tooltip;
     
     private void Awake()
     {

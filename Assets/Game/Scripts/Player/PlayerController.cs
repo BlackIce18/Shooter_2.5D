@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
         _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         
         _camera = Camera.main;
-        Debug.Log( characteristics.Current.speed);
         _moveSpeed = characteristics.Current.speed;
     }
 

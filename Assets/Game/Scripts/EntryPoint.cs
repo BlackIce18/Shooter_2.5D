@@ -16,6 +16,8 @@ public class EntryPoint : MonoBehaviour
     
     private void Awake()
     {
+        Time.timeScale = 1.25f;
+        
         if (Instance != null)
         {
             Destroy(gameObject);

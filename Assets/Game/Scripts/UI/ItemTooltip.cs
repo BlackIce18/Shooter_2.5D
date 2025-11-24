@@ -1,34 +1,31 @@
 using System;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
+[Serializable]
+public struct ItemTooltipDataStruct
+{
+    public TextMeshProUGUI name;
+    public TextMeshProUGUI description;
+}
+
 public class ItemTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private RectTransform  Tooltip;
+    [SerializeField] private RectTransform  _rect;
     [SerializeField] private Vector2 _tooltipOffset;
-    [SerializeField] private PlayerInput _playerInput;
-    private Camera _camera;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private ItemTooltipDataStruct itemTooltipDataStruct; 
     
     private void Start()
     {
-        _camera = Camera.main;
+        _canvas = gameObject.GetComponentInParent<Canvas>();
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (Tooltip == null) return;
+        if (_rect == null) return;
         
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         Vector2 anchoredPos;
@@ -46,14 +43,51 @@ public class ItemTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             null,
             out anchoredPos
         );
-        anchoredPos += new Vector2(Tooltip.rect.width / 2f + _tooltipOffset.x, -Tooltip.rect.height / 2f - _tooltipOffset.y);
-        Tooltip.anchoredPosition = anchoredPos;
+        anchoredPos += new Vector2(_rect.rect.width / 2f + _tooltipOffset.x, -_rect.rect.height / 2f - _tooltipOffset.y);
+        _rect.anchoredPosition = anchoredPos;
         
-        Tooltip.gameObject.SetActive(true);
+        _rect.gameObject.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Tooltip.gameObject.SetActive(false);
+        _rect.gameObject.SetActive(false);
+    }
+
+    public void Show(float position)
+    {
+        if (_rect == null) return;
+        
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        Vector2 anchoredPos;
+        
+        RectTransform canvasRect = _canvas.transform as RectTransform;
+        if (canvasRect == null)
+        {
+            Debug.LogError("Canvas не является RectTransform!");
+            return;
+        }
+        
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRect,
+            mousePosition,
+            null,
+            out anchoredPos
+        );
+        anchoredPos += new Vector2(_rect.rect.width / 2f + _tooltipOffset.x, -_rect.rect.height / 2f - _tooltipOffset.y);
+        _rect.anchoredPosition = anchoredPos;
+        
+        _rect.gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void ClearFields()
+    {
+        itemTooltipDataStruct.name.text = "";
+        itemTooltipDataStruct.description.text = "";
     }
 }

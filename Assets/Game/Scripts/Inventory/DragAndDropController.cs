@@ -42,11 +42,15 @@ public class DragAndDropController : MonoBehaviour
         startPos.x = Mathf.Clamp(startPos.x, 0, _grid.Size.x - _draggedItem.CurrentSize.x);
         startPos.y = Mathf.Clamp(startPos.y, 0, _grid.Size.y - _draggedItem.CurrentSize.y);
 
-        _grid.HighlightArea(startPos, _draggedItem.CurrentSize);
+        Debug.Log(startPos+" "+_draggedItem.CurrentSize);
+        InventoryCell cell1= _grid.GetCellUnderPointer(screenPos);
+        Debug.Log(cell1);
+        _grid.HighlightArea(cell1.position, _draggedItem.CurrentSize);
     }
 
     public void StartDrag(InventoryItemUI item)
     {
+        Debug.Log("Start drag");
         if (item == null) return;
 
         _draggedItem = item;

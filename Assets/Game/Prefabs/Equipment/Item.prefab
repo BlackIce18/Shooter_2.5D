@@ -91,8 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 7021761812823696617}
-  occupiedCells: []
-  originalGrid: {fileID: 0}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
 --- !u!225 &7570649485337988479
 CanvasGroup:

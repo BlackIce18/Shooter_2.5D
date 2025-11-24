@@ -18,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _timeBetweenAttack = 0.2f;
     private float _currentTimeBetweenAttack = 0;
     [SerializeField] private float _dashResetTime = 0.2f;
+    [SerializeField] private float _dashDistance;
     private Mouse _mouse;
     private bool _isDashing = false;
     //[SerializeField] private float _damage = 1;
@@ -25,7 +26,6 @@ public class PlayerAttack : MonoBehaviour
 
     private Vector3 mousePosition;
     private Vector2 mouseDirection;
-
     private void Start()
     {
         _camera = Camera.main;
@@ -51,11 +51,11 @@ public class PlayerAttack : MonoBehaviour
                 StartCoroutine(ResetAttack());
             }
             if (_isDashing)
-            {/*
+            {
                 if (_attackNumber == 0)
-                    MicroDash(_animator.transform, 0.08f);*/
+                    MicroDash(_animator.transform, _dashDistance / 2);
                 if (_attackNumber == 1)
-                    MicroDash(_animator.transform, 0.12f);
+                    MicroDash(_animator.transform, _dashDistance);
             }
         }
         else

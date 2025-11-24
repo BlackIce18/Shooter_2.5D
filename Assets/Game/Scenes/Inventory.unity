@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4286264}
   - component: {fileID: 4286263}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,15 +212,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4286261}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &4286265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 7, y: 0}
   occupiedItem: {fileID: 0}
   _image: {fileID: 4286266}
   _highlightOverlay: {fileID: 782615304}
@@ -510,7 +512,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2111381017}
         m_TargetAssemblyTypeName: WindowUICommand, Assembly-CSharp
-        m_MethodName: Execute
+        m_MethodName: CloseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -567,7 +569,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 90463297}
-  - component: {fileID: 90463298}
   m_Layer: 5
   m_Name: Cell (2)
   m_TagString: Untagged
@@ -596,22 +597,6 @@ RectTransform:
   m_AnchoredPosition: {x: 144, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &90463298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90463296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 2, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1100996835}
-  _highlightOverlay: {fileID: 1522835850}
 --- !u!1 &92901222
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +612,7 @@ GameObject:
   - component: {fileID: 92901225}
   - component: {fileID: 92901224}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,15 +690,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92901222}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &92901226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 8, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 92901227}
   _highlightOverlay: {fileID: 1143245637}
@@ -777,7 +764,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 106517165}
-  - component: {fileID: 106517166}
   m_Layer: 5
   m_Name: Cell (4)
   m_TagString: Untagged
@@ -806,22 +792,6 @@ RectTransform:
   m_AnchoredPosition: {x: 228, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &106517166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106517164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 4, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1013969234}
-  _highlightOverlay: {fileID: 2082629489}
 --- !u!1 &116148641
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +958,7 @@ GameObject:
   - component: {fileID: 165166426}
   - component: {fileID: 165166425}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1066,15 +1036,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165166423}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &165166427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 3, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 165166428}
   _highlightOverlay: {fileID: 1012548830}
@@ -1138,7 +1110,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 191781616}
-  - component: {fileID: 191781617}
   m_Layer: 5
   m_Name: Cell (18)
   m_TagString: Untagged
@@ -1167,22 +1138,6 @@ RectTransform:
   m_AnchoredPosition: {x: 396, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &191781617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191781615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 8, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 92901227}
-  _highlightOverlay: {fileID: 1143245637}
 --- !u!1 &219996568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1195,7 @@ MonoBehaviour:
   Icon: {fileID: 1955942564}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &219996571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,10 +1208,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &219996572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,7 +1307,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 240217313}
-  - component: {fileID: 240217314}
   m_Layer: 5
   m_Name: Cell (10)
   m_TagString: Untagged
@@ -1378,22 +1335,6 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &240217314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240217312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 0, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1271009108}
-  _highlightOverlay: {fileID: 1945739911}
 --- !u!1 &247964254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,6 +1392,7 @@ MonoBehaviour:
   Icon: {fileID: 1576095536}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &247964257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,10 +1405,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &247964258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1929,7 +1873,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 373575135}
-  - component: {fileID: 373575136}
   m_Layer: 5
   m_Name: Cell (3)
   m_TagString: Untagged
@@ -1958,22 +1901,6 @@ RectTransform:
   m_AnchoredPosition: {x: 186, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &373575136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373575134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 3, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1432501163}
-  _highlightOverlay: {fileID: 974404246}
 --- !u!1 &380303569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,7 +1985,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 407153292}
-  - component: {fileID: 407153293}
   m_Layer: 5
   m_Name: Cell (7)
   m_TagString: Untagged
@@ -2087,22 +2013,6 @@ RectTransform:
   m_AnchoredPosition: {x: 354, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &407153293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407153291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 7, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 4286266}
-  _highlightOverlay: {fileID: 782615304}
 --- !u!1 &416958644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,7 +2057,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 448819613}
-  - component: {fileID: 448819614}
   m_Layer: 5
   m_Name: Cell (13)
   m_TagString: Untagged
@@ -2176,22 +2085,6 @@ RectTransform:
   m_AnchoredPosition: {x: 186, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &448819614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448819612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 3, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 165166428}
-  _highlightOverlay: {fileID: 1012548830}
 --- !u!114 &449061251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2290,7 +2183,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 496125483}
-  - component: {fileID: 496125484}
   m_Layer: 5
   m_Name: Cell (12)
   m_TagString: Untagged
@@ -2319,22 +2211,6 @@ RectTransform:
   m_AnchoredPosition: {x: 144, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &496125484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496125482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 2, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1441327946}
-  _highlightOverlay: {fileID: 1006249028}
 --- !u!1 &510584005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,7 +2380,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 520529013}
-  - component: {fileID: 520529014}
   m_Layer: 5
   m_Name: Cell (8)
   m_TagString: Untagged
@@ -2533,22 +2408,6 @@ RectTransform:
   m_AnchoredPosition: {x: 396, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &520529014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520529012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 8, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1805545595}
-  _highlightOverlay: {fileID: 974293774}
 --- !u!1 &530701438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2816,7 +2675,7 @@ GameObject:
   - component: {fileID: 636060006}
   - component: {fileID: 636060005}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2894,15 +2753,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636060003}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &636060007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2915,7 +2776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 5, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 636060008}
   _highlightOverlay: {fileID: 1294893708}
@@ -3197,6 +3058,142 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640577189}
+  m_CullTransparentMesh: 1
+--- !u!1 &693755497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693755498}
+  - component: {fileID: 693755500}
+  - component: {fileID: 693755499}
+  m_Layer: 5
+  m_Name: Name
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &693755498
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693755497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 852773295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -35}
+  m_SizeDelta: {x: -20, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &693755499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693755497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 18
+  m_fontSizeBase: 18
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &693755500
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693755497}
   m_CullTransparentMesh: 1
 --- !u!1 &698269053
 GameObject:
@@ -3555,7 +3552,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 758224204}
-  - component: {fileID: 758224205}
   m_Layer: 5
   m_Name: Cell (14)
   m_TagString: Untagged
@@ -3584,22 +3580,6 @@ RectTransform:
   m_AnchoredPosition: {x: 228, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &758224205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 758224203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 4, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1153099307}
-  _highlightOverlay: {fileID: 2100892123}
 --- !u!1 &759299847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,6 +4045,7 @@ MonoBehaviour:
   _hitbox: {fileID: 1769204581}
   _timeBetweenAttack: 0.2
   _dashResetTime: 0.2
+  _dashDistance: 0.15
   _characteristics: {fileID: 821116536}
 --- !u!114 &821116533
 MonoBehaviour:
@@ -4194,6 +4175,7 @@ MonoBehaviour:
   Icon: {fileID: 272868843}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &825247261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4206,10 +4188,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &825247262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4499,6 +4483,7 @@ GameObject:
   - component: {fileID: 852773295}
   - component: {fileID: 852773297}
   - component: {fileID: 852773296}
+  - component: {fileID: 852773298}
   m_Layer: 5
   m_Name: Tooltip
   m_TagString: Untagged
@@ -4517,7 +4502,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 693755498}
+  - {fileID: 1890451668}
   m_Father: {fileID: 2111381013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4563,6 +4550,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852773294}
   m_CullTransparentMesh: 1
+--- !u!114 &852773298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852773294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
+  _rect: {fileID: 852773295}
+  _tooltipOffset: {x: 25, y: 25}
+  _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 693755499}
+    description: {fileID: 1890451669}
 --- !u!1 &855031887
 GameObject:
   m_ObjectHideFlags: 0
@@ -4578,7 +4583,7 @@ GameObject:
   - component: {fileID: 855031890}
   - component: {fileID: 855031889}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4656,15 +4661,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855031887}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &855031891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4677,7 +4684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 6, y: 0}
   occupiedItem: {fileID: 0}
   _image: {fileID: 855031892}
   _highlightOverlay: {fileID: 843815157}
@@ -4776,6 +4783,7 @@ MonoBehaviour:
   Icon: {fileID: 2014979920}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &857244207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4788,10 +4796,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &857244208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4899,7 +4909,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 914645093}
-  - component: {fileID: 914645094}
   m_Layer: 5
   m_Name: Cell (17)
   m_TagString: Untagged
@@ -4928,22 +4937,6 @@ RectTransform:
   m_AnchoredPosition: {x: 354, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &914645094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914645092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 7, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 2134843999}
-  _highlightOverlay: {fileID: 530701440}
 --- !u!114 &923170080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4967,7 +4960,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 956654060}
-  - component: {fileID: 956654061}
   m_Layer: 5
   m_Name: Cell (6)
   m_TagString: Untagged
@@ -4996,22 +4988,6 @@ RectTransform:
   m_AnchoredPosition: {x: 312, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &956654061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956654059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 6, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 855031892}
-  _highlightOverlay: {fileID: 843815157}
 --- !u!1 &962433202
 GameObject:
   m_ObjectHideFlags: 0
@@ -5069,6 +5045,7 @@ MonoBehaviour:
   Icon: {fileID: 1159388852}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &962433205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5081,10 +5058,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &962433206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5484,7 +5463,7 @@ GameObject:
   - component: {fileID: 1013969232}
   - component: {fileID: 1013969231}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5562,15 +5541,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013969229}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1013969233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5583,7 +5564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 4, y: 0}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1013969234}
   _highlightOverlay: {fileID: 2082629489}
@@ -5726,15 +5707,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018289938}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!61 &1018289945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5868,7 +5851,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1059182181}
-  - component: {fileID: 1059182182}
   m_Layer: 5
   m_Name: Cell (9)
   m_TagString: Untagged
@@ -5897,22 +5879,6 @@ RectTransform:
   m_AnchoredPosition: {x: 438, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1059182182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059182180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 9, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1682048473}
-  _highlightOverlay: {fileID: 1511090587}
 --- !u!43 &1076549241
 Mesh:
   m_ObjectHideFlags: 0
@@ -6106,7 +6072,7 @@ GameObject:
   - component: {fileID: 1100996833}
   - component: {fileID: 1100996832}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6184,15 +6150,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100996830}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1100996834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6205,7 +6173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 2, y: 0}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1100996835}
   _highlightOverlay: {fileID: 1522835850}
@@ -6387,7 +6355,7 @@ GameObject:
   - component: {fileID: 1153099305}
   - component: {fileID: 1153099304}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6465,15 +6433,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153099302}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1153099306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6486,7 +6456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 4, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1153099307}
   _highlightOverlay: {fileID: 2100892123}
@@ -6612,7 +6582,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1196086816}
-  - component: {fileID: 1196086817}
   m_Layer: 5
   m_Name: Cell (15)
   m_TagString: Untagged
@@ -6641,22 +6610,6 @@ RectTransform:
   m_AnchoredPosition: {x: 270, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1196086817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196086815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 5, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 636060008}
-  _highlightOverlay: {fileID: 1294893708}
 --- !u!114 &1200227246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6828,7 +6781,7 @@ GameObject:
   - component: {fileID: 1271009106}
   - component: {fileID: 1271009105}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6906,15 +6859,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271009103}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1271009107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6927,7 +6882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 0, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1271009108}
   _highlightOverlay: {fileID: 1945739911}
@@ -7026,6 +6981,7 @@ MonoBehaviour:
   Icon: {fileID: 1753384392}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &1276542809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7038,10 +6994,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1276542810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7347,6 +7305,7 @@ MonoBehaviour:
   Icon: {fileID: 1821614346}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &1319332954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7359,10 +7318,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1319332955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7533,7 +7494,7 @@ GameObject:
   - component: {fileID: 1322120412}
   - component: {fileID: 1322120411}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7611,15 +7572,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322120409}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1322120413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7632,7 +7595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 1, y: 0}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1322120414}
   _highlightOverlay: {fileID: 838519697}
@@ -7758,7 +7721,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1349845235}
-  - component: {fileID: 1349845236}
   m_Layer: 5
   m_Name: Cell
   m_TagString: Untagged
@@ -7787,22 +7749,6 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1349845236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349845234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 0, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1018289940}
-  _highlightOverlay: {fileID: 276336308}
 --- !u!1 &1350246133
 GameObject:
   m_ObjectHideFlags: 0
@@ -7848,7 +7794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragAndDropController
   _canvas: {fileID: 2111381016}
-  _grid: {fileID: 0}
+  _grid: {fileID: 2076749548}
   _ghostImage: {fileID: 1792443111}
   _ghostCanvasGroup: {fileID: 1792443113}
 --- !u!1 &1367024466
@@ -8058,7 +8004,7 @@ GameObject:
   - component: {fileID: 1432501161}
   - component: {fileID: 1432501160}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8136,15 +8082,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432501158}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1432501162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8157,7 +8105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 3, y: 0}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1432501163}
   _highlightOverlay: {fileID: 974404246}
@@ -8214,7 +8162,7 @@ GameObject:
   - component: {fileID: 1441327944}
   - component: {fileID: 1441327943}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8292,15 +8240,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441327941}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1441327945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8313,7 +8263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 2, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1441327946}
   _highlightOverlay: {fileID: 1006249028}
@@ -8364,7 +8314,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1488740026}
-  - component: {fileID: 1488740027}
   m_Layer: 5
   m_Name: Cell (16)
   m_TagString: Untagged
@@ -8393,22 +8342,6 @@ RectTransform:
   m_AnchoredPosition: {x: 312, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1488740027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488740025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 6, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1578601176}
-  _highlightOverlay: {fileID: 1338310011}
 --- !u!1 &1501493331
 GameObject:
   m_ObjectHideFlags: 0
@@ -8702,6 +8635,7 @@ MonoBehaviour:
   Icon: {fileID: 1317922565}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &1531605384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8714,10 +8648,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1531605385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8859,6 +8795,7 @@ MonoBehaviour:
   Icon: {fileID: 739978875}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &1532212744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8871,10 +8808,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1532212745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9115,7 +9054,7 @@ GameObject:
   - component: {fileID: 1578601174}
   - component: {fileID: 1578601173}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9193,15 +9132,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578601171}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1578601175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9214,7 +9155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 6, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1578601176}
   _highlightOverlay: {fileID: 1338310011}
@@ -9604,7 +9545,7 @@ GameObject:
   - component: {fileID: 1653447815}
   - component: {fileID: 1653447814}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9682,15 +9623,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653447812}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1653447816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9703,7 +9646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 9, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1653447817}
   _highlightOverlay: {fileID: 380303571}
@@ -9754,7 +9697,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1656671409}
-  - component: {fileID: 1656671410}
   m_Layer: 5
   m_Name: Cell (19)
   m_TagString: Untagged
@@ -9783,22 +9725,6 @@ RectTransform:
   m_AnchoredPosition: {x: 438, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1656671410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656671408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 9, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1653447817}
-  _highlightOverlay: {fileID: 380303571}
 --- !u!114 &1666749610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9828,7 +9754,7 @@ GameObject:
   - component: {fileID: 1682048471}
   - component: {fileID: 1682048470}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9906,15 +9832,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682048468}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1682048472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9927,7 +9855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 9, y: 0}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1682048473}
   _highlightOverlay: {fileID: 1511090587}
@@ -10101,6 +10029,7 @@ MonoBehaviour:
   Icon: {fileID: 570080000}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &1759521766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10113,10 +10042,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1759521767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10400,7 +10331,7 @@ GameObject:
   - component: {fileID: 1791629527}
   - component: {fileID: 1791629526}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10478,15 +10409,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791629524}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1791629528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10499,7 +10432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 5, y: 0}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1791629529}
   _highlightOverlay: {fileID: 78152884}
@@ -10644,7 +10577,7 @@ GameObject:
   - component: {fileID: 1805545593}
   - component: {fileID: 1805545592}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10722,15 +10655,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805545590}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1805545594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10743,7 +10678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 8, y: 0}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1805545595}
   _highlightOverlay: {fileID: 974293774}
@@ -10980,7 +10915,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1849317755}
-  - component: {fileID: 1849317756}
   m_Layer: 5
   m_Name: Cell (5)
   m_TagString: Untagged
@@ -11009,22 +10943,6 @@ RectTransform:
   m_AnchoredPosition: {x: 270, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1849317756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849317754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 5, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1791629529}
-  _highlightOverlay: {fileID: 78152884}
 --- !u!1 &1853191291
 GameObject:
   m_ObjectHideFlags: 0
@@ -11040,7 +10958,7 @@ GameObject:
   - component: {fileID: 1853191294}
   - component: {fileID: 1853191293}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11118,15 +11036,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853191291}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &1853191295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11139,7 +11059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 1, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 1853191296}
   _highlightOverlay: {fileID: 80185495}
@@ -11256,6 +11176,142 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867243196}
   m_CullTransparentMesh: 1
+--- !u!1 &1890451667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890451668}
+  - component: {fileID: 1890451670}
+  - component: {fileID: 1890451669}
+  m_Layer: 5
+  m_Name: Description
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1890451668
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890451667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 852773295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -85}
+  m_SizeDelta: {x: -20, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1890451669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890451667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 14
+  m_fontSizeBase: 14
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1890451670
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890451667}
+  m_CullTransparentMesh: 1
 --- !u!1 &1894413518
 GameObject:
   m_ObjectHideFlags: 0
@@ -11265,7 +11321,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1894413519}
-  - component: {fileID: 1894413520}
   m_Layer: 5
   m_Name: Cell (1)
   m_TagString: Untagged
@@ -11294,22 +11349,6 @@ RectTransform:
   m_AnchoredPosition: {x: 102, y: -20}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1894413520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894413518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 1, y: 0}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1322120414}
-  _highlightOverlay: {fileID: 838519697}
 --- !u!114 &1918911051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11815,29 +11854,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryGrid
   _size: {x: 10, y: 2}
   _cellsList:
-  - {fileID: 1349845236}
-  - {fileID: 1894413520}
-  - {fileID: 90463298}
-  - {fileID: 373575136}
-  - {fileID: 106517166}
-  - {fileID: 1849317756}
-  - {fileID: 956654061}
-  - {fileID: 407153293}
-  - {fileID: 520529014}
-  - {fileID: 1059182182}
-  - {fileID: 240217314}
-  - {fileID: 2085951541}
-  - {fileID: 496125484}
-  - {fileID: 448819614}
-  - {fileID: 758224205}
-  - {fileID: 1196086817}
-  - {fileID: 1488740027}
-  - {fileID: 914645094}
-  - {fileID: 191781617}
-  - {fileID: 1656671410}
+  - {fileID: 1018289943}
+  - {fileID: 1322120413}
+  - {fileID: 1100996834}
+  - {fileID: 1432501162}
+  - {fileID: 1013969233}
+  - {fileID: 1791629528}
+  - {fileID: 855031891}
+  - {fileID: 4286265}
+  - {fileID: 1805545594}
+  - {fileID: 1682048472}
+  - {fileID: 1271009107}
+  - {fileID: 1853191295}
+  - {fileID: 1441327945}
+  - {fileID: 165166427}
+  - {fileID: 1153099306}
+  - {fileID: 636060007}
+  - {fileID: 1578601175}
+  - {fileID: 2134843998}
+  - {fileID: 92901226}
+  - {fileID: 1653447816}
   _gridLayoutGroup: {fileID: 2076749546}
   slotsContainer: {fileID: 2076749545}
   itemsContainer: {fileID: 416958645}
+  _disallowColor:
+    serializedVersion: 2
+    rgba: 3525978841
+  _allowColor:
+    serializedVersion: 2
+    rgba: 3530189418
 --- !u!1 &2077881756
 GameObject:
   m_ObjectHideFlags: 0
@@ -11895,6 +11940,7 @@ MonoBehaviour:
   Icon: {fileID: 1867243198}
   grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
+  _tooltip: {fileID: 0}
 --- !u!114 &2077881759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11907,10 +11953,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &2077881760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12079,7 +12127,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2085951540}
-  - component: {fileID: 2085951541}
   m_Layer: 5
   m_Name: Cell (11)
   m_TagString: Untagged
@@ -12108,22 +12155,6 @@ RectTransform:
   m_AnchoredPosition: {x: 102, y: -62}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2085951541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085951539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryCell
-  position: {x: 1, y: 1}
-  occupiedItem: {fileID: 0}
-  _image: {fileID: 1853191296}
-  _highlightOverlay: {fileID: 80185495}
 --- !u!1 &2100892121
 GameObject:
   m_ObjectHideFlags: 0
@@ -12318,7 +12349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WindowUICommand
   _window: {fileID: 2111381012}
-  _setFullPause: 1
+  _setFullPause: 0
 --- !u!114 &2111381019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12349,7 +12380,7 @@ GameObject:
   - component: {fileID: 2134843997}
   - component: {fileID: 2134843996}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: Slot (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12427,15 +12458,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134843994}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a14a366f934acd418a43e5c47c4e0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTooltip
-  Tooltip: {fileID: 852773295}
+  _rect: {fileID: 0}
   _tooltipOffset: {x: 25, y: 25}
-  _playerInput: {fileID: 1779101751}
   _canvas: {fileID: 2111381016}
+  itemTooltipDataStruct:
+    name: {fileID: 0}
+    description: {fileID: 0}
 --- !u!114 &2134843998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12448,7 +12481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164caefd5a2e4084f8c50edaf6bc3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
-  position: {x: 0, y: 0}
+  position: {x: 7, y: 1}
   occupiedItem: {fileID: 0}
   _image: {fileID: 2134843999}
   _highlightOverlay: {fileID: 530701440}

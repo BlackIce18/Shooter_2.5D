@@ -17,6 +17,8 @@ public class InventoryGrid : MonoBehaviour
     public Transform slotsContainer;
     public Transform itemsContainer;
     public Vector2 CellSize => _gridLayoutGroup.cellSize;
+    [SerializeField] private Color32 _disallowColor;
+    [SerializeField] private Color32 _allowColor;
     private void Awake()
     {
         BuildMap();
@@ -84,12 +86,12 @@ public class InventoryGrid : MonoBehaviour
     public void RemoveItem(InventoryItemUI item)
     {
         if(item == null) return;
-        /*
+        
         foreach (var cell in item.OccupiedCells.ToList())
         {
             cell.Clear();
         }
-        */
+        
         item.OccupiedCells.Clear();
     }
 
@@ -150,7 +152,6 @@ public class InventoryGrid : MonoBehaviour
         var ev = new PointerEventData(EventSystem.current) { position = screenPos };
         var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(ev,results);
-
         foreach (var result in results)
         {
             if (result.gameObject.TryGetComponent(out InventoryCell cell))
@@ -185,7 +186,7 @@ public class InventoryGrid : MonoBehaviour
     public void HighlightArea(Vector2Int startPos, Vector2Int size)
     {
         bool ok = CanPlaceAt(startPos, size);
-        Color c = ok ? Color.green : Color.red;
+        Color c = ok ? _allowColor : _disallowColor;
         ClearAllHighlights();
 
         for (int x = 0; x < size.x; x++)

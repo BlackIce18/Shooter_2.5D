@@ -1,9 +1,17 @@
+using System;
 using UnityEngine;
 
 public class WindowUICommand : KeyCommand
 {
     [SerializeField] private GameObject _window;
     [SerializeField] private bool _setFullPause = false;
+    private float _originalTimeScale;
+
+    private void Start()
+    {
+        _originalTimeScale = Time.timeScale;
+    }
+
     public override void Execute()
     {
         
@@ -11,7 +19,7 @@ public class WindowUICommand : KeyCommand
         {
             CloseWindow();
             if(_setFullPause)
-                Time.timeScale = 1;
+                Time.timeScale = _originalTimeScale;
         }
         else
         {
