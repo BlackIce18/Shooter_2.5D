@@ -25,7 +25,7 @@ public class ItemTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_rect == null) return;
+        /*if (_rect == null) return;
         
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         Vector2 anchoredPos;
@@ -46,15 +46,15 @@ public class ItemTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         anchoredPos += new Vector2(_rect.rect.width / 2f + _tooltipOffset.x, -_rect.rect.height / 2f - _tooltipOffset.y);
         _rect.anchoredPosition = anchoredPos;
         
-        _rect.gameObject.SetActive(true);
+        _rect.gameObject.SetActive(true);*/
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _rect.gameObject.SetActive(false);
+        //_rect.gameObject.SetActive(false);
     }
 
-    public void Show(float position)
+    public void Show(Vector3 position, EquipmentItems data)
     {
         if (_rect == null) return;
         
@@ -78,6 +78,9 @@ public class ItemTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _rect.anchoredPosition = anchoredPos;
         
         _rect.gameObject.SetActive(true);
+
+        itemTooltipDataStruct.name.text = data.name;
+        itemTooltipDataStruct.description.text = data.Size.ToString();
     }
 
     public void Hide()

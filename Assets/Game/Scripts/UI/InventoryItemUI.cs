@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
+public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
 {
     public EquipmentItems data;
     public Image Icon;
@@ -16,7 +16,7 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     [HideInInspector] public InventoryGrid grid;
     [HideInInspector] public Vector2Int originalStartPos;
     private CanvasGroup _canvasGroup;
-    [SerializeField] private GameObject _tooltip;
+    public ItemTooltip tooltip;
     
     private void Awake()
     {
@@ -59,5 +59,21 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         {
             data.Use(gameObject);
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        tooltip.gameObject.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        tooltip.Hide();
+        tooltip.ClearFields();
+    }
+
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        tooltip.Show(eventData.position, data);
     }
 }

@@ -41,10 +41,8 @@ public class DragAndDropController : MonoBehaviour
         Vector2Int startPos = cell.position;
         startPos.x = Mathf.Clamp(startPos.x, 0, _grid.Size.x - _draggedItem.CurrentSize.x);
         startPos.y = Mathf.Clamp(startPos.y, 0, _grid.Size.y - _draggedItem.CurrentSize.y);
-
-        Debug.Log(startPos+" "+_draggedItem.CurrentSize);
+        
         InventoryCell cell1= _grid.GetCellUnderPointer(screenPos);
-        Debug.Log(cell1);
         _grid.HighlightArea(cell1.position, _draggedItem.CurrentSize);
     }
 

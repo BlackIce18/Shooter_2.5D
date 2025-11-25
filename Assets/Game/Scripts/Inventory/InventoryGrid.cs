@@ -19,6 +19,7 @@ public class InventoryGrid : MonoBehaviour
     public Vector2 CellSize => _gridLayoutGroup.cellSize;
     [SerializeField] private Color32 _disallowColor;
     [SerializeField] private Color32 _allowColor;
+    [SerializeField] private ItemTooltip _itemTooltip;
     private void Awake()
     {
         BuildMap();
@@ -178,6 +179,7 @@ public class InventoryGrid : MonoBehaviour
         InventoryItemUI ui = obj.GetComponent<InventoryItemUI>();
         
         ui.grid = this;
+        ui.tooltip = _itemTooltip;
         ui.SetData(data);
         PlaceItemAt(ui, pos);
         
