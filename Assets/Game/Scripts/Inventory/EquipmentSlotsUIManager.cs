@@ -1,0 +1,53 @@
+    using System;
+using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
+
+[Serializable]
+public class EquipmentUI
+{
+    public EquipmentType equipmentType;
+    public InventoryItemUI inventoryItemUI;
+
+    public EquipmentUI(EquipmentType newEquipmentType, InventoryItemUI newInventoryItemUI)
+    {
+        equipmentType = newEquipmentType;
+        inventoryItemUI = newInventoryItemUI;
+    }
+}
+public class EquipmentSlotsUIManager : MonoBehaviour
+{
+    [SerializeField] private List<EquipmentUI> _slots;
+    [SerializeField] private EquipmentManager _equipmentManager;
+
+    private void OnEnable()
+    {
+        EventBus.Subscribe<EquipEvent>(Equip);
+        EventBus.Subscribe<UnequipEvent>(Unequip);
+    }
+
+    private void OnDisable()
+    {
+        EventBus.Unsubscribe<EquipEvent>(Equip);
+        EventBus.Unsubscribe<UnequipEvent>(Unequip);
+    }
+
+    public void Equip(EquipEvent equipEvent)
+    {
+        EquipmentUI equipment = _slots.FirstOrDefault(s=> s.equipmentType == equipEvent.type);
+        if(equipment == null) return;
+        Debug.Log("Work");
+
+        equipment.inventoryItemUI.Icon.sprite = equipEvent.item.Icon;
+        equipment.inventoryItemUI.Icon.gameObject.SetActive(true);
+    }
+
+    public void Unequip(UnequipEvent unequipEvent)
+    {
+        Debug.Log("Unequip");
+        EquipmentUI equipment = _slots.FirstOrDefault(s=> s.equipmentType == unequipEvent.type);
+        equipment.inventoryItemUI.Icon.sprite = null;
+        equipment.inventoryItemUI.Icon.gameObject.SetActive(false);
+    }
+}

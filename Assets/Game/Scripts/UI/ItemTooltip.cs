@@ -79,7 +79,7 @@ public class ItemTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         
         _rect.gameObject.SetActive(true);
 
-        itemTooltipDataStruct.name.text = data.name;
+        itemTooltipDataStruct.name.text = data.Name;
         itemTooltipDataStruct.description.text = data.Size.ToString();
     }
 

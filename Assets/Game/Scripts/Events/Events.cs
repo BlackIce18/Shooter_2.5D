@@ -35,3 +35,37 @@ public struct SoundEvent
         this.audioClip = audioClip;
     }
 }
+
+public struct TryEquipEvent
+{
+    public EquipmentType type;
+    public EquipmentItems newItem;
+    
+    public TryEquipEvent(EquipmentType type, EquipmentItems newItem)
+    {
+        this.type = type;
+        this.newItem = newItem;
+    }
+}
+public struct EquipEvent
+{
+    public EquipmentType type;
+    public EquipmentItems item;
+
+    public EquipEvent(EquipmentType type, EquipmentItems item)
+    {
+        this.type = type;
+        this.item = item;
+    }
+}
+
+public struct UnequipEvent
+{
+    public EquipmentType type;
+    public EquipmentItems item;
+    public UnequipEvent(EquipmentType type, EquipmentItems item)
+    {
+        this.type = type;
+        this.item = item;
+    }
+}

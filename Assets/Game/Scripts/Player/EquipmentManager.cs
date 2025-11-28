@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+// Если модифицировать, то изменять switch,case EquipmentSlotsUIManager
 [Serializable]
-public enum EquipmentSlot
+public enum EquipmentType
 {
     head,
     body,
@@ -15,17 +16,18 @@ public enum EquipmentSlot
     ring,
     amulet,
     PrimaryWeapon,
-    SecondaryWeapon
+    SecondaryWeapon,
+    none
 }
 [Serializable]
 public class Equipment
 {
-    public EquipmentSlot slot;
+    public EquipmentType type;
     public EquipmentItems item;
-
-    public Equipment(EquipmentSlot newSlot, EquipmentItems newItem)
+    
+    public Equipment(EquipmentType newType, EquipmentItems newItem)
     {
-        slot = newSlot;
+        type = newType;
         item = newItem;
     }
 }
@@ -33,49 +35,48 @@ public class EquipmentManager : MonoBehaviour
 {
     [SerializeField] private Characteristics characteristics;
     [SerializeField] private List<Equipment> _currentEquipmentList;
-
-    public event Action<EquipmentSlot, EquipmentItems> OnEquip;
-    public event Action<EquipmentSlot, EquipmentItems> OnUnequip;
-    
     [SerializeField] private Equipment _equipmentTest;
-
-    private void Start()
-    {
-        TryEquipItem(_equipmentTest.slot, _equipmentTest.item);
-    }
-
+    
     private void Awake()
     {
         UpdateCharacteristics();
     }
-
+    private void OnEnable() => EventBus.Subscribe<TryEquipEvent>(EquipEvent);
+    private void OnDisable() => EventBus.Unsubscribe<TryEquipEvent>(EquipEvent);
     public bool CheckCompatibility(EquipmentItems item)
     {
         return true;
     }
-    public void TryEquipItem(EquipmentSlot slot, EquipmentItems newItem)
+    private void EquipEvent(TryEquipEvent tryEquipEvent)
+    {
+        TryEquipItem(tryEquipEvent.type, tryEquipEvent.newItem);
+    }
+    public void TryEquipItem(EquipmentType type, EquipmentItems newItem)
     {
         if (!CheckCompatibility(newItem))
         {
             // Lvl, класс, характеристики слабые
         }
 
-        var sameSlot = _currentEquipmentList.Find(e => e.slot == slot);
+        var sameSlot = _currentEquipmentList.Find(e => e.type == type);
         if (sameSlot != null)
         {
             if (sameSlot.item != null)
             {
                 // Move to Inventory
                 UnequipItem(sameSlot.item);
-                OnUnequip?.Invoke(sameSlot.slot, sameSlot.item);
+                EventBus.Publish(new UnequipEvent(sameSlot.type, sameSlot.item));
+                EventBus.Publish(new SoundEvent(this.gameObject, newItem.UnEquipSound));
             }
             _currentEquipmentList.Remove(sameSlot);
         }
 
-        Equipment newEquipment = new(slot, newItem);
+        Equipment newEquipment = new(type, newItem);
         EquipItem(newEquipment.item);
         _currentEquipmentList.Add(newEquipment);
-        OnEquip?.Invoke(slot, newItem);
+        Debug.Log("Equip manager");
+        EventBus.Publish(new EquipEvent(type, newItem));
+        EventBus.Publish(new SoundEvent(this.gameObject, newItem.EquipSound));
     }
     
     public void UpdateCharacteristics()

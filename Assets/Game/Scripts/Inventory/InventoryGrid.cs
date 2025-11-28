@@ -14,7 +14,6 @@ public class InventoryGrid : MonoBehaviour
     [SerializeField] private GridLayoutGroup _gridLayoutGroup;
     private InventoryCell[,] _cells;
     private Dictionary<Vector2Int, InventoryCell> _map = new();
-    public Transform slotsContainer;
     public Transform itemsContainer;
     public Vector2 CellSize => _gridLayoutGroup.cellSize;
     [SerializeField] private Color32 _disallowColor;
