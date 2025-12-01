@@ -19,6 +19,7 @@ public class InventoryGrid : MonoBehaviour
     [SerializeField] private Color32 _disallowColor;
     [SerializeField] private Color32 _allowColor;
     [SerializeField] private ItemTooltip _itemTooltip;
+    [SerializeField] private ContextMenuUI _contextMenuUI;
     private void Awake()
     {
         BuildMap();
@@ -179,6 +180,7 @@ public class InventoryGrid : MonoBehaviour
         
         ui.grid = this;
         ui.tooltip = _itemTooltip;
+        ui.contextMenuUI = _contextMenuUI;
         ui.SetData(data);
         PlaceItemAt(ui, pos);
         

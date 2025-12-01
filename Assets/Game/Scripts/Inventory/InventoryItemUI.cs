@@ -17,6 +17,7 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     [HideInInspector] public Vector2Int originalStartPos;
     private CanvasGroup _canvasGroup;
     public ItemTooltip tooltip;
+    public ContextMenuUI contextMenuUI;
     
     private void Awake()
     {
@@ -57,23 +58,33 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            data.Use(gameObject);
+            tooltip.Hide();
+            contextMenuUI.gameObject.SetActive(true);
+            contextMenuUI.BindAction(this);
+            var floatingWindow = contextMenuUI.GetComponent<FloatingWindow>();
+            floatingWindow.Show(eventData.position, data);
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if(contextMenuUI.gameObject.activeSelf) return;
+        
         tooltip.gameObject.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if(contextMenuUI.gameObject.activeSelf) return;
+
         tooltip.Hide();
         tooltip.ClearFields();
     }
 
     public void OnPointerMove(PointerEventData eventData)
     {
+        if(contextMenuUI.gameObject.activeSelf) return;
+
         tooltip.Show(eventData.position, data);
     }
 }
