@@ -1564,9 +1564,8 @@ GameObject:
   - component: {fileID: 219996573}
   - component: {fileID: 219996572}
   - component: {fileID: 219996571}
-  - component: {fileID: 219996570}
-  - component: {fileID: 219996574}
   - component: {fileID: 219996575}
+  - component: {fileID: 219996574}
   m_Layer: 5
   m_Name: RingSlot (1)
   m_TagString: Untagged
@@ -1594,24 +1593,6 @@ RectTransform:
   m_AnchoredPosition: {x: 144, y: 80}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &219996570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219996568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 1955942564}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &219996571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,11 +1704,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 219996568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 1955942564}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &240217312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,9 +1762,8 @@ GameObject:
   - component: {fileID: 247964259}
   - component: {fileID: 247964258}
   - component: {fileID: 247964257}
-  - component: {fileID: 247964256}
-  - component: {fileID: 247964260}
   - component: {fileID: 247964261}
+  - component: {fileID: 247964260}
   m_Layer: 5
   m_Name: PantsSlot
   m_TagString: Untagged
@@ -1807,24 +1791,6 @@ RectTransform:
   m_AnchoredPosition: {x: 242, y: 164}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &247964256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247964254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 1576095536}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &247964257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1936,11 +1902,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 247964254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 1576095536}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &272868841
 GameObject:
   m_ObjectHideFlags: 0
@@ -4990,9 +4960,8 @@ GameObject:
   - component: {fileID: 825247263}
   - component: {fileID: 825247262}
   - component: {fileID: 825247261}
-  - component: {fileID: 825247260}
-  - component: {fileID: 825247264}
   - component: {fileID: 825247265}
+  - component: {fileID: 825247264}
   m_Layer: 5
   m_Name: GlovesSlot
   m_TagString: Untagged
@@ -5020,24 +4989,6 @@ RectTransform:
   m_AnchoredPosition: {x: 119, y: 164}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &825247260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825247258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 272868843}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &825247261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5149,11 +5100,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 825247258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 272868843}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &838519695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5614,9 +5569,8 @@ GameObject:
   - component: {fileID: 857244209}
   - component: {fileID: 857244208}
   - component: {fileID: 857244207}
-  - component: {fileID: 857244206}
-  - component: {fileID: 857244210}
   - component: {fileID: 857244211}
+  - component: {fileID: 857244210}
   m_Layer: 5
   m_Name: PrimaryWeaponSlot
   m_TagString: Untagged
@@ -5644,24 +5598,6 @@ RectTransform:
   m_AnchoredPosition: {x: 119, y: 330.5}
   m_SizeDelta: {x: 100, y: 211}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &857244206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857244204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 2014979920}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &857244207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5773,11 +5709,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 857244204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 2014979920}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!114 &857976762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5892,9 +5832,8 @@ GameObject:
   - component: {fileID: 962433207}
   - component: {fileID: 962433206}
   - component: {fileID: 962433205}
-  - component: {fileID: 962433204}
-  - component: {fileID: 962433208}
   - component: {fileID: 962433209}
+  - component: {fileID: 962433208}
   m_Layer: 5
   m_Name: RingSlot
   m_TagString: Untagged
@@ -5922,24 +5861,6 @@ RectTransform:
   m_AnchoredPosition: {x: 94, y: 80}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &962433204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962433202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 1159388852}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &962433205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6051,11 +5972,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 962433202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 1159388852}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &974293772
 GameObject:
   m_ObjectHideFlags: 0
@@ -7844,9 +7769,8 @@ GameObject:
   - component: {fileID: 1276542811}
   - component: {fileID: 1276542810}
   - component: {fileID: 1276542809}
-  - component: {fileID: 1276542808}
-  - component: {fileID: 1276542812}
   - component: {fileID: 1276542813}
+  - component: {fileID: 1276542812}
   m_Layer: 5
   m_Name: AmuletSlot
   m_TagString: Untagged
@@ -7874,24 +7798,6 @@ RectTransform:
   m_AnchoredPosition: {x: 363, y: 80}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1276542808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276542806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 1753384392}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &1276542809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8003,11 +7909,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1276542806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 1753384392}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!114 &1294511306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8184,9 +8094,8 @@ GameObject:
   - component: {fileID: 1319332956}
   - component: {fileID: 1319332955}
   - component: {fileID: 1319332954}
-  - component: {fileID: 1319332953}
-  - component: {fileID: 1319332957}
   - component: {fileID: 1319332958}
+  - component: {fileID: 1319332957}
   m_Layer: 5
   m_Name: BootsSlot
   m_TagString: Untagged
@@ -8214,24 +8123,6 @@ RectTransform:
   m_AnchoredPosition: {x: 363, y: 164}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1319332953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319332951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 1821614346}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &1319332954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8343,11 +8234,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1319332951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 1821614346}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &1320579600
 GameObject:
   m_ObjectHideFlags: 0
@@ -9537,27 +9432,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotsManager
   _slots:
   - equipmentType: 0
-    inventoryItemUI: {fileID: 1759521765}
+    inventoryItemUI: {fileID: 1759521770}
   - equipmentType: 1
-    inventoryItemUI: {fileID: 1532212743}
+    inventoryItemUI: {fileID: 1532212748}
   - equipmentType: 2
-    inventoryItemUI: {fileID: 247964256}
+    inventoryItemUI: {fileID: 247964261}
   - equipmentType: 3
-    inventoryItemUI: {fileID: 1531605383}
+    inventoryItemUI: {fileID: 1531605388}
   - equipmentType: 4
-    inventoryItemUI: {fileID: 825247260}
+    inventoryItemUI: {fileID: 825247265}
   - equipmentType: 5
-    inventoryItemUI: {fileID: 1319332953}
+    inventoryItemUI: {fileID: 1319332958}
   - equipmentType: 6
-    inventoryItemUI: {fileID: 962433204}
+    inventoryItemUI: {fileID: 962433209}
   - equipmentType: 6
-    inventoryItemUI: {fileID: 219996570}
+    inventoryItemUI: {fileID: 219996575}
   - equipmentType: 7
-    inventoryItemUI: {fileID: 1276542808}
+    inventoryItemUI: {fileID: 1276542813}
   - equipmentType: 8
-    inventoryItemUI: {fileID: 857244206}
+    inventoryItemUI: {fileID: 857244211}
   - equipmentType: 9
-    inventoryItemUI: {fileID: 2077881758}
+    inventoryItemUI: {fileID: 2077881763}
   _equipmentManager: {fileID: 1320579602}
 --- !u!1 &1511090585
 GameObject:
@@ -9721,9 +9616,8 @@ GameObject:
   - component: {fileID: 1531605386}
   - component: {fileID: 1531605385}
   - component: {fileID: 1531605384}
-  - component: {fileID: 1531605383}
-  - component: {fileID: 1531605387}
   - component: {fileID: 1531605388}
+  - component: {fileID: 1531605387}
   m_Layer: 5
   m_Name: BeltSlot
   m_TagString: Untagged
@@ -9751,24 +9645,6 @@ RectTransform:
   m_AnchoredPosition: {x: 242, y: 80}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1531605383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531605381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 1317922565}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &1531605384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9880,11 +9756,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1531605381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 1317922565}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &1532212741
 GameObject:
   m_ObjectHideFlags: 0
@@ -9897,9 +9777,8 @@ GameObject:
   - component: {fileID: 1532212746}
   - component: {fileID: 1532212745}
   - component: {fileID: 1532212744}
-  - component: {fileID: 1532212743}
-  - component: {fileID: 1532212747}
   - component: {fileID: 1532212748}
+  - component: {fileID: 1532212747}
   m_Layer: 5
   m_Name: BodySlot
   m_TagString: Untagged
@@ -9927,24 +9806,6 @@ RectTransform:
   m_AnchoredPosition: {x: 242, y: 275}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1532212743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532212741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 739978875}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &1532212744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10056,11 +9917,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1532212741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 739978875}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &1554792772
 GameObject:
   m_ObjectHideFlags: 0
@@ -11283,9 +11148,8 @@ GameObject:
   - component: {fileID: 1759521768}
   - component: {fileID: 1759521767}
   - component: {fileID: 1759521766}
-  - component: {fileID: 1759521765}
-  - component: {fileID: 1759521769}
   - component: {fileID: 1759521770}
+  - component: {fileID: 1759521769}
   m_Layer: 5
   m_Name: HeadSlot
   m_TagString: Untagged
@@ -11313,24 +11177,6 @@ RectTransform:
   m_AnchoredPosition: {x: 242, y: 386}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1759521765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759521763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 570080000}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &1759521766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11442,11 +11288,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1759521763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 570080000}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &1769204580
 GameObject:
   m_ObjectHideFlags: 0
@@ -13353,9 +13203,8 @@ GameObject:
   - component: {fileID: 2077881761}
   - component: {fileID: 2077881760}
   - component: {fileID: 2077881759}
-  - component: {fileID: 2077881758}
-  - component: {fileID: 2077881762}
   - component: {fileID: 2077881763}
+  - component: {fileID: 2077881762}
   m_Layer: 5
   m_Name: SecondWeaponSlot
   m_TagString: Untagged
@@ -13383,24 +13232,6 @@ RectTransform:
   m_AnchoredPosition: {x: 363, y: 330.5}
   m_SizeDelta: {x: 100, y: 211}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2077881758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077881756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fb84dd0fe57c04e9239eae8d63d694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  data: {fileID: 0}
-  Icon: {fileID: 1867243198}
-  grid: {fileID: 0}
-  originalStartPos: {x: 0, y: 0}
-  tooltip: {fileID: 852773298}
-  contextMenuUI: {fileID: 201959297}
 --- !u!114 &2077881759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13512,11 +13343,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2077881756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2131a212069cbf4db0ce465b5aabef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 641af48b7536184408147572b911f2a7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EquipmentSlotUI
-  _rect: {fileID: 0}
-  _image: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
+  data: {fileID: 0}
+  Icon: {fileID: 1867243198}
+  grid: {fileID: 0}
+  originalStartPos: {x: 0, y: 0}
+  tooltip: {fileID: 852773298}
+  _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &2082629487
 GameObject:
   m_ObjectHideFlags: 0

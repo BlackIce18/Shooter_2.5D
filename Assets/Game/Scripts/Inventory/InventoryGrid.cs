@@ -180,7 +180,7 @@ public class InventoryGrid : MonoBehaviour
         
         ui.grid = this;
         ui.tooltip = _itemTooltip;
-        ui.contextMenuUI = _contextMenuUI;
+        ui.ContextMenuUI = _contextMenuUI;
         ui.SetData(data);
         PlaceItemAt(ui, pos);
         

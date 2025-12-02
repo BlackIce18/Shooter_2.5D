@@ -17,8 +17,8 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     [HideInInspector] public Vector2Int originalStartPos;
     private CanvasGroup _canvasGroup;
     public ItemTooltip tooltip;
-    public ContextMenuUI contextMenuUI;
-    
+    [SerializeField] private ContextMenuUI _ContextMenuUI;
+    public ContextMenuUI ContextMenuUI { get => _ContextMenuUI; set => _ContextMenuUI = value; }
     private void Awake()
     {
         CurrentSize = OriginalSize;
@@ -54,28 +54,28 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         DragAndDropController.Instance?.EndDrag();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             tooltip.Hide();
-            contextMenuUI.gameObject.SetActive(true);
-            contextMenuUI.BindAction(this);
-            var floatingWindow = contextMenuUI.GetComponent<FloatingWindow>();
+            ContextMenuUI.gameObject.SetActive(true);
+            ContextMenuUI.BindAction(this);
+            var floatingWindow = ContextMenuUI.GetComponent<FloatingWindow>();
             floatingWindow.Show(eventData.position, data);
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(contextMenuUI.gameObject.activeSelf) return;
+        if(ContextMenuUI.gameObject.activeSelf) return;
         
         tooltip.gameObject.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(contextMenuUI.gameObject.activeSelf) return;
+        if(ContextMenuUI.gameObject.activeSelf) return;
 
         tooltip.Hide();
         tooltip.ClearFields();
@@ -83,7 +83,7 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        if(contextMenuUI.gameObject.activeSelf) return;
+        if(ContextMenuUI.gameObject.activeSelf) return;
 
         tooltip.Show(eventData.position, data);
     }

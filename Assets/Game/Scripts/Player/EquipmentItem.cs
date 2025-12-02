@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EquipmentItem : MonoBehaviour
+public class EquipmentItem : InventoryItemUI
 {
     private HashSet<InventoryCell> _hitTargets = new HashSet<InventoryCell>();
     public Equipment _equipmentTest;

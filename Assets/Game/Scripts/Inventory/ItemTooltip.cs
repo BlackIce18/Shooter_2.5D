@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 
 [Serializable]
-public struct ItemTooltipDataStruct
+public class ItemTooltipDataStruct
 {
     public TextMeshProUGUI name;
     public TextMeshProUGUI description;

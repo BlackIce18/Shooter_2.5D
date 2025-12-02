@@ -72,6 +72,7 @@ public class EquipmentManager : MonoBehaviour
         }
 
         Equipment newEquipment = new(type, newItem);
+
         EquipItem(newEquipment.item);
         _currentEquipmentList.Add(newEquipment);
         Debug.Log("Equip manager");

@@ -38,8 +38,7 @@ public class EquipmentSlotsUIManager : MonoBehaviour
         EquipmentUI equipment = _slots.FirstOrDefault(s=> s.equipmentType == equipEvent.type);
         if(equipment == null) return;
         Debug.Log("EquipmentSlotsUIMAnager accept equip event");
-
-
+        
         equipment.inventoryItemUI.data = equipEvent.item;
         equipment.inventoryItemUI.Icon.sprite = equipEvent.item.Icon;
         equipment.inventoryItemUI.Icon.gameObject.SetActive(true);
