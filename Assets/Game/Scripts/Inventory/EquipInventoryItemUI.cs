@@ -7,7 +7,7 @@ public class EquipInventoryItemUI : InventoryItemUI
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             tooltip.Hide();
-            // Unequip
+            EventBus.Publish(new TryUnEquipEvent(data.EquipmentType, data));
         }
     }
 }

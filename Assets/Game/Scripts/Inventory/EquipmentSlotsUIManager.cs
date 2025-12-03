@@ -46,8 +46,11 @@ public class EquipmentSlotsUIManager : MonoBehaviour
 
     public void Unequip(UnequipEvent unequipEvent)
     {
-        Debug.Log("Unequip");
         EquipmentUI equipment = _slots.FirstOrDefault(s=> s.equipmentType == unequipEvent.type);
+        if(equipment == null) return;
+        Debug.Log("EquipmentSlotsUIMAnager accept unequip event");
+        
+        equipment.inventoryItemUI.data = null;
         equipment.inventoryItemUI.Icon.sprite = null;
         equipment.inventoryItemUI.Icon.gameObject.SetActive(false);
     }

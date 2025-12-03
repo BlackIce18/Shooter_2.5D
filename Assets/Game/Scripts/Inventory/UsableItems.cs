@@ -6,7 +6,7 @@ public class UsableItems : Item
 {
     [SerializeField] private List<Effects> _effect;
 
-    public override void Use(GameObject user)
+    public override void Use()
     {
         
     }

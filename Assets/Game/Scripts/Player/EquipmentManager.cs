@@ -41,8 +41,19 @@ public class EquipmentManager : MonoBehaviour
     {
         UpdateCharacteristics();
     }
-    private void OnEnable() => EventBus.Subscribe<TryEquipEvent>(EquipEvent);
-    private void OnDisable() => EventBus.Unsubscribe<TryEquipEvent>(EquipEvent);
+
+    private void OnEnable()
+    {
+        EventBus.Subscribe<TryEquipEvent>(EquipEvent);
+        EventBus.Subscribe<TryUnEquipEvent>(UnequipEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventBus.Unsubscribe<TryEquipEvent>(EquipEvent);
+        EventBus.Unsubscribe<TryUnEquipEvent>(UnequipEvent);
+    }
+
     public bool CheckCompatibility(EquipmentItems item)
     {
         return true;
@@ -51,6 +62,10 @@ public class EquipmentManager : MonoBehaviour
     {
         TryEquipItem(tryEquipEvent.type, tryEquipEvent.newItem);
     }
+    private void UnequipEvent(TryUnEquipEvent tryUnEquipEvent)
+    {
+        TryUnEquipItem(tryUnEquipEvent.type, tryUnEquipEvent.item);
+    }
     public void TryEquipItem(EquipmentType type, EquipmentItems newItem)
     {
         if (!CheckCompatibility(newItem))
@@ -58,26 +73,33 @@ public class EquipmentManager : MonoBehaviour
             // Lvl, класс, характеристики слабые
         }
 
-        var sameSlot = _currentEquipmentList.Find(e => e.type == type);
-        if (sameSlot != null)
-        {
-            if (sameSlot.item != null)
-            {
-                // Move to Inventory
-                UnequipItem(sameSlot.item);
-                EventBus.Publish(new UnequipEvent(sameSlot.type, sameSlot.item));
-                EventBus.Publish(new SoundEvent(this.gameObject, newItem.UnEquipSound));
-            }
-            _currentEquipmentList.Remove(sameSlot);
-        }
+        TryUnEquipItem(type, newItem);
 
         Equipment newEquipment = new(type, newItem);
 
         EquipItem(newEquipment.item);
         _currentEquipmentList.Add(newEquipment);
-        Debug.Log("Equip manager");
+        
         EventBus.Publish(new EquipEvent(type, newItem));
         EventBus.Publish(new SoundEvent(this.gameObject, newItem.EquipSound));
+    }
+
+    public void TryUnEquipItem(EquipmentType type, EquipmentItems item)
+    {
+        var sameSlot = _currentEquipmentList.Find(e => e.type == type);
+        if (sameSlot != null)
+        {
+            if (sameSlot.item != null)
+            {
+                Debug.Log("Unequip");
+                // Move to Inventory
+                UnequipItem(sameSlot.item);
+                EventBus.Publish(new UnequipEvent(sameSlot.type, sameSlot.item));
+                EventBus.Publish(new SoundEvent(this.gameObject, item.UnEquipSound));
+                sameSlot.item = null;
+            }
+            _currentEquipmentList.Remove(sameSlot);
+        }
     }
     
     public void UpdateCharacteristics()

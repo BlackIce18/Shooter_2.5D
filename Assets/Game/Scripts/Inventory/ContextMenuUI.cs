@@ -7,9 +7,10 @@ public class ContextMenuUI : MonoBehaviour
 
     public void BindAction(InventoryItemUI inventoryItemUI)
     {
+        _useButton.onClick.RemoveAllListeners();
         _useButton.onClick.AddListener(delegate
         {
-            inventoryItemUI.data.Use(inventoryItemUI.gameObject);
+            inventoryItemUI.data.Use();
             gameObject.SetActive(false);
         });
         

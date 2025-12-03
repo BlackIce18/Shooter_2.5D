@@ -17,11 +17,12 @@ public class EquipmentItems : Item
     [SerializeField] private AudioClip _equipAudioClip;
     [SerializeField] private AudioClip _unEquipAudioClip;
     //[SerializeField] private List<RuneItem> _sockets = new();
-
+    
+    public EquipmentType EquipmentType => equipmentType;
     public ItemStats ItemStats => _itemStats;
     public AudioClip EquipSound => _equipAudioClip;
     public AudioClip UnEquipSound => _unEquipAudioClip;
-    public override void Use(GameObject user)
+    public override void Use()
     {
         EventBus.Publish(new TryEquipEvent(equipmentType, this));
     }

@@ -8288,29 +8288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentManager
   characteristics: {fileID: 821116536}
-  _currentEquipmentList:
-  - type: 0
-    item: {fileID: 0}
-  - type: 1
-    item: {fileID: 0}
-  - type: 2
-    item: {fileID: 0}
-  - type: 3
-    item: {fileID: 0}
-  - type: 4
-    item: {fileID: 0}
-  - type: 5
-    item: {fileID: 0}
-  - type: 6
-    item: {fileID: 0}
-  - type: 6
-    item: {fileID: 0}
-  - type: 7
-    item: {fileID: 0}
-  - type: 8
-    item: {fileID: 0}
-  - type: 9
-    item: {fileID: 0}
+  _currentEquipmentList: []
   _equipmentTest:
     type: 8
     item: {fileID: 11400000, guid: 224830fe3e3451e47bfea5fbc050cccb, type: 2}

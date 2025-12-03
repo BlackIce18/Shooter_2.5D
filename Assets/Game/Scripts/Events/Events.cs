@@ -35,7 +35,7 @@ public struct SoundEvent
         this.audioClip = audioClip;
     }
 }
-
+// Проверки можно ли экипировать
 public struct TryEquipEvent
 {
     public EquipmentType type;
@@ -46,7 +46,18 @@ public struct TryEquipEvent
         this.type = type;
         this.newItem = newItem;
     }
-}
+} 
+public struct TryUnEquipEvent
+{
+    public EquipmentType type;
+    public EquipmentItems item;
+    
+    public TryUnEquipEvent(EquipmentType type, EquipmentItems item)
+    {
+        this.type = type;
+        this.item = item;
+    }
+} 
 public struct EquipEvent
 {
     public EquipmentType type;
