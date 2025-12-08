@@ -39,44 +39,46 @@ public struct SoundEvent
 public struct TryEquipEvent
 {
     public EquipmentType type;
-    public EquipmentItems newItem;
+    public EquipmentItemScriptableObject NewItemScriptableObject;
     
-    public TryEquipEvent(EquipmentType type, EquipmentItems newItem)
+    public TryEquipEvent(EquipmentType type, EquipmentItemScriptableObject newItemScriptableObject)
     {
         this.type = type;
-        this.newItem = newItem;
+        this.NewItemScriptableObject = newItemScriptableObject;
     }
 } 
 public struct TryUnEquipEvent
 {
     public EquipmentType type;
-    public EquipmentItems item;
+    public EquipmentItemScriptableObject itemScriptableObject;
+    public InventoryItemUI inventoryItemUI;
     
-    public TryUnEquipEvent(EquipmentType type, EquipmentItems item)
+    public TryUnEquipEvent(EquipmentType type, EquipmentItemScriptableObject itemScriptableObject, InventoryItemUI inventoryItemUI)
     {
         this.type = type;
-        this.item = item;
+        this.itemScriptableObject = itemScriptableObject;
+        this.inventoryItemUI = inventoryItemUI;
     }
 } 
 public struct EquipEvent
 {
     public EquipmentType type;
-    public EquipmentItems item;
+    public EquipmentItemScriptableObject ItemScriptableObject;
 
-    public EquipEvent(EquipmentType type, EquipmentItems item)
+    public EquipEvent(EquipmentType type, EquipmentItemScriptableObject itemScriptableObject)
     {
         this.type = type;
-        this.item = item;
+        this.ItemScriptableObject = itemScriptableObject;
     }
 }
 
 public struct UnequipEvent
 {
     public EquipmentType type;
-    public EquipmentItems item;
-    public UnequipEvent(EquipmentType type, EquipmentItems item)
+    public EquipmentItemScriptableObject ItemScriptableObject;
+    public UnequipEvent(EquipmentType type, EquipmentItemScriptableObject itemScriptableObject)
     {
         this.type = type;
-        this.item = item;
+        this.ItemScriptableObject = itemScriptableObject;
     }
 }

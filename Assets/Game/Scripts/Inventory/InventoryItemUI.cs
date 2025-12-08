@@ -6,16 +6,16 @@ using UnityEngine.UI;
 
 public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
 {
-    public EquipmentItems data;
+    public EquipmentItemScriptableObject data;
     public Image Icon;
     public Vector2Int OriginalSize => data != null ? data.Size : Vector2Int.one;
     public Vector2Int CurrentSize { get; private set; }
     public RectTransform Rect => (RectTransform)transform;
     private List<InventoryCell> _occupiedCells = new List<InventoryCell>();
     public List<InventoryCell> OccupiedCells => _occupiedCells;
-    [HideInInspector] public InventoryGrid grid;
+    /*[HideInInspector]*/ public InventoryGrid grid;
     [HideInInspector] public Vector2Int originalStartPos;
-    private CanvasGroup _canvasGroup;
+    [HideInInspector] public CanvasGroup canvasGroup;
     public ItemTooltip tooltip;
     [SerializeField] private ContextMenuUI _ContextMenuUI;
     public ContextMenuUI ContextMenuUI { get => _ContextMenuUI; set => _ContextMenuUI = value; }
@@ -24,33 +24,33 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         CurrentSize = OriginalSize;
     }
 
-    private void Start()
+    protected void Start()
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void SetData(EquipmentItems item)
+    public void SetData(EquipmentItemScriptableObject itemScriptableObject)
     {
-        data = item;
-        CurrentSize = item.Size;
-        if (Icon != null && item.Icon != null) Icon.sprite = item.Icon;
+        data = itemScriptableObject;
+        CurrentSize = itemScriptableObject.Size;
+        if (Icon != null && itemScriptableObject.Icon != null) Icon.sprite = itemScriptableObject.Icon;
         
-        Rect.sizeDelta = new Vector2(item.Size.x * grid.CellSize.x, item.Size.y * grid.CellSize.y);
+        Rect.sizeDelta = new Vector2(itemScriptableObject.Size.x * grid.CellSize.x, itemScriptableObject.Size.y * grid.CellSize.y);
     }
-    public void OnDrag(PointerEventData eventData)
+    public virtual void OnDrag(PointerEventData eventData)
     {
         DragAndDropController.Instance?.OnDragUpdate(eventData.position);
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnBeginDrag(PointerEventData eventData)
     {
-        _canvasGroup.blocksRaycasts = false;
+        canvasGroup.blocksRaycasts = false;
         DragAndDropController.Instance?.StartDrag(this);
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
-        _canvasGroup.blocksRaycasts = true;
+        canvasGroup.blocksRaycasts = true;
         DragAndDropController.Instance?.EndDrag();
     }
 
@@ -60,7 +60,7 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         {
             tooltip.Hide();
             ContextMenuUI.gameObject.SetActive(true);
-            ContextMenuUI.BindAction(this);
+            ContextMenuUI.EquipAction(this);
             var floatingWindow = ContextMenuUI.GetComponent<FloatingWindow>();
             floatingWindow.Show(eventData.position, data);
         }

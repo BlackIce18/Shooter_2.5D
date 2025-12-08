@@ -23,12 +23,12 @@ public enum EquipmentType
 public class Equipment
 {
     public EquipmentType type;
-    public EquipmentItems item;
+    public EquipmentItemScriptableObject itemScriptableObject;
     
-    public Equipment(EquipmentType newType, EquipmentItems newItem)
+    public Equipment(EquipmentType newType, EquipmentItemScriptableObject newItemScriptableObject)
     {
         type = newType;
-        item = newItem;
+        itemScriptableObject = newItemScriptableObject;
     }
 }
 public class EquipmentManager : MonoBehaviour
@@ -54,49 +54,52 @@ public class EquipmentManager : MonoBehaviour
         EventBus.Unsubscribe<TryUnEquipEvent>(UnequipEvent);
     }
 
-    public bool CheckCompatibility(EquipmentItems item)
+    public bool CheckCompatibility(EquipmentItemScriptableObject itemScriptableObject)
     {
         return true;
     }
     private void EquipEvent(TryEquipEvent tryEquipEvent)
     {
-        TryEquipItem(tryEquipEvent.type, tryEquipEvent.newItem);
+        TryEquipItem(tryEquipEvent.type, tryEquipEvent.NewItemScriptableObject);
     }
     private void UnequipEvent(TryUnEquipEvent tryUnEquipEvent)
     {
-        TryUnEquipItem(tryUnEquipEvent.type, tryUnEquipEvent.item);
+        TryUnEquipItem(tryUnEquipEvent.type, tryUnEquipEvent.itemScriptableObject);
+        /*tryUnEquipEvent.inventoryItemUI.grid.RemoveItem(tryUnEquipEvent.inventoryItemUI);
+        tryUnEquipEvent.inventoryItemUI.gameObject.SetActive(false);*/
+        //tryUnEquipEvent.inventoryItemUI.grid.TryAddItem(tryUnEquipEvent.inventoryItemUI.data, tryUnEquipEvent.inventoryItemUI.grid.ItemPrefab);
     }
-    public void TryEquipItem(EquipmentType type, EquipmentItems newItem)
+    public void TryEquipItem(EquipmentType type, EquipmentItemScriptableObject newItemScriptableObject)
     {
-        if (!CheckCompatibility(newItem))
+        if (!CheckCompatibility(newItemScriptableObject))
         {
             // Lvl, класс, характеристики слабые
         }
 
-        TryUnEquipItem(type, newItem);
+        TryUnEquipItem(type, newItemScriptableObject);
 
-        Equipment newEquipment = new(type, newItem);
+        Equipment newEquipment = new(type, newItemScriptableObject);
 
-        EquipItem(newEquipment.item);
+        EquipItem(newEquipment.itemScriptableObject);
         _currentEquipmentList.Add(newEquipment);
         
-        EventBus.Publish(new EquipEvent(type, newItem));
-        EventBus.Publish(new SoundEvent(this.gameObject, newItem.EquipSound));
+        EventBus.Publish(new EquipEvent(type, newItemScriptableObject));
+        EventBus.Publish(new SoundEvent(this.gameObject, newItemScriptableObject.EquipSound));
     }
 
-    public void TryUnEquipItem(EquipmentType type, EquipmentItems item)
+    public void TryUnEquipItem(EquipmentType type, EquipmentItemScriptableObject itemScriptableObject)
     {
         var sameSlot = _currentEquipmentList.Find(e => e.type == type);
         if (sameSlot != null)
         {
-            if (sameSlot.item != null)
+            if (sameSlot.itemScriptableObject != null)
             {
                 Debug.Log("Unequip");
                 // Move to Inventory
-                UnequipItem(sameSlot.item);
-                EventBus.Publish(new UnequipEvent(sameSlot.type, sameSlot.item));
-                EventBus.Publish(new SoundEvent(this.gameObject, item.UnEquipSound));
-                sameSlot.item = null;
+                UnequipItem(sameSlot.itemScriptableObject);
+                EventBus.Publish(new UnequipEvent(sameSlot.type, sameSlot.itemScriptableObject));
+                EventBus.Publish(new SoundEvent(this.gameObject, itemScriptableObject.UnEquipSound));
+                sameSlot.itemScriptableObject = null;
             }
             _currentEquipmentList.Remove(sameSlot);
         }
@@ -107,16 +110,16 @@ public class EquipmentManager : MonoBehaviour
         characteristics.ResetToBase();
         foreach (var eq in _currentEquipmentList)
         {
-            if(eq.item == null) continue;
-            EquipItem(eq.item);
+            if(eq.itemScriptableObject == null) continue;
+            EquipItem(eq.itemScriptableObject);
         }
     }
 
-    private void EquipItem(EquipmentItems equipment)
+    private void EquipItem(EquipmentItemScriptableObject equipment)
     {
         characteristics.Add(equipment.ItemStats.characteristicsData);
     }
-    public void UnequipItem(EquipmentItems equipment)
+    public void UnequipItem(EquipmentItemScriptableObject equipment)
     {
         characteristics.Remove(equipment.ItemStats.characteristicsData);
     }

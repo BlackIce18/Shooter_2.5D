@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class UsableItems : Item
+public class UsableItemsScriptableObject : ItemScriptableObject
 {
     [SerializeField] private List<Effects> _effect;
 

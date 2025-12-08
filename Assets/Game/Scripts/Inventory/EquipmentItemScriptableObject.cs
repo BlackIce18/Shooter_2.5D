@@ -9,7 +9,7 @@ public struct ItemStats
     public int requiredClass;
 }
 [CreateAssetMenu(menuName = "Items/Equipment")]
-public class EquipmentItems : Item
+public class EquipmentItemScriptableObject : ItemScriptableObject
 {
     [SerializeField] private EquipmentType equipmentType;
     [SerializeField] private ItemStats _itemStats;

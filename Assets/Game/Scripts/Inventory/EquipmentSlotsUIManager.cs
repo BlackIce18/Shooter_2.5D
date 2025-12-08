@@ -9,7 +9,7 @@ public class EquipmentUI
 {
     public EquipmentType equipmentType;
     public InventoryItemUI inventoryItemUI;
-
+    
     public EquipmentUI(EquipmentType newEquipmentType, InventoryItemUI newInventoryItemUI)
     {
         equipmentType = newEquipmentType;
@@ -20,7 +20,7 @@ public class EquipmentSlotsUIManager : MonoBehaviour
 {
     [SerializeField] private List<EquipmentUI> _slots;
     [SerializeField] private EquipmentManager _equipmentManager;
-
+    
     private void OnEnable()
     {
         EventBus.Subscribe<EquipEvent>(Equip);
@@ -39,8 +39,8 @@ public class EquipmentSlotsUIManager : MonoBehaviour
         if(equipment == null) return;
         Debug.Log("EquipmentSlotsUIMAnager accept equip event");
         
-        equipment.inventoryItemUI.data = equipEvent.item;
-        equipment.inventoryItemUI.Icon.sprite = equipEvent.item.Icon;
+        equipment.inventoryItemUI.data = equipEvent.ItemScriptableObject;
+        equipment.inventoryItemUI.Icon.sprite = equipEvent.ItemScriptableObject.Icon;
         equipment.inventoryItemUI.Icon.gameObject.SetActive(true);
     }
 
@@ -49,7 +49,7 @@ public class EquipmentSlotsUIManager : MonoBehaviour
         EquipmentUI equipment = _slots.FirstOrDefault(s=> s.equipmentType == unequipEvent.type);
         if(equipment == null) return;
         Debug.Log("EquipmentSlotsUIMAnager accept unequip event");
-        
+        equipment.inventoryItemUI.grid.TryAddItem(equipment.inventoryItemUI.data, equipment.inventoryItemUI.grid.ItemPrefab);
         equipment.inventoryItemUI.data = null;
         equipment.inventoryItemUI.Icon.sprite = null;
         equipment.inventoryItemUI.Icon.gameObject.SetActive(false);

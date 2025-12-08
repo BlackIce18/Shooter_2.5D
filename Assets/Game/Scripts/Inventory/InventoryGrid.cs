@@ -20,6 +20,8 @@ public class InventoryGrid : MonoBehaviour
     [SerializeField] private Color32 _allowColor;
     [SerializeField] private ItemTooltip _itemTooltip;
     [SerializeField] private ContextMenuUI _contextMenuUI;
+    [SerializeField] private GameObject _itemPrefab;
+    public GameObject ItemPrefab => _itemPrefab;
     private void Awake()
     {
         BuildMap();
@@ -166,7 +168,7 @@ public class InventoryGrid : MonoBehaviour
         return null;
     }
 
-    public bool TryAddItem(EquipmentItems data, GameObject itemPrefab, Transform parentOverride = null)
+    public bool TryAddItem(EquipmentItemScriptableObject data, GameObject itemPrefab, Transform parentOverride = null)
     {
         if (!TryFindSpace(data.Size, out Vector2Int pos))
         {

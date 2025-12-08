@@ -1709,8 +1709,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 1955942564}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &240217312
@@ -1907,8 +1908,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 1576095536}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &272868841
@@ -5105,8 +5107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 272868843}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &838519695
@@ -5193,7 +5196,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 841017474}
-  - component: {fileID: 841017475}
   m_Layer: 0
   m_Name: 'GlobalEffectsSystem '
   m_TagString: Untagged
@@ -5216,18 +5218,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1576216644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &841017475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841017473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e7e3631f8ac5a144b3a68aa6ab7a7ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GlobalEffectsManager
 --- !u!1 &843815155
 GameObject:
   m_ObjectHideFlags: 0
@@ -5714,8 +5704,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 2014979920}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!114 &857976762
@@ -5977,8 +5968,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 1159388852}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &974293772
@@ -7914,8 +7906,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 1753384392}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!114 &1294511306
@@ -8239,8 +8232,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 1821614346}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &1320579600
@@ -8291,7 +8285,7 @@ MonoBehaviour:
   _currentEquipmentList: []
   _equipmentTest:
     type: 8
-    item: {fileID: 11400000, guid: 224830fe3e3451e47bfea5fbc050cccb, type: 2}
+    itemScriptableObject: {fileID: 0}
 --- !u!1 &1322120409
 GameObject:
   m_ObjectHideFlags: 0
@@ -9739,8 +9733,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 1317922565}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &1532212741
@@ -9900,8 +9895,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 739978875}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &1554792772
@@ -11271,8 +11267,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 570080000}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &1769204580
@@ -13169,6 +13166,7 @@ MonoBehaviour:
     rgba: 3530189418
   _itemTooltip: {fileID: 852773298}
   _contextMenuUI: {fileID: 201959297}
+  _itemPrefab: {fileID: 7064465427576302850, guid: 4c214a5459fe0b44ab80bb7254c00d8e, type: 3}
 --- !u!1 &2077881756
 GameObject:
   m_ObjectHideFlags: 0
@@ -13326,8 +13324,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   data: {fileID: 0}
   Icon: {fileID: 1867243198}
-  grid: {fileID: 0}
+  grid: {fileID: 2076749548}
   originalStartPos: {x: 0, y: 0}
+  canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
   _ContextMenuUI: {fileID: 201959297}
 --- !u!1 &2082629487
@@ -13637,7 +13636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WindowUICommand
   _window: {fileID: 2111381012}
-  _setFullPause: 0
+  _setFullPause: 1
 --- !u!114 &2111381019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13653,7 +13652,7 @@ MonoBehaviour:
   grid: {fileID: 2076749548}
   sword: {fileID: 11400000, guid: 224830fe3e3451e47bfea5fbc050cccb, type: 2}
   second: {fileID: 11400000, guid: 486ed8244b4cf01499cdad488b07a2a2, type: 2}
-  itemPrefab: {fileID: 7064465427576302850, guid: 4c214a5459fe0b44ab80bb7254c00d8e, type: 3}
+  t: {fileID: 11400000, guid: fdc3347e8ff3f264b8d21c6f0cc877c7, type: 2}
 --- !u!1 &2134843994
 GameObject:
   m_ObjectHideFlags: 0
