@@ -26,7 +26,7 @@ public class InventoryGrid : MonoBehaviour
     {
         BuildMap();
     }
-
+    
     private void BuildMap()
     {
         _cells = new InventoryCell[_size.x, _size.y];
@@ -168,7 +168,7 @@ public class InventoryGrid : MonoBehaviour
         return null;
     }
 
-    public bool TryAddItem(EquipmentItemScriptableObject data, GameObject itemPrefab, Transform parentOverride = null)
+    public bool TryAddItem(ItemBaseScriptableObject data, GameObject itemPrefab, Transform parentOverride = null)
     {
         if (!TryFindSpace(data.Size, out Vector2Int pos))
         {

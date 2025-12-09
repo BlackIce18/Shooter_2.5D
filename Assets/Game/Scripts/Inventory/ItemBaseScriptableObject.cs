@@ -6,7 +6,7 @@ public enum ItemType
     Trinket,
     Rune
 }
-public abstract class ItemScriptableObject : ScriptableObject
+public abstract class ItemBaseScriptableObject : ScriptableObject
 {
     [SerializeField] private int _id;
     [SerializeField] private string _name;

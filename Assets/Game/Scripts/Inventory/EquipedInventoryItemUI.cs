@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class EquipedInventoryItemUI : InventoryItemUI
 {
+    [SerializeField] private EquipmentType equipmentType;
+    [SerializeField] private EquipmentItemBaseScriptableObject _data;
     public override void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             tooltip.Hide();
-            EventBus.Publish(new TryUnEquipEvent(data.EquipmentType, data, this));
+            EventBus.Publish(new TryUnEquipEvent(equipmentType, _data, this));
             Debug.Log("Из экипировки в инвентарь");
         }
     }

@@ -39,46 +39,55 @@ public struct SoundEvent
 public struct TryEquipEvent
 {
     public EquipmentType type;
-    public EquipmentItemScriptableObject NewItemScriptableObject;
+    public EquipmentItemBaseScriptableObject NewItemBaseScriptableObject;
     
-    public TryEquipEvent(EquipmentType type, EquipmentItemScriptableObject newItemScriptableObject)
+    public TryEquipEvent(EquipmentType type, EquipmentItemBaseScriptableObject newItemBaseScriptableObject)
     {
         this.type = type;
-        this.NewItemScriptableObject = newItemScriptableObject;
+        this.NewItemBaseScriptableObject = newItemBaseScriptableObject;
     }
 } 
 public struct TryUnEquipEvent
 {
     public EquipmentType type;
-    public EquipmentItemScriptableObject itemScriptableObject;
-    public InventoryItemUI inventoryItemUI;
+    public EquipmentItemBaseScriptableObject ItemBaseScriptableObject;
+    public InventoryItemUIBase inventoryItemUI;
     
-    public TryUnEquipEvent(EquipmentType type, EquipmentItemScriptableObject itemScriptableObject, InventoryItemUI inventoryItemUI)
+    public TryUnEquipEvent(EquipmentType type, EquipmentItemBaseScriptableObject itemBaseScriptableObject, InventoryItemUIBase inventoryItemUI)
     {
         this.type = type;
-        this.itemScriptableObject = itemScriptableObject;
+        this.ItemBaseScriptableObject = itemBaseScriptableObject;
         this.inventoryItemUI = inventoryItemUI;
     }
 } 
 public struct EquipEvent
 {
     public EquipmentType type;
-    public EquipmentItemScriptableObject ItemScriptableObject;
+    public EquipmentItemBaseScriptableObject ItemBaseScriptableObject;
 
-    public EquipEvent(EquipmentType type, EquipmentItemScriptableObject itemScriptableObject)
+    public EquipEvent(EquipmentType type, EquipmentItemBaseScriptableObject itemBaseScriptableObject)
     {
         this.type = type;
-        this.ItemScriptableObject = itemScriptableObject;
+        this.ItemBaseScriptableObject = itemBaseScriptableObject;
     }
 }
 
 public struct UnequipEvent
 {
     public EquipmentType type;
-    public EquipmentItemScriptableObject ItemScriptableObject;
-    public UnequipEvent(EquipmentType type, EquipmentItemScriptableObject itemScriptableObject)
+    public EquipmentItemBaseScriptableObject ItemBaseScriptableObject;
+    public UnequipEvent(EquipmentType type, EquipmentItemBaseScriptableObject itemBaseScriptableObject)
     {
         this.type = type;
-        this.ItemScriptableObject = itemScriptableObject;
+        this.ItemBaseScriptableObject = itemBaseScriptableObject;
+    }
+}
+
+public struct PickUpItemEvent
+{
+    public ItemBaseScriptableObject ItemBaseScriptableObject;
+    public PickUpItemEvent(ItemBaseScriptableObject itemBase)
+    {
+        ItemBaseScriptableObject = itemBase;
     }
 }

@@ -14,9 +14,9 @@ public class ItemTooltip : FloatingWindow
 
     [SerializeField] private ItemTooltipDataStruct itemTooltipDataStruct;
 
-    public override void Show(Vector3 position, EquipmentItemScriptableObject data)
+    public void Show(Vector3 position, ItemBaseScriptableObject data)
     {
-        base.Show(position, data);
+        base.Show();
         
         itemTooltipDataStruct.name.text = data.Name;
         itemTooltipDataStruct.description.text = data.Size.ToString();

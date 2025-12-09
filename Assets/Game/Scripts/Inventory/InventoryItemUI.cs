@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
+public abstract class InventoryItemUIBase : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    public EquipmentItemScriptableObject data;
     public Image Icon;
-    public Vector2Int OriginalSize => data != null ? data.Size : Vector2Int.one;
-    public Vector2Int CurrentSize { get; private set; }
+    public Vector2Int CurrentSize { get; set; }
     public RectTransform Rect => (RectTransform)transform;
     private List<InventoryCell> _occupiedCells = new List<InventoryCell>();
     public List<InventoryCell> OccupiedCells => _occupiedCells;
@@ -19,6 +17,15 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     public ItemTooltip tooltip;
     [SerializeField] private ContextMenuUI _ContextMenuUI;
     public ContextMenuUI ContextMenuUI { get => _ContextMenuUI; set => _ContextMenuUI = value; }
+    public abstract void OnDrag(PointerEventData eventData);
+    public abstract void OnBeginDrag(PointerEventData eventData);
+    public abstract void OnEndDrag(PointerEventData eventData);
+}
+public class InventoryItemUI : InventoryItemUIBase, IPointerClickHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
+{
+    public ItemBaseScriptableObject data;
+    public Vector2Int OriginalSize => data != null ? data.Size : Vector2Int.one;
+ 
     private void Awake()
     {
         CurrentSize = OriginalSize;
@@ -29,26 +36,26 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void SetData(EquipmentItemScriptableObject itemScriptableObject)
+    public void SetData(ItemBaseScriptableObject itemBaseScriptableObject)
     {
-        data = itemScriptableObject;
-        CurrentSize = itemScriptableObject.Size;
-        if (Icon != null && itemScriptableObject.Icon != null) Icon.sprite = itemScriptableObject.Icon;
+        data = itemBaseScriptableObject;
+        CurrentSize = itemBaseScriptableObject.Size;
+        if (Icon != null && itemBaseScriptableObject.Icon != null) Icon.sprite = itemBaseScriptableObject.Icon;
         
-        Rect.sizeDelta = new Vector2(itemScriptableObject.Size.x * grid.CellSize.x, itemScriptableObject.Size.y * grid.CellSize.y);
+        Rect.sizeDelta = new Vector2(itemBaseScriptableObject.Size.x * grid.CellSize.x, itemBaseScriptableObject.Size.y * grid.CellSize.y);
     }
-    public virtual void OnDrag(PointerEventData eventData)
+    public override void OnDrag(PointerEventData eventData)
     {
         DragAndDropController.Instance?.OnDragUpdate(eventData.position);
     }
 
-    public virtual void OnBeginDrag(PointerEventData eventData)
+    public override void OnBeginDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = false;
         DragAndDropController.Instance?.StartDrag(this);
     }
 
-    public virtual void OnEndDrag(PointerEventData eventData)
+    public override void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
         DragAndDropController.Instance?.EndDrag();
@@ -62,7 +69,7 @@ public class InventoryItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, I
             ContextMenuUI.gameObject.SetActive(true);
             ContextMenuUI.EquipAction(this);
             var floatingWindow = ContextMenuUI.GetComponent<FloatingWindow>();
-            floatingWindow.Show(eventData.position, data);
+            floatingWindow.Show();
         }
     }
 

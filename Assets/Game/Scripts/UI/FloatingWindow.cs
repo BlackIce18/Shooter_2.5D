@@ -10,7 +10,7 @@ public class FloatingWindow : MonoBehaviour
         _canvas = gameObject.GetComponentInParent<Canvas>();
     }
 
-    public virtual void Show(Vector3 position, EquipmentItemScriptableObject data)
+    public virtual void Show()
     {
         if (_rect == null) return;
         
