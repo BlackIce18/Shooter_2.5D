@@ -1754,7 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1955942564}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -2050,7 +2050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1576095536}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -4986,6 +4986,142 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782615302}
   m_CullTransparentMesh: 1
+--- !u!1 &808235329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808235330}
+  - component: {fileID: 808235332}
+  - component: {fileID: 808235331}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &808235330
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808235329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1923511436}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &808235331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808235329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 2323323232323232323232323232323232323
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4287669938
+  m_fontColor: {r: 0.69803923, g: 0.6509804, b: 0.5647059, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 1
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 11.737122, y: 0, z: 12.52771, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &808235332
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808235329}
+  m_CullTransparentMesh: 1
 --- !u!1 &821116530
 GameObject:
   m_ObjectHideFlags: 0
@@ -5269,7 +5405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 272868843}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -5868,7 +6004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 2014979920}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -6134,7 +6270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1159388852}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -7267,7 +7403,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -8191,7 +8327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1753384392}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -8519,7 +8655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1821614346}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -8891,7 +9027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragAndDropController
   _canvas: {fileID: 2111381016}
-  _grid: {fileID: 2076749548}
+  _grid: {fileID: 0}
   _ghostImage: {fileID: 1792443111}
   _ghostCanvasGroup: {fileID: 1792443113}
 --- !u!1 &1367024466
@@ -10054,7 +10190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1317922565}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -10218,7 +10354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 739978875}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -10488,6 +10624,7 @@ Transform:
   - {fileID: 1367024467}
   - {fileID: 841017474}
   - {fileID: 228643508}
+  - {fileID: 1818988870}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1578601171
@@ -11579,7 +11716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 570080000}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}
@@ -12175,6 +12312,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805545590}
   m_CullTransparentMesh: 1
+--- !u!1 &1818988869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818988870}
+  - component: {fileID: 1818988871}
+  m_Layer: 0
+  m_Name: DropsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1818988870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818988869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1576216644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1818988871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818988869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4749064c359d6745bc3c801baf30405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropsWindowController
+  _floatingWindow: {fileID: 1923511437}
+  _text: {fileID: 808235331}
+  _prefab: {fileID: 4530961883169684572, guid: ab3768906549a004596614acfcc523ae, type: 3}
+  _prefab2: {fileID: 4530961883169684572, guid: 517711c69cfa06a479986d325e4d15c7, type: 3}
+  _parent: {fileID: 1830472685}
 --- !u!1 &1820115850
 GameObject:
   m_ObjectHideFlags: 0
@@ -12479,7 +12665,6 @@ GameObject:
   - component: {fileID: 1830472688}
   - component: {fileID: 1830472687}
   - component: {fileID: 1830472686}
-  - component: {fileID: 1830472689}
   m_Layer: 0
   m_Name: Drops
   m_TagString: Untagged
@@ -12569,20 +12754,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1830472689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830472684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4749064c359d6745bc3c801baf30405, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DropsWindowController
-  _floatingWindow: {fileID: 1923511437}
-  _prefab: {fileID: 4530961883169684572, guid: ab3768906549a004596614acfcc523ae, type: 3}
 --- !u!1 &1844321281
 GameObject:
   m_ObjectHideFlags: 0
@@ -13106,13 +13277,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 808235330}
   m_Father: {fileID: 1108470132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1923511437
 MonoBehaviour:
@@ -13142,7 +13314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13560,7 +13732,6 @@ GameObject:
   - component: {fileID: 2076749545}
   - component: {fileID: 2076749546}
   - component: {fileID: 2076749547}
-  - component: {fileID: 2076749548}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -13645,51 +13816,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
   m_VerticalFit: 2
---- !u!114 &2076749548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076749544}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06cd8f49dc18e3849acc540328c1a748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryGrid
-  _size: {x: 10, y: 2}
-  _cellsList:
-  - {fileID: 1018289943}
-  - {fileID: 1322120413}
-  - {fileID: 1100996834}
-  - {fileID: 1432501162}
-  - {fileID: 1013969233}
-  - {fileID: 1791629528}
-  - {fileID: 855031891}
-  - {fileID: 4286265}
-  - {fileID: 1805545594}
-  - {fileID: 1682048472}
-  - {fileID: 1271009107}
-  - {fileID: 1853191295}
-  - {fileID: 1441327945}
-  - {fileID: 165166427}
-  - {fileID: 1153099306}
-  - {fileID: 636060007}
-  - {fileID: 1578601175}
-  - {fileID: 2134843998}
-  - {fileID: 92901226}
-  - {fileID: 1653447816}
-  _gridLayoutGroup: {fileID: 2076749546}
-  itemsContainer: {fileID: 416958645}
-  _disallowColor:
-    serializedVersion: 2
-    rgba: 3525978841
-  _allowColor:
-    serializedVersion: 2
-    rgba: 3530189418
-  _itemTooltip: {fileID: 852773298}
-  _contextMenuUI: {fileID: 201959297}
-  _itemPrefab: {fileID: 7064465427576302850, guid: 4c214a5459fe0b44ab80bb7254c00d8e, type: 3}
 --- !u!1 &2077881756
 GameObject:
   m_ObjectHideFlags: 0
@@ -13846,7 +13972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1867243198}
-  grid: {fileID: 2076749548}
+  grid: {fileID: 0}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 852773298}

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
@@ -5,11 +6,15 @@ public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     [SerializeField] private ItemBaseScriptableObject itemBaseScriptableObject;
     public ItemBaseScriptableObject ItemBaseScriptableObject => itemBaseScriptableObject;
     public FloatingWindow windowUI;
-    
+    public TextMeshProUGUI textField;
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            // Условия:
+            // Расстояние до игрока < n
+            // Есть место в инвентаре для расположения предмета
+            
             EventBus.Publish(new PickUpItemEvent(ItemBaseScriptableObject));
             Destroy(gameObject);
             windowUI.transform.parent.gameObject.SetActive(false);
@@ -21,6 +26,7 @@ public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     public void OnPointerEnter(PointerEventData eventData)
     {
         windowUI.transform.parent.gameObject.SetActive(true);
+        textField.text = ItemBaseScriptableObject.Name;
         windowUI.Show();
     }
 

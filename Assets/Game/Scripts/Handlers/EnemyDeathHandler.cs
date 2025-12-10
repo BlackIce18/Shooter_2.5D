@@ -17,8 +17,11 @@ public class EnemyDeathHandler : MonoBehaviour
     private void OnDeath(DeathEvent e)
     {
         if(e.target != gameObject) return;
-        _navMeshAgent.speed = 0;
-        _navMeshAgent.destination = gameObject.transform.position;
+        if (_navMeshAgent)
+        {
+            _navMeshAgent.speed = 0;
+            _navMeshAgent.destination = gameObject.transform.position;
+        }
         var animator = GetComponent<Animator>();
         animator?.SetTrigger("Die");
         
