@@ -1,65 +1,70 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DialogueRunner : MonoBehaviour
 {
-    [Header("Data")] [SerializeField] private DialogueGraph _graph;
+    public static DialogueRunner Instance;
 
-    [Header("UI")] 
-    [SerializeField] private TMP_Text _dialogueText;
+    [SerializeField] private DialogueUI ui;
+    private DialogueNodeData _currentNode;
 
-    [SerializeField] private Transform _choicesContainer;
-    [SerializeField] private Button _choiceButtonPrefab;
-
-    private DialogueNode _currentNode;
-
-    private void Start()
+    private void Awake()
     {
-        StartDialogue();
+        Instance = this;
     }
 
-    public void StartDialogue()
+    public void StartDialogue(DialogueNodeData startNode)
     {
-        _currentNode = _graph.GetNode(_graph.startNodeGuid);
-        ShowNode(_currentNode);
+        ShowNode(startNode);
     }
 
-    private void ShowNode(DialogueNode node)
+    private void ShowNode(DialogueNodeData node)
     {
-        ClearChoices();
+        if(!CheckConditions(node.conditions)) return;
 
-        _dialogueText.text = LocalizationManager.Instance.Get(node.textKey);
+        _currentNode = node;
 
-        foreach (var choice in node.choices)
+        ExecuteEvents(node.events);
+
+        ui.ShowText(LocalizationManager.Instance.Get(node.textKey));
+        ui.ShowChoices(node.choices.Where(c => CheckConditions(c.conditions)).ToList(), OnChoiceSelected);
+    }
+
+    private void OnChoiceSelected(DialogueChoiceData choice)
+    {
+        ExecuteEvents(choice.events);
+
+        if (choice.nextNode != null)
         {
-            CreateChoice(choice);
+            ShowNode(choice.nextNode);
+        }
+        else
+        {
+            ui.Hide();
         }
     }
 
-    private void CreateChoice(DialogueChoice choice)
+    private bool CheckConditions(List<DialogueCondition> conditions)
     {
-        var btn = Instantiate(_choiceButtonPrefab, _choicesContainer);
-        btn.GetComponentInChildren<TMP_Text>().text = LocalizationManager.Instance.Get(choice.choiceKey);
-        
-        btn.onClick.AddListener(() =>
+        foreach (var c in conditions)
         {
-            var next = _graph.GetNode(choice.targetNodeGuid);
-            if (next != null)
-            {
-                _currentNode = next;
-                ShowNode(_currentNode);
-            }
-        });
+            if (!c.Check()) return false;
+        }
+        
+        return true;
     }
 
-    private void ClearChoices()
+    private void ExecuteEvents(List<DialogueEvent> events)
     {
-        foreach (Transform choice in _choicesContainer)
+        foreach (var e in events)
         {
-            Destroy(choice.gameObject);
+            e.Execute();
         }
     }
 }

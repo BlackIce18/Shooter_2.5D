@@ -7,7 +7,7 @@ using UnityEngine;
 public class DialogueGraph : ScriptableObject
 {
     public string startNodeGuid;
-    public List<DialogueNode> nodes = new();
+    public List<DialogueNodeData> nodes = new();
 
-    public DialogueNode GetNode(string guid) => nodes.Find(n => n.guid == guid);
+    public DialogueNodeData GetNode(string guid) => nodes.Find(n => n.textKey == guid);
 }
