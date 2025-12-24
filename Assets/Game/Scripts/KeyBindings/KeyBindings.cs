@@ -4,7 +4,8 @@ using UnityEngine;
 public class KeyBindings : MonoBehaviour
 {
     [SerializeField] private KeyCommand _dashCommand;
-    [SerializeField] private KeyCommand inventoryUICommand;
+    [SerializeField] private KeyCommand _inventoryUICommand;
+    [SerializeField] private KeyCommand _interact;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -14,8 +15,17 @@ public class KeyBindings : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            inventoryUICommand.Execute();
+            _inventoryUICommand.Execute();
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _interact?.Execute();
+        }
+    }
+    public void BindInteract(KeyCommand keyCommand)
+    {
+        _interact = keyCommand;
     }
 }
 

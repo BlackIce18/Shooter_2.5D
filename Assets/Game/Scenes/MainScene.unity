@@ -22806,7 +22806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyBindings
   _dashCommand: {fileID: 894068954}
-  inventoryUICommand: {fileID: 1619551138}
+  _inventoryUICommand: {fileID: 1619551138}
+  _interact: {fileID: 0}
 --- !u!43 &348973427
 Mesh:
   m_ObjectHideFlags: 0
