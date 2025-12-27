@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1615725496498571803}
   - component: {fileID: 8717754869134218490}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ChoiceButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

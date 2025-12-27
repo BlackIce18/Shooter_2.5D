@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1172270832983505110}
   - component: {fileID: 2422844499687065579}
   m_Layer: 0
-  m_Name: DialogueChoice
+  m_Name: DialogueChoice 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e914a379c1f631d488b092c799fe124e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueChoice
-  textKey: choice.ask_job
-  nextNode: {fileID: 11400000, guid: 00cf056362a92884d92beab1e3712b88, type: 2}
+  textKey: choice.ask_job_help
+  nextNode: {fileID: 11400000, guid: 50a26253bda3ef247ab7b5724b776cee, type: 2}
   conditions: []
   events: []

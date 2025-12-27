@@ -1,6 +1,9 @@
 dialogue.blacksmith.greeting=Привет, путник.
 dialogue.blacksmith.ask=Что тебе нужно?
 dialogue.blacksmith.goodbye=Береги себя.
+dialogue.blacksmith.lotofjoob=Работы полно!
+dialogue.blacksmith.joob=Вон, бери кувалду и работай!
 
 choice.ask_job=Есть работа?
+choice.ask_job_help=Чем помочь?
 choice.leave=Прощай.

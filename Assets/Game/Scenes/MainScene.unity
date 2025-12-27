@@ -12633,7 +12633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 983254993}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -14818,7 +14818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1994612091}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -20376,7 +20376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 648128818}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -32740,7 +32740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 494606098}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -33828,7 +33828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1914875121}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -34578,7 +34578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 267771973}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -72673,7 +72673,7 @@ MonoBehaviour:
   _currentEquipmentList: []
   _equipmentTest:
     type: 8
-    itemBaseScriptableObject: {fileID: 0}
+    itemBaseScriptableObject: {fileID: 11400000, guid: 224830fe3e3451e47bfea5fbc050cccb, type: 2}
 --- !u!4 &1220162806
 Transform:
   m_ObjectHideFlags: 0
@@ -84097,7 +84097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1136205180}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -85153,7 +85153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1519836242}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -110859,7 +110859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1317834132}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -112056,7 +112056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 94345234}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
@@ -121522,7 +121522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragAndDropController
   _canvas: {fileID: 1619551136}
-  _grid: {fileID: 0}
+  _grid: {fileID: 556661016}
   _ghostImage: {fileID: 716996471}
   _ghostCanvasGroup: {fileID: 716996468}
 --- !u!1 &2116312354
@@ -122872,7 +122872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EquipInventoryItemUI
   Icon: {fileID: 1222660927}
-  grid: {fileID: 0}
+  grid: {fileID: 556661016}
   originalStartPos: {x: 0, y: 0}
   canvasGroup: {fileID: 0}
   tooltip: {fileID: 753575353}
