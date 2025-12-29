@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66bce3682ae21344aa437f99a39d10c, type: 3}
+  m_Script: {fileID: 11500000, guid: e93678cca36f69a4ba255a229197fe1f, type: 3}
   m_Name: HealthUpBuff
   m_EditorClassIdentifier: Assembly-CSharp::HealthUpBuff
   buffdebuffController: {fileID: 0}
   name: health
-  seconds: 10
-  minutes: 0
+  secondsDuration: 10
   infinity: 0
   increaseValue: 5

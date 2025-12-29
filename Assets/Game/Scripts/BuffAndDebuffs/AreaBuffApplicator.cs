@@ -9,16 +9,25 @@ public class AreaBuffApplicator : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         {
-            if (!PlayerSystems.instance.BuffDebuffController.ActiveBuffList.ContainsKey(_buff.name))
+            PlayerSystems.instance.BuffDebuffController.ApplyBuff(_buff);
+            /*if (!PlayerSystems.instance.BuffDebuffController.ActiveBuffList.ContainsKey(_buff.name))
             {
                 PlayerSystems.instance.BuffDebuffController.ActiveBuffList.Add(_buff.name, _buff);
             }
-            StartCoroutine(PlayerSystems.instance.BuffDebuffController.Timer(_buff));
+            StartCoroutine(PlayerSystems.instance.BuffDebuffController.Timer(_buff));*/
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        //StopCoroutine(_buffDebuffController.Timer());
+        if (other.CompareTag("Player")) 
+        {
+            /*if (!PlayerSystems.instance.BuffDebuffController.ActiveBuffList.ContainsKey(_buff.name))
+            {
+                PlayerSystems.instance.BuffDebuffController.ActiveBuffList.Remove(_buff.name);
+            }
+
+            StopCoroutine(_buffDebuffController.Timer(_buff));*/
+        }
     }
 }
