@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 // Общие характеристики для существ/предметов
@@ -6,7 +7,8 @@ using UnityEngine;
 public class CharacteristicsData
 {
     public float health;
-    public float attack;
+    public float attackMin;
+    public float attackMax;
     public float attackRate;
     public float defence;
     public float speed;
@@ -25,16 +27,40 @@ public class Characteristics : MonoBehaviour
     private CharacteristicsData _current = new();
 
     public CharacteristicsData Current => _current;
+    public Dictionary<string, float> CharacteristicsList = new();
 
     private void Awake()
     {
         ResetToBase();
+        
+        CharacteristicsList.Add("health", _current.health);
+        CharacteristicsList.Add("attackMin", _current.attackMin);
+        CharacteristicsList.Add("attackMax", _current.attackMax);
+        CharacteristicsList.Add("attackRate", _current.attackRate);
+        CharacteristicsList.Add("defence", _current.defence);
+        CharacteristicsList.Add("speed", _current.speed);
+        CharacteristicsList.Add("attackDistance", _current.attackDistance);
+        CharacteristicsList.Add("attackDelay", _current.attackDelay);
+    }
+
+    public void UpdateCharacteristicsList()
+    {
+        Debug.Log(_current.health);
+        CharacteristicsList["health"] = _current.health;
+        CharacteristicsList["attackMin"] = _current.attackMin;
+        CharacteristicsList["attackMax"] = _current.attackMax;
+        CharacteristicsList["attackRate"] = _current.attackRate;
+        CharacteristicsList["defence"] = _current.defence;
+        CharacteristicsList["speed"] = _current.speed;
+        CharacteristicsList["attackDistance"] = _current.attackDistance;
+        CharacteristicsList["attackDelay"] = _current.attackDelay;
     }
 
     public void ResetToBase()
     {
         _current.health = _base.characteristicsData.health;
-        _current.attack = _base.characteristicsData.attack;
+        _current.attackMin = _base.characteristicsData.attackMin;
+        _current.attackMax = _base.characteristicsData.attackMax;
         _current.attackRate = _base.characteristicsData.attackRate;
         _current.defence = _base.characteristicsData.defence;
         _current.speed = _base.characteristicsData.speed;
@@ -48,7 +74,8 @@ public class Characteristics : MonoBehaviour
     public void Add(CharacteristicsData add)
     {
         _current.health += add.health;
-        _current.attack += add.attack;
+        _current.attackMin += add.attackMin;
+        _current.attackMax += add.attackMax;
         _current.attackRate += add.attackRate;
         _current.defence += add.defence;
         _current.speed += add.speed;
@@ -58,7 +85,8 @@ public class Characteristics : MonoBehaviour
     public void Remove(CharacteristicsData sub)
     {
         _current.health -= sub.health;
-        _current.attack -= sub.attack;
+        _current.attackMin -= sub.attackMin;
+        _current.attackMax -= sub.attackMax;
         _current.attackRate -= sub.attackRate;
         _current.defence -= sub.defence;
         _current.speed -= sub.speed;

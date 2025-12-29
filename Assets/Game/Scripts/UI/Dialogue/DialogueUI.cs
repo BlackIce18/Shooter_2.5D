@@ -43,6 +43,7 @@ public class DialogueUI : MonoBehaviour
     public void Hide()
     {
         ClearChoices();
+        _dialogueHistory.Clear();
         gameObject.SetActive(false);
     }
     

@@ -57,6 +57,6 @@ public class WarriorEnemy : EnemyFSM
     
     private void HandleHit(HealthHandler target)
     {
-        EventBus.Publish(new DamageEvent(target.gameObject, characteristics.Current.attack, Vector3.zero));
+        EventBus.Publish(new DamageEvent(target.gameObject, characteristics.Current.attackMin, Vector3.zero));
     }
 }

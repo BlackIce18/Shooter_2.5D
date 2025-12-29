@@ -29,4 +29,12 @@ public class DialogueHistory : MonoBehaviour
         Canvas.ForceUpdateCanvases();
         scrollRect.verticalNormalizedPosition = 0f;
     }
+
+    public void Clear()
+    {
+        for (int i = dialogueElementParent.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(dialogueElementParent.transform.GetChild(i).gameObject);
+        }
+    }
 }
