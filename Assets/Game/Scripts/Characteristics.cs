@@ -71,7 +71,7 @@ public class Characteristics : MonoBehaviour
         _current.fireResistance = _base.characteristics.fireResistance;
         _current.critResistance = _base.characteristics.critResistance;*/
     }
-    public void Add(CharacteristicsData add)
+    public void AddFlat(CharacteristicsData add)
     {
         _current.health += add.health;
         _current.attackMin += add.attackMin;
@@ -81,8 +81,18 @@ public class Characteristics : MonoBehaviour
         _current.speed += add.speed;
         _current.attackDelay += add.attackDelay;
     }
+    public void AddPercent(CharacteristicsData add)
+    {
+        _current.health *= add.health;
+        _current.attackMin *= add.attackMin;
+        _current.attackMax *= add.attackMax;
+        _current.attackRate *= add.attackRate;
+        _current.defence *= add.defence;
+        _current.speed *= add.speed;
+        _current.attackDelay *= add.attackDelay;
+    }
 
-    public void Remove(CharacteristicsData sub)
+    public void Negate(CharacteristicsData sub)
     {
         _current.health -= sub.health;
         _current.attackMin -= sub.attackMin;

@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _acceleration = 10f; // Как быстро набирается скорость
     [SerializeField] private float _deceleration = 12f; // Как быстро останавливается
     
-    private float _moveSpeed;
     private Vector3 _currentVelocity;
     private Vector3 _targetVelocity;
     private Vector2 _inputDirection;
@@ -43,14 +42,13 @@ public class PlayerController : MonoBehaviour
         _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         
         _camera = Camera.main;
-        _moveSpeed = characteristics.Current.speed;
     }
 
     private void FixedUpdate()
     {
         _inputDirection = _playerInput.actions["Move"].ReadValue<Vector2>();
         Vector3 moveDir = new Vector3(_inputDirection.x, 0f, _inputDirection.y).normalized;
-        _targetVelocity = moveDir * _moveSpeed;
+        _targetVelocity = moveDir * characteristics.Current.speed;
         Debug.DrawLine(_rigidbody.position, _rigidbody.position + _currentVelocity, Color.red);
         _currentVelocity = Vector3.MoveTowards(_currentVelocity, _targetVelocity, (_targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.fixedDeltaTime);
         

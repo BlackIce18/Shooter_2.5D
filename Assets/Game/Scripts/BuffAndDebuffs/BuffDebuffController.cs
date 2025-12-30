@@ -5,6 +5,7 @@ using UnityEngine;
 class ActiveBuff
 {
     public Buff buff;
+    public int stacks;
     public float timeLeft;
 }
 public class BuffDebuffController : MonoBehaviour
@@ -12,7 +13,6 @@ public class BuffDebuffController : MonoBehaviour
     [SerializeField] private Characteristics _characteristics;
     private Dictionary<string, ActiveBuff> ActiveBuffList = new();
     public Characteristics Characteristics => _characteristics;
-    
 
     public void ApplyBuff(Buff buff)
     {
@@ -23,10 +23,11 @@ public class BuffDebuffController : MonoBehaviour
         }
 
         ActiveBuff newBuff = new() { timeLeft = buff.secondsDuration, buff = buff };
-        buff.Add();
+        buff.Add(this);
         _characteristics.UpdateCharacteristicsList();
         ActiveBuffList.Add(buff.name, newBuff);
-
+        Debug.Log(ActiveBuffList.Count);
+        
         if(!buff.infinity)
             StartCoroutine(BuffTimer(buff));
     }
@@ -45,7 +46,7 @@ public class BuffDebuffController : MonoBehaviour
     private void RemoveBuff(Buff buff)
     {
         ActiveBuffList.Remove(buff.name);
-        buff.Sub();
+        buff.Remove(this);
         _characteristics.UpdateCharacteristicsList();
         StopCoroutine(BuffTimer(buff));
     }

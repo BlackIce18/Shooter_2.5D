@@ -114,10 +114,10 @@ public class EquipmentManager : MonoBehaviour
 
     private void EquipItem(EquipmentItemBaseScriptableObject equipment)
     {
-        characteristics.Add(equipment.ItemStats.characteristicsData);
+        characteristics.AddFlat(equipment.ItemStats.characteristicsData);
     }
     public void UnequipItem(EquipmentItemBaseScriptableObject equipment)
     {
-        characteristics.Remove(equipment.ItemStats.characteristicsData);
+        characteristics.Negate(equipment.ItemStats.characteristicsData);
     }
 }
