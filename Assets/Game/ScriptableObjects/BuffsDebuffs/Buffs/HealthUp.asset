@@ -13,10 +13,20 @@ MonoBehaviour:
   m_Name: HealthUp
   m_EditorClassIdentifier: Assembly-CSharp::Buff
   name: health
-  secondsDuration: 0
+  secondsDuration: 10
   infinity: 0
   icon: {fileID: 0}
-  increaseValueModifier:
+  maxStacks: 2
+  flatPerStack:
+    health: 0
+    attackMin: 0
+    attackMax: 0
+    attackRate: 0
+    defence: 0
+    speed: 0
+    attackDistance: 0
+    attackDelay: 0
+  percentValueModifier:
     health: 5
     attackMin: 0
     attackMax: 0

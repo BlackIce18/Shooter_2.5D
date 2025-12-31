@@ -24,7 +24,6 @@ public class CharacteristicsListUI : KeyCommand
 
     public void UpdateCharacteristics()
     {
-        Debug.Log(_characteristics.CharacteristicsList[_list[0].Text.text]);
         for (int i = 0; i < _list.Count; i++)
         {
             _list[i].Value.text = _characteristics.CharacteristicsList[_list[i].Text.text].ToString();

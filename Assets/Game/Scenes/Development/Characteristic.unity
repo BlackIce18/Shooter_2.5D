@@ -2712,7 +2712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuffsDebuffsManager
   _buffs:
-  - {fileID: 11400000, guid: 5ae9f05990e0b9c4d9910be460cf1f13, type: 2}
+  - {fileID: 0}
 --- !u!1 &342437189
 GameObject:
   m_ObjectHideFlags: 0
@@ -13815,7 +13815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AreaBuffApplicator
   _buffDebuffController: {fileID: 0}
-  _buff: {fileID: 11400000, guid: a575017bf7e1338488c83f4be0035447, type: 2}
+  _buff: {fileID: 11400000, guid: 86229c327d80ada48849d9ac4655e32b, type: 2}
 --- !u!54 &1603546046
 Rigidbody:
   m_ObjectHideFlags: 0

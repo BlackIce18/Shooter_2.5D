@@ -13,15 +13,5 @@ public class Buff : ScriptableObject
     
     public CharacteristicsData flatPerStack;
     public CharacteristicsData percentValueModifier;
-    
-    public virtual void Add(BuffDebuffController controller)
-    {
-        controller.Characteristics.AddFlat(flatPerStack);
-    }
-
-    public virtual void Remove(BuffDebuffController controller)
-    {
-        controller.Characteristics.Negate(flatPerStack);
-    }
 }
 

@@ -45,7 +45,6 @@ public class Characteristics : MonoBehaviour
 
     public void UpdateCharacteristicsList()
     {
-        Debug.Log(_current.health);
         CharacteristicsList["health"] = _current.health;
         CharacteristicsList["attackMin"] = _current.attackMin;
         CharacteristicsList["attackMax"] = _current.attackMax;
@@ -71,35 +70,26 @@ public class Characteristics : MonoBehaviour
         _current.fireResistance = _base.characteristics.fireResistance;
         _current.critResistance = _base.characteristics.critResistance;*/
     }
-    public void AddFlat(CharacteristicsData add)
+    
+    public void AddFlat(CharacteristicsData data)
     {
-        _current.health += add.health;
-        _current.attackMin += add.attackMin;
-        _current.attackMax += add.attackMax;
-        _current.attackRate += add.attackRate;
-        _current.defence += add.defence;
-        _current.speed += add.speed;
-        _current.attackDelay += add.attackDelay;
+        Current.health += data.health;
+        Current.attackMin += data.attackMin;
+        Current.attackMax += data.attackMax;
+        Current.attackRate += data.attackRate;
+        Current.defence += data.defence;
+        Current.speed += data.speed;
+        Current.attackDelay += data.attackDelay;
     }
-    public void AddPercent(CharacteristicsData add)
+    
+    public void Negate(CharacteristicsData data)
     {
-        _current.health *= add.health;
-        _current.attackMin *= add.attackMin;
-        _current.attackMax *= add.attackMax;
-        _current.attackRate *= add.attackRate;
-        _current.defence *= add.defence;
-        _current.speed *= add.speed;
-        _current.attackDelay *= add.attackDelay;
-    }
-
-    public void Negate(CharacteristicsData sub)
-    {
-        _current.health -= sub.health;
-        _current.attackMin -= sub.attackMin;
-        _current.attackMax -= sub.attackMax;
-        _current.attackRate -= sub.attackRate;
-        _current.defence -= sub.defence;
-        _current.speed -= sub.speed;
-        _current.attackDelay -= sub.attackDelay;
+        Current.health -= data.health;
+        Current.attackMin -= data.attackMin;
+        Current.attackMax -= data.attackMax;
+        Current.attackRate -= data.attackRate;
+        Current.defence -= data.defence;
+        Current.speed -= data.speed;
+        Current.attackDelay -= data.attackDelay;
     }
 }
