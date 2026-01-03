@@ -4,5 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/Characteristics")]
 public class BaseCharacteristicsData : ScriptableObject
 {
-    public CharacteristicsData characteristicsData;
+    [SerializeField] private CharacteristicsData _characteristicsData;
+
+    public CharacteristicsData CharacteristicsData => _characteristicsData;
 }

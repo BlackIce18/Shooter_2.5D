@@ -10,6 +10,19 @@ public class CharacteristicsListUI : KeyCommand
     [SerializeField] private WindowUICommand _windowUICommand;
     private List<CharacteristicsFields> _list = new();
     
+    private void OnEnable()
+    {
+        EventBus.Subscribe<EquipEvent>(EquipEvent);
+        EventBus.Subscribe<UnequipEvent>(UnequipEvent);
+    }
+
+    private void OnDisable()
+    {
+        EventBus.Unsubscribe<EquipEvent>(EquipEvent);
+        EventBus.Unsubscribe<UnequipEvent>(UnequipEvent);
+    }
+    private void EquipEvent(EquipEvent equipEvent) { UpdateCharacteristics();}
+    private void UnequipEvent(UnequipEvent unequipEvent) { UpdateCharacteristics(); }
     private void Start()
     {
         foreach (var keyValue in _characteristics.CharacteristicsList)
@@ -35,4 +48,6 @@ public class CharacteristicsListUI : KeyCommand
         _windowUICommand.Execute();
         UpdateCharacteristics();
     }
+
+
 }

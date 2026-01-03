@@ -82,6 +82,7 @@ public class EquipmentManager : MonoBehaviour
         
         EventBus.Publish(new EquipEvent(type, newItemBaseScriptableObject));
         EventBus.Publish(new SoundEvent(this.gameObject, newItemBaseScriptableObject.EquipSound));
+        UpdateCharacteristics();
     }
 
     public void TryUnEquipItem(EquipmentType type, EquipmentItemBaseScriptableObject itemBaseScriptableObject)
@@ -98,6 +99,8 @@ public class EquipmentManager : MonoBehaviour
                 EventBus.Publish(new SoundEvent(this.gameObject, sameSlot.itemBaseScriptableObject.UnEquipSound));
                 sameSlot.itemBaseScriptableObject = null;
             }
+
+            UpdateCharacteristics();
             _currentEquipmentList.Remove(sameSlot);
         }
     }
@@ -114,6 +117,7 @@ public class EquipmentManager : MonoBehaviour
 
     private void EquipItem(EquipmentItemBaseScriptableObject equipment)
     {
+        Debug.Log(equipment.ItemStats.characteristicsData.health);
         characteristics.AddFlat(equipment.ItemStats.characteristicsData);
     }
     public void UnequipItem(EquipmentItemBaseScriptableObject equipment)

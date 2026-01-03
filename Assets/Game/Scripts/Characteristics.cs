@@ -25,14 +25,13 @@ public class Characteristics : MonoBehaviour
 {
     [SerializeField] private BaseCharacteristicsData _base;
     private CharacteristicsData _current = new();
-
+    public CharacteristicsData Base => _base.CharacteristicsData;
     public CharacteristicsData Current => _current;
     public Dictionary<string, float> CharacteristicsList = new();
+    
 
     private void Awake()
     {
-        ResetToBase();
-        
         CharacteristicsList.Add("health", _current.health);
         CharacteristicsList.Add("attackMin", _current.attackMin);
         CharacteristicsList.Add("attackMax", _current.attackMax);
@@ -41,6 +40,8 @@ public class Characteristics : MonoBehaviour
         CharacteristicsList.Add("speed", _current.speed);
         CharacteristicsList.Add("attackDistance", _current.attackDistance);
         CharacteristicsList.Add("attackDelay", _current.attackDelay);
+        
+        ResetToBase();
     }
 
     public void UpdateCharacteristicsList()
@@ -57,18 +58,19 @@ public class Characteristics : MonoBehaviour
 
     public void ResetToBase()
     {
-        _current.health = _base.characteristicsData.health;
-        _current.attackMin = _base.characteristicsData.attackMin;
-        _current.attackMax = _base.characteristicsData.attackMax;
-        _current.attackRate = _base.characteristicsData.attackRate;
-        _current.defence = _base.characteristicsData.defence;
-        _current.speed = _base.characteristicsData.speed;
-        _current.attackDelay = _base.characteristicsData.attackDelay;
+        _current.health = _base.CharacteristicsData.health;
+        _current.attackMin = _base.CharacteristicsData.attackMin;
+        _current.attackMax = _base.CharacteristicsData.attackMax;
+        _current.attackRate = _base.CharacteristicsData.attackRate;
+        _current.defence = _base.CharacteristicsData.defence;
+        _current.speed = _base.CharacteristicsData.speed;
+        _current.attackDelay = _base.CharacteristicsData.attackDelay;
         /*_current.critChance = _base.characteristics.critChance;
         _current.critPercentage = _base.characteristics.critPercentage;
         _current.defenceResistance = _base.characteristics.defenceResistance;
         _current.fireResistance = _base.characteristics.fireResistance;
         _current.critResistance = _base.characteristics.critResistance;*/
+        UpdateCharacteristicsList();
     }
     
     public void AddFlat(CharacteristicsData data)
@@ -80,6 +82,8 @@ public class Characteristics : MonoBehaviour
         Current.defence += data.defence;
         Current.speed += data.speed;
         Current.attackDelay += data.attackDelay;
+
+        UpdateCharacteristicsList();
     }
     
     public void Negate(CharacteristicsData data)
@@ -91,5 +95,60 @@ public class Characteristics : MonoBehaviour
         Current.defence -= data.defence;
         Current.speed -= data.speed;
         Current.attackDelay -= data.attackDelay;
+
+        UpdateCharacteristicsList();
+    }
+    
+        public void AddFlat(ActiveBuff activeBuff)
+    {
+        var data = activeBuff.buff.flatPerStack;
+        int stacks = activeBuff.stacks;
+
+        Current.health += data.health * stacks;
+        Current.attackMin += data.attackMin * stacks;
+        Current.attackMax += data.attackMax * stacks;
+        Current.attackRate += data.attackRate * stacks;
+        Current.defence += data.defence * stacks;
+        Current.speed += data.speed * stacks;
+        Current.attackDelay += data.attackDelay * stacks;
+    }
+    public void NegateFlate(ActiveBuff activeBuff)
+    {
+        var data = activeBuff.buff.flatPerStack;
+        int stacks = activeBuff.stacks;
+        
+        Current.health -= data.health * stacks;
+        Current.attackMin -= data.attackMin * stacks;
+        Current.attackMax -= data.attackMax * stacks;
+        Current.attackRate -= data.attackRate * stacks;
+        Current.defence -= data.defence * stacks;
+        Current.speed -= data.speed * stacks;
+        Current.attackDelay -= data.attackDelay * stacks;
+    }
+    public void AddPercent(ActiveBuff activeBuff)
+    { 
+        var data = activeBuff.buff.percentValueModifier;
+        int stacks = activeBuff.stacks;
+
+        Current.health += Current.health * data.health * stacks / 100;
+        Current.attackMin += Current.attackMin * data.attackMin * stacks / 100;
+        Current.attackMax += Current.attackMax * data.attackMax * stacks / 100;
+        Current.attackRate += Current.attackRate * data.attackRate * stacks / 100;
+        Current.defence += Current.defence * data.defence * stacks / 100;
+        Current.speed += Current.speed * data.speed * stacks / 100;
+        Current.attackDelay += Current.attackDelay * data.attackDelay * stacks / 100;
+    }
+    public void NegatePercent(ActiveBuff activeBuff)
+    {
+        var data = activeBuff.buff.percentValueModifier;
+        int stacks = activeBuff.stacks;
+        
+        Current.health -= Current.health * data.health * stacks / 100;
+        Current.attackMin -= Current.attackMin * data.attackMin * stacks / 100;
+        Current.attackMax -= Current.attackMax * data.attackMax * stacks / 100;
+        Current.attackRate -= Current.attackRate * data.attackRate * stacks / 100;
+        Current.defence -= Current.defence * data.defence * stacks / 100;
+        Current.speed -= Current.speed * data.speed * stacks / 100;
+        Current.attackDelay -= Current.attackDelay * data.attackDelay * stacks / 100;
     }
 }

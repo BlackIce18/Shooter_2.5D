@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,131 +10,83 @@ public class ActiveBuff
 public class BuffDebuffController : MonoBehaviour
 {
     [SerializeField] private Characteristics _characteristics;
-    private Dictionary<string, ActiveBuff> ActiveBuffList = new();
-    private Dictionary<string, ActiveBuff> ActiveDeBuffList = new();
-    public Characteristics Characteristics => _characteristics;
+    private Dictionary<string, ActiveBuff> _activeBuffList = new();
+    private Dictionary<string, ActiveBuff> _activeDeBuffList = new();
 
-    public void ApplyBuff(Buff buff)
+    public Dictionary<string, ActiveBuff> ActiveBuffs => _activeBuffList;
+    public Dictionary<string, ActiveBuff> ActiveDebuffs => _activeDeBuffList;
+
+    private void Update()
     {
-        if (ActiveBuffList.TryGetValue(buff.name, out ActiveBuff active))
+        float dt = Time.deltaTime;
+        BuffTimer(dt, _activeBuffList);
+        BuffTimer(dt, _activeDeBuffList);
+    }
+
+    private void BuffTimer(float dt, Dictionary<string, ActiveBuff> activeBuffList)
+    {
+        List<string> toRemove = null;
+
+        foreach (var pair in activeBuffList)
         {
+            var buff = pair.Value;
+            
+            if(buff.buff.infinity) continue;
+
+            buff.timeLeft -= dt;
+
+            if (buff.timeLeft <= 0)
+            {
+                toRemove ??= new();
+                toRemove.Add(pair.Key);
+            }
+        }
+
+        if (toRemove != null)
+        {
+            foreach (var key in toRemove)
+            {
+                activeBuffList.Remove(key);
+            }
+            
+            RecalculateStats();
+        }
+    }
+    public void Apply(Buff buff, Dictionary<string, ActiveBuff> buffList)
+    {
+        if (buffList.TryGetValue(buff.name, out ActiveBuff active))
+        {
+            if (active.stacks < buff.maxStacks) active.stacks++;
             active.timeLeft = buff.secondsDuration;
-            return;
         }
-
-        ActiveBuff newBuff = new()
+        else
         {
-            timeLeft = buff.secondsDuration, 
-            buff = buff,
-            stacks = 1,
-        };
-        
-        ActiveBuffList.Add(buff.name, newBuff);
-        RecalculateStats();
-        
-        if(!buff.infinity)
-            StartCoroutine(BuffTimer(buff, ActiveBuffList));
-    }
-
-    public void ApplyDebuff(Buff buff)
-    {
-        if (ActiveDeBuffList.TryGetValue(buff.name, out ActiveBuff active))
-        {
-            active.timeLeft = buff.secondsDuration;
-            return;
+            ActiveBuff newBuff = new()
+            {
+                timeLeft = buff.secondsDuration, 
+                buff = buff,
+                stacks = 1,
+            };
+            
+            buffList.Add(buff.name, newBuff);
         }
-        ActiveBuff newBuff = new()
-        {
-            timeLeft = buff.secondsDuration, 
-            buff = buff,
-            stacks = 1,
-        };
         
-        ActiveDeBuffList.Add(buff.name, newBuff);
         RecalculateStats();
-        
-        if(!buff.infinity)
-            StartCoroutine(BuffTimer(buff, ActiveDeBuffList));
-    }
-
-    private IEnumerator BuffTimer(Buff buff, Dictionary<string, ActiveBuff> dictionary)
-    {
-        while (dictionary[buff.name].timeLeft > 0)
-        {
-            dictionary[buff.name].timeLeft -= Time.deltaTime;
-            yield return null;
-        }
-
-        RemoveBuff(buff, dictionary);
-    }
-
-    private void RemoveBuff(Buff buff, Dictionary<string, ActiveBuff> dictionary)
-    {
-        dictionary.Remove(buff.name);
-        RecalculateStats();
-        StopCoroutine(BuffTimer(buff, dictionary));
-    }
-    public void AddFlat(ActiveBuff activeBuff)
-    {
-        var data = activeBuff.buff.flatPerStack;
-        int stacks = activeBuff.stacks;
-
-        _characteristics.Current.health += data.health * stacks;
-        _characteristics.Current.attackMin += data.attackMin * stacks;
-        _characteristics.Current.attackMax += data.attackMax * stacks;
-        _characteristics.Current.attackRate += data.attackRate * stacks;
-        _characteristics.Current.defence += data.defence * stacks;
-        _characteristics.Current.speed += data.speed * stacks;
-        _characteristics.Current.attackDelay += data.attackDelay * stacks;
-    }
-    public void NegateFlate(ActiveBuff activeBuff)
-    {
-        var data = activeBuff.buff.percentValueModifier;
-        int stacks = activeBuff.stacks;
-        
-        _characteristics.Current.health -= data.health * stacks;
-        _characteristics.Current.attackMin -= data.attackMin * stacks;
-        _characteristics.Current.attackMax -= data.attackMax * stacks;
-        _characteristics.Current.attackRate -= data.attackRate * stacks;
-        _characteristics.Current.defence -= data.defence * stacks;
-        _characteristics.Current.speed -= data.speed * stacks;
-        _characteristics.Current.attackDelay -= data.attackDelay * stacks;
-    }
-    public void AddPercent(ActiveBuff activeBuff)
-    { 
-        var data = activeBuff.buff.percentValueModifier;
-        int stacks = activeBuff.stacks;
-
-        _characteristics.Current.health += _characteristics.Current.health * data.health * stacks / 100;
-        _characteristics.Current.attackMin += _characteristics.Current.attackMin * data.attackMin * stacks / 100;
-        _characteristics.Current.attackMax += _characteristics.Current.attackMax * data.attackMax * stacks / 100;
-        _characteristics.Current.attackRate += _characteristics.Current.attackRate * data.attackRate * stacks / 100;
-        _characteristics.Current.defence += _characteristics.Current.defence * data.defence * stacks / 100;
-        _characteristics.Current.speed += _characteristics.Current.speed * data.speed * stacks / 100;
-        _characteristics.Current.attackDelay += _characteristics.Current.attackDelay * data.attackDelay * stacks / 100;
-    }
-    public void NegatePercent(ActiveBuff activeBuff)
-    {
-        var data = activeBuff.buff.percentValueModifier;
-        int stacks = activeBuff.stacks;
-        
-        _characteristics.Current.health -= _characteristics.Current.health * data.health * stacks / 100;
-        _characteristics.Current.attackMin -= _characteristics.Current.attackMin * data.attackMin * stacks / 100;
-        _characteristics.Current.attackMax -= _characteristics.Current.attackMax * data.attackMax * stacks / 100;
-        _characteristics.Current.attackRate -= _characteristics.Current.attackRate * data.attackRate * stacks / 100;
-        _characteristics.Current.defence -= _characteristics.Current.defence * data.defence * stacks / 100;
-        _characteristics.Current.speed -= _characteristics.Current.speed * data.speed * stacks / 100;
-        _characteristics.Current.attackDelay -= _characteristics.Current.attackDelay * data.attackDelay * stacks / 100;
     }
     private void RecalculateStats()
     {
         _characteristics.ResetToBase();
-        foreach (var buffs in ActiveBuffList.Values)
+        foreach (var buffs in _activeBuffList.Values)
         {
-            AddFlat(buffs);
-            AddPercent(buffs);
+            _characteristics.AddFlat(buffs);
+            _characteristics.AddPercent(buffs);
         }
 
+        foreach (var debuffs in _activeDeBuffList.Values)
+        {
+            _characteristics.NegateFlate(debuffs);
+            _characteristics.NegatePercent(debuffs);
+        }
         _characteristics.UpdateCharacteristicsList();
     }
 }

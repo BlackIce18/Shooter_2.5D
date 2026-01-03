@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a06976abebe1a448bebab895fbc4fcb, type: 3}
   m_Name: PlayerCharacteristics
   m_EditorClassIdentifier: Assembly-CSharp::BaseCharacteristicsData
-  characteristicsData:
+  _characteristicsData:
     health: 30
     attackMin: 1
     attackMax: 1
     attackRate: 1
     defence: 1
     speed: 0.9
-    attackDistance: 0
-    attackDelay: 0
+    attackDistance: 1
+    attackDelay: 1

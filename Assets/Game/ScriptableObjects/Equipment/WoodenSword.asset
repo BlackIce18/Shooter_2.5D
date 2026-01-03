@@ -23,11 +23,14 @@ MonoBehaviour:
   equipmentType: 8
   _itemStats:
     characteristicsData:
-      health: 0
-      attack: 1
+      health: 5
+      attackMin: 0
+      attackMax: 0
       attackRate: 1
       defence: 0
       speed: 0
       attackDistance: 0
       attackDelay: 0
     requiredClass: 0
+  _equipAudioClip: {fileID: 0}
+  _unEquipAudioClip: {fileID: 0}
