@@ -20,13 +20,16 @@ public class WindowUICommand : KeyCommand
             if (_canvasGroup.alpha == 1)
             {
                 _canvasGroup.alpha = 0;
+                _canvasGroup.blocksRaycasts = false;
                 if (_setFullPause)
                     Time.timeScale = _originalTimeScale;
             }
             else
             {
+                _canvasGroup.blocksRaycasts = true;
                 _canvasGroup.alpha = 1;
-                Time.timeScale = 0;
+                if (_setFullPause)
+                    Time.timeScale = 0;
             }
             return;
         }

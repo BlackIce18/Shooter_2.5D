@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InteractCommand : KeyCommand
+public class InteractInventroryCommand : KeyCommand
 {
     [SerializeField] private GameObject _interactUI;
     public override void Execute()

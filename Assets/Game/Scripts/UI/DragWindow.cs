@@ -18,8 +18,6 @@ public class DragWindow : MonoBehaviour, IPointerDownHandler, IDragHandler
             eventData.pressEventCamera,
             out _offset
         );
-        
-        Debug.Log("Pointer down");
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -31,6 +29,5 @@ public class DragWindow : MonoBehaviour, IPointerDownHandler, IDragHandler
             out var pos
         );
         _rectWindow.localPosition = pos - _offset;
-        Debug.Log("Pointer drag");
     }
 }
