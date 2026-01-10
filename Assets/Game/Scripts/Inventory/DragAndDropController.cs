@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
@@ -26,28 +27,57 @@ public class DragAndDropController : MonoBehaviour
         Instance = this;
         _ghostImage.gameObject.SetActive(false);
     }
+    public InventoryGrid GetGridUnderPointer(Vector2 screenPos)
+    {
+        var ev = new PointerEventData(EventSystem.current) { position = screenPos };
+        var results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(ev,results);
+        foreach (var result in results)
+        {
+            if (result.gameObject.TryGetComponent(out InventoryGrid grid))
+            {
+                return grid;
+            }
 
+            var parentGrid = result.gameObject.GetComponentInParent<InventoryGrid>();
+            if (parentGrid != null) return parentGrid;
+        }
+        return null;
+    }
     public void OnDragUpdate(Vector2 screenPos)
     {
+        Debug.Log("IsDragging:"+_isDragging);
         if (!_isDragging) return;
         
         _ghostImage.transform.position = screenPos;
-        InventoryCell cell = _grid.GetCellUnderPointer(screenPos);
-        if (cell == null)
+        
+        var newGrid = GetGridUnderPointer(screenPos);
+        
+        if (_grid != newGrid)
         {
-            _grid.ClearAllHighlights();
-            return;
+            _grid?.ClearAllHighlights();
+            _grid = newGrid;
         }
 
-        Vector2Int startPos = cell.position;
-        startPos.x = Mathf.Clamp(startPos.x, 0, _grid.Size.x - _draggedItem.CurrentSize.x);
-        startPos.y = Mathf.Clamp(startPos.y, 0, _grid.Size.y - _draggedItem.CurrentSize.y);
-        _grid.HighlightArea(cell.position, _draggedItem.CurrentSize);
+        if (_grid)
+        {
+            InventoryCell cell = _grid.GetCellUnderPointer(screenPos);
+            if (cell == null)
+            {
+                _grid.ClearAllHighlights();
+                return;
+            }
+
+            Vector2Int startPos = cell.position;
+            startPos.x = Mathf.Clamp(startPos.x, 0, _grid.Size.x - _draggedItem.CurrentSize.x);
+            startPos.y = Mathf.Clamp(startPos.y, 0, _grid.Size.y - _draggedItem.CurrentSize.y);
+
+            _grid.HighlightArea(cell.position, _draggedItem.CurrentSize);
+        }
     }
 
     public void StartDrag(InventoryItemUI item)
     {
-        Debug.Log("Start drag");
         if (item == null) return;
 
         _draggedItem = item;
@@ -73,8 +103,9 @@ public class DragAndDropController : MonoBehaviour
         }
 
         Vector2 mousePos = Input.mousePosition;
-        InventoryCell cell = _grid.GetCellUnderPointer(mousePos);
+        if (_grid == null) _grid = _originGrid;
 
+        InventoryCell cell = _grid.GetCellUnderPointer(mousePos);
         if (cell == null)
         {
             if (_grid.TryFindSpace(_draggedItem.CurrentSize, out var freePos))
@@ -126,6 +157,7 @@ public class DragAndDropController : MonoBehaviour
     {
         _ghostImage.gameObject.SetActive(false);
         _grid.ClearAllHighlights();
+        _originGrid.ClearAllHighlights();
         _draggedItem = null;
         _originGrid = null;
         _isDragging = false;

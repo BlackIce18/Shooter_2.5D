@@ -147,7 +147,7 @@ public class InventoryGrid : MonoBehaviour
 
         avg /= item.OccupiedCells.Count;
         item.Rect.position = avg;
-        item.Rect.SetParent(itemsContainer, false);
+        item.Rect.SetParent(itemsContainer, true);
     }
 
     public InventoryCell GetCellUnderPointer(Vector2 screenPos)

@@ -14,7 +14,6 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 _targetPosition;
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private AttackHitbox _hitbox;
-    private bool _canAttack = true;
     [SerializeField] private float _timeBetweenAttack = 0.2f;
     private float _currentTimeBetweenAttack = 0;
     [SerializeField] private float _dashResetTime = 0.2f;
@@ -34,15 +33,16 @@ public class PlayerAttack : MonoBehaviour
         _hitbox.gameObject.SetActive(false);
         _currentTimeBetweenAttack = 0;
         _hitbox.OnHit += HandleHit;
+        PlayerSystems.instance.CanAttack = true;
     }
     private void Update()
     {
         if (_currentTimeBetweenAttack <= 0)
         {
-            if (_mouse.leftButton.wasPressedThisFrame && _canAttack)
+            if (_mouse.leftButton.wasPressedThisFrame && PlayerSystems.instance.CanAttack)
             {
                 Attack();
-                _canAttack = false;
+                PlayerSystems.instance.CanAttack = false;
                 _animator.SetTrigger("IsAttack");
                 _animator.SetBool("IsAttacking", true);
                 _animator.SetFloat("AttackNumber", _attackNumber);
@@ -97,7 +97,7 @@ public class PlayerAttack : MonoBehaviour
         _animator.SetBool("IsAttacking", false); 
         _hitbox.gameObject.SetActive(false);
         yield return new WaitForSeconds(_timeBetweenAttack - 0.25f);
-        _canAttack = true;
+        PlayerSystems.instance.CanAttack = true;
         _animator.ResetTrigger("IsAttack");
 
         _currentTimeBetweenAttack = _timeBetweenAttack;

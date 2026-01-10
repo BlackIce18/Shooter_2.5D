@@ -42,56 +42,64 @@ public class PlayerController : MonoBehaviour
         _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         
         _camera = Camera.main;
+        PlayerSystems.instance.CanMove = true;
     }
 
     private void FixedUpdate()
     {
-        _inputDirection = _playerInput.actions["Move"].ReadValue<Vector2>();
-        Vector3 moveDir = new Vector3(_inputDirection.x, 0f, _inputDirection.y).normalized;
-        _targetVelocity = moveDir * characteristics.Current.speed;
-        Debug.DrawLine(_rigidbody.position, _rigidbody.position + _currentVelocity, Color.red);
-        _currentVelocity = Vector3.MoveTowards(_currentVelocity, _targetVelocity, (_targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.fixedDeltaTime);
-        
-        Vector3 _nextPos = _rigidbody.position + _currentVelocity * Time.fixedDeltaTime;
-        Collider[] hits = Physics.OverlapCapsule(
-            _nextPos + Vector3.up * 0.5f,
-            _nextPos + Vector3.up * (_playerHeight - 0.5f),
-            _playerRadius,
-            _collisionMask
-        );
-
-        foreach (var hit in hits)
+        if (PlayerSystems.instance.CanMove)
         {
-            if (Physics.ComputePenetration(
-                    _collider, _nextPos, transform.rotation,
-                    hit, hit.transform.position, hit.transform.rotation,
-                    out Vector3 dir, out float dist))
+            _inputDirection = _playerInput.actions["Move"].ReadValue<Vector2>();
+            Vector3 moveDir = new Vector3(_inputDirection.x, 0f, _inputDirection.y).normalized;
+            _targetVelocity = moveDir * characteristics.Current.speed;
+            Debug.DrawLine(_rigidbody.position, _rigidbody.position + _currentVelocity, Color.red);
+            _currentVelocity = Vector3.MoveTowards(_currentVelocity, _targetVelocity,
+                (_targetVelocity.magnitude > 0 ? _acceleration : _deceleration) * Time.fixedDeltaTime);
+
+            Vector3 _nextPos = _rigidbody.position + _currentVelocity * Time.fixedDeltaTime;
+            Collider[] hits = Physics.OverlapCapsule(
+                _nextPos + Vector3.up * 0.5f,
+                _nextPos + Vector3.up * (_playerHeight - 0.5f),
+                _playerRadius,
+                _collisionMask
+            );
+
+            foreach (var hit in hits)
             {
-                _nextPos += dir * dist;
+                if (Physics.ComputePenetration(
+                        _collider, _nextPos, transform.rotation,
+                        hit, hit.transform.position, hit.transform.rotation,
+                        out Vector3 dir, out float dist))
+                {
+                    _nextPos += dir * dist;
+                }
             }
-        }
-        _rigidbody.MovePosition(_nextPos);
-        
-        bool isMoving = _currentVelocity.sqrMagnitude > 0.001f;
-        _animator.SetBool("IsWalking", isMoving);
-        
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Vector2 mouseDirection = _camera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y, _camera.transform.position.z * -1)) - Vector3.one / 2;
-        mouseDirection.Normalize();
 
-        Vector2 direction = Vector2.zero;
-        if (!mouseDirection.Equals(Vector2.zero) && !isMoving)
-        {
-            direction = mouseDirection;
-            AnimatorRotateSprite(new Vector2(Mathf.Round(mouseDirection.x), Mathf.Round(mouseDirection.y)));
+            _rigidbody.MovePosition(_nextPos);
+
+            bool isMoving = _currentVelocity.sqrMagnitude > 0.001f;
+            _animator.SetBool("IsWalking", isMoving);
+
+            Vector2 mousePosition = Mouse.current.position.ReadValue();
+            Vector2 mouseDirection =
+                _camera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y,
+                    _camera.transform.position.z * -1)) - Vector3.one / 2;
+            mouseDirection.Normalize();
+
+            Vector2 direction = Vector2.zero;
+            if (!mouseDirection.Equals(Vector2.zero) && !isMoving)
+            {
+                direction = mouseDirection;
+                AnimatorRotateSprite(new Vector2(Mathf.Round(mouseDirection.x), Mathf.Round(mouseDirection.y)));
+            }
+            else if (isMoving)
+            {
+                direction = new Vector2(_currentVelocity.x, _currentVelocity.z);
+            }
+
+            _dashDirection = direction;
+            AnimatorRotateSprite(direction);
         }
-        else if (isMoving)
-        {
-            direction = new Vector2(_currentVelocity.x, _currentVelocity.z);
-        }
-        
-        _dashDirection = direction;
-        AnimatorRotateSprite(direction);
     }
 
     private void AnimatorRotateSprite(Vector2 direction)

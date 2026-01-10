@@ -23,6 +23,9 @@ public class WindowUICommand : KeyCommand
                 _canvasGroup.blocksRaycasts = false;
                 if (_setFullPause)
                     Time.timeScale = _originalTimeScale;
+
+                PlayerSystems.instance.CanAttack = true;
+                PlayerSystems.instance.CanMove = true;
             }
             else
             {
@@ -30,6 +33,9 @@ public class WindowUICommand : KeyCommand
                 _canvasGroup.alpha = 1;
                 if (_setFullPause)
                     Time.timeScale = 0;
+                
+                PlayerSystems.instance.CanAttack = false;
+                PlayerSystems.instance.CanMove = false;
             }
             return;
         }
@@ -51,10 +57,14 @@ public class WindowUICommand : KeyCommand
     public void CloseWindow()
     {
         _window.gameObject.SetActive(false);
+        PlayerSystems.instance.CanAttack = true;
+        PlayerSystems.instance.CanMove = true;
     }
 
     public void OpenWindow()
     {
         _window.gameObject.SetActive(true);
+        PlayerSystems.instance.CanAttack = false;
+        PlayerSystems.instance.CanMove = false;
     }
 }
