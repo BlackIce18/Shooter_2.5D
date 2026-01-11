@@ -91,3 +91,50 @@ public struct PickUpItemEvent
         ItemBaseScriptableObject = itemBase;
     }
 }
+
+public struct AddXpEvent
+{
+    public int xp;
+    public AddXpEvent(int xp)
+    {
+        this.xp = xp;
+    }
+}
+public struct SubXpEvent
+{
+    public int xp;
+    public SubXpEvent(int xp)
+    {
+        this.xp = xp;
+    }
+}
+
+public struct LvlUpEvent
+{
+    public int lvl;
+    public LvlUpEvent(int lvl)
+    {
+        this.lvl = lvl;
+    }
+}
+
+public struct LvlDownEvent
+{
+    public int lvl;
+    public LvlDownEvent(int lvl)
+    {
+        this.lvl = lvl;
+    }
+}
+
+public struct UpdateLvlXpEvent
+{
+    public int lvl;
+    public int xp;
+
+    public UpdateLvlXpEvent(int lvl, int xp)
+    {
+        this.lvl = lvl;
+        this.xp = xp;
+    }
+}
