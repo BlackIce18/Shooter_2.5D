@@ -8,6 +8,7 @@ public class MoveTo : MonoBehaviour
     [SerializeField] private Characteristics _characteristics;
     private Transform _goal;
     private NavMeshAgent agent;
+    private Vector3 _lastTargetPos;
     public Transform Goal
     {
         get => _goal;
@@ -28,16 +29,30 @@ public class MoveTo : MonoBehaviour
     public void Move(Transform goal)
     {
         if (goal == null) Debug.Log("Goal null");
-        agent.destination = goal.position;
+        SetDestinationSafe(goal.position);
     }
 
     public void MoveToPoint(Vector3 position)
     {
-        agent.destination = position;
+        SetDestinationSafe(position);
+    }
+    private void SetDestinationSafe(Vector3 position)
+    {
+        if (!agent || !agent.enabled || !agent.isOnNavMesh)
+            return;
+
+        agent.SetDestination(position);
     }
     private void Update()
     {
-        if(_goal)
-            Move(_goal);
+        if (!_goal || !agent.enabled || !agent.isOnNavMesh)
+            return;
+        
+        if ((_goal.position - _lastTargetPos).sqrMagnitude > 0.01f)
+        {
+            _lastTargetPos = _goal.position;
+            SetDestinationSafe(_lastTargetPos);
+        }
+        
     }
 }
