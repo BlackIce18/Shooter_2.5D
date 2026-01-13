@@ -5,8 +5,8 @@ using UnityEngine.Serialization;
 
 public class AttackHitbox : MonoBehaviour
 {
-    public event System.Action<HealthHandler> OnHit;
-    private HashSet<HealthHandler> _hitTargets = new HashSet<HealthHandler>();
+    public event System.Action<HealthComponent> OnHit;
+    private HashSet<HealthComponent> _hitTargets = new HashSet<HealthComponent>();
     [SerializeField] private TargetType _ownerTargetType;
     [SerializeField] private TargetType[] _canDamage;
 
@@ -14,17 +14,18 @@ public class AttackHitbox : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out HealthHandler target))
+        if(!other.TryGetComponent(out DamageReceiver target)) return;
+        Debug.Log(_canDamage.Contains(target.TargetType));
+        if(!_canDamage.Contains(target.TargetType)) return;
+        
+        if (!other.TryGetComponent(out HealthComponent healthComponent)) return;
+        
+        if(!_canDamage.Contains(target.TargetType)) {return;}
+        
+        if (!_hitTargets.Contains(healthComponent))
         {
-            if(target.TargetType == _ownerTargetType) {return;}
-            
-            if(!_canDamage.Contains(target.TargetType)) {return;}
-            
-            if (!_hitTargets.Contains(target))
-            {
-                _hitTargets.Add(target);
-                OnHit?.Invoke(target);
-            }
+            _hitTargets.Add(healthComponent);
+            OnHit?.Invoke(healthComponent);
         }
     }
 }

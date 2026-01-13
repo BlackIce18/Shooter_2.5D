@@ -55,7 +55,7 @@ public class WarriorEnemy : EnemyFSM
         _animator.SetBool("IsAttacking", false);
     }
     
-    private void HandleHit(HealthHandler target)
+    private void HandleHit(HealthComponent target)
     {
         EventBus.Publish(new DamageEvent(target.gameObject, characteristics.Current.attackMin, Vector3.zero));
     }

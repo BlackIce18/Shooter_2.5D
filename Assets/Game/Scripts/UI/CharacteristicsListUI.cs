@@ -12,14 +12,20 @@ public class CharacteristicsListUI : KeyCommand
     
     private void OnEnable()
     {
-        EventBus.Subscribe<EquipEvent>(EquipEvent);
-        EventBus.Subscribe<UnequipEvent>(UnequipEvent);
+        EventBus.Subscribe<RecalculateCharacteristicsEvent>(RecalculateCharacteristicsEvent);
+       /* EventBus.Subscribe<EquipEvent>(EquipEvent);
+        EventBus.Subscribe<UnequipEvent>(UnequipEvent);*/
     }
 
     private void OnDisable()
     {
-        EventBus.Unsubscribe<EquipEvent>(EquipEvent);
-        EventBus.Unsubscribe<UnequipEvent>(UnequipEvent);
+        EventBus.Unsubscribe<RecalculateCharacteristicsEvent>(RecalculateCharacteristicsEvent);
+        /*EventBus.Unsubscribe<EquipEvent>(EquipEvent);
+        EventBus.Unsubscribe<UnequipEvent>(UnequipEvent);*/
+    }
+    private void RecalculateCharacteristicsEvent(RecalculateCharacteristicsEvent e)
+    {
+        UpdateCharacteristics();
     }
     private void EquipEvent(EquipEvent equipEvent) { UpdateCharacteristics();}
     private void UnequipEvent(UnequipEvent unequipEvent) { UpdateCharacteristics(); }

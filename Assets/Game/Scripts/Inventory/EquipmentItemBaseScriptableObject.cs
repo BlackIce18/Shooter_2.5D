@@ -5,7 +5,8 @@ using UnityEngine;
 [Serializable]
 public struct ItemStats
 {
-    public CharacteristicsData characteristicsData;
+    public CharacteristicsData flatCharacteristics;
+    public CharacteristicsData percentCharacteristics;
     public int requiredClass;
 }
 [CreateAssetMenu(menuName = "Items/Equipment")]

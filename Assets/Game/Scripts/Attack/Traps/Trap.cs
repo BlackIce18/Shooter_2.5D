@@ -27,7 +27,7 @@ public abstract class Trap : MonoBehaviour
             _attackCooldownTimer -= Time.deltaTime;
     }
 
-    protected abstract void PerformAttack(HealthHandler target);
+    protected abstract void PerformAttack(HealthComponent target);
 
 
     protected virtual void Activate()
@@ -35,7 +35,7 @@ public abstract class Trap : MonoBehaviour
         if(_animator)
             _animator.SetTrigger("IsAttack");
     }
-    private void OnHitHandler(HealthHandler target)
+    private void OnHitHandler(HealthComponent target)
     {
         Debug.Log(CanAttack);
         if (!CanAttack) return;
@@ -54,7 +54,7 @@ public abstract class Trap : MonoBehaviour
 
 public class CycledTrap : Trap
 {
-    protected override void PerformAttack(HealthHandler target)
+    protected override void PerformAttack(HealthComponent target)
     {
         
     }
@@ -64,7 +64,7 @@ public class BumpingTrap : Trap
 {
     [SerializeField] private AttackHitbox _attackHitbox;
 
-    protected override void PerformAttack(HealthHandler target)
+    protected override void PerformAttack(HealthComponent target)
     {
         
     }

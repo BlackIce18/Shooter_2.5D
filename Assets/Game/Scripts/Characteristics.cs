@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // Общие характеристики для существ/предметов
@@ -29,9 +30,13 @@ public class Characteristics : MonoBehaviour
     public CharacteristicsData Current => _current;
     public Dictionary<string, float> CharacteristicsList = new();
     
-
+    private readonly List<CharacteristicsData> _flatAdditions = new();
+    private readonly List<CharacteristicsData> _percentAdditions = new();
+    private readonly List<CharacteristicsData> _flatSubtraction = new();
+    private readonly List<CharacteristicsData> _percentSubtraction = new();
     private void Awake()
     {
+        ResetToBase();
         CharacteristicsList.Add("health", _current.health);
         CharacteristicsList.Add("attackMin", _current.attackMin);
         CharacteristicsList.Add("attackMax", _current.attackMax);
@@ -40,8 +45,60 @@ public class Characteristics : MonoBehaviour
         CharacteristicsList.Add("speed", _current.speed);
         CharacteristicsList.Add("attackDistance", _current.attackDistance);
         CharacteristicsList.Add("attackDelay", _current.attackDelay);
-        
+        UpdateCharacteristicsList();
+    }
+    public void ClearModifiers()
+    {
+        _flatAdditions.Clear();
+        _percentAdditions.Clear();
+        _flatSubtraction.Clear();
+        _percentSubtraction.Clear();
+    }
+    public void RegisterFlat(CharacteristicsData data)
+    {
+        _flatAdditions.Add(data);
+    }
+    public void RegisterPercent(CharacteristicsData data)
+    {
+        _percentAdditions.Add(data);
+    }
+
+    public void RegisterSubFlat(CharacteristicsData data)
+    {
+        _flatSubtraction.Add(data);
+    }
+
+    public void RegisterSubPrecrent(CharacteristicsData data)
+    {
+        _percentSubtraction.Add(data);
+    }
+    public void Recalculate()
+    {
         ResetToBase();
+
+        foreach (var flat in _flatAdditions)
+        {
+            Debug.Log("F:"+flat.health);
+            AddFlat(flat);
+        }
+        foreach (var flat in _flatSubtraction)
+        {
+            Debug.Log("F:"+flat.health);
+            Negate(flat);
+        }
+        foreach (var percent in _percentAdditions)
+        {
+            Debug.Log("P:"+percent.health);
+            AddPercent(percent);
+        }
+        
+        foreach (var percent in _percentSubtraction)
+        {
+            Debug.Log("P:"+percent.health);
+            NegatePercent(percent);
+        }
+
+        UpdateCharacteristicsList();
     }
 
     public void UpdateCharacteristicsList()
@@ -70,7 +127,6 @@ public class Characteristics : MonoBehaviour
         _current.defenceResistance = _base.characteristics.defenceResistance;
         _current.fireResistance = _base.characteristics.fireResistance;
         _current.critResistance = _base.characteristics.critResistance;*/
-        UpdateCharacteristicsList();
     }
     
     public void AddFlat(CharacteristicsData data)
@@ -85,7 +141,20 @@ public class Characteristics : MonoBehaviour
 
         UpdateCharacteristicsList();
     }
-    
+    public CharacteristicsData Multiply(CharacteristicsData data, int stacks)
+    {
+        return new CharacteristicsData
+        {
+            health = data.health * stacks,
+            attackMin = data.attackMin * stacks,
+            attackMax = data.attackMax * stacks,
+            attackRate = data.attackRate * stacks,
+            defence = data.defence * stacks,
+            speed = data.speed * stacks,
+            attackDistance = data.attackDistance * stacks,
+            attackDelay = data.attackDelay * stacks
+        };
+    }
     public void Negate(CharacteristicsData data)
     {
         Current.health -= data.health;
@@ -103,7 +172,7 @@ public class Characteristics : MonoBehaviour
     {
         var data = activeBuff.buff.flatPerStack;
         int stacks = activeBuff.stacks;
-
+    
         Current.health += data.health * stacks;
         Current.attackMin += data.attackMin * stacks;
         Current.attackMax += data.attackMax * stacks;
@@ -112,23 +181,49 @@ public class Characteristics : MonoBehaviour
         Current.speed += data.speed * stacks;
         Current.attackDelay += data.attackDelay * stacks;
     }
-    public void NegateFlate(ActiveBuff activeBuff)
-    {
-        var data = activeBuff.buff.flatPerStack;
-        int stacks = activeBuff.stacks;
-        
-        Current.health -= data.health * stacks;
-        Current.attackMin -= data.attackMin * stacks;
-        Current.attackMax -= data.attackMax * stacks;
-        Current.attackRate -= data.attackRate * stacks;
-        Current.defence -= data.defence * stacks;
-        Current.speed -= data.speed * stacks;
-        Current.attackDelay -= data.attackDelay * stacks;
-    }
-    public void AddPercent(ActiveBuff activeBuff)
+
+    // public void NegateFlate(ActiveBuff activeBuff)
+    // {
+    //     var data = activeBuff.buff.flatPerStack;
+    //     int stacks = activeBuff.stacks;
+    //     
+    //     Current.health -= data.health * stacks;
+    //     Current.attackMin -= data.attackMin * stacks;
+    //     Current.attackMax -= data.attackMax * stacks;
+    //     Current.attackRate -= data.attackRate * stacks;
+    //     Current.defence -= data.defence * stacks;
+    //     Current.speed -= data.speed * stacks;
+    //     Current.attackDelay -= data.attackDelay * stacks;
+    // }
+    // public void AddPercent(ActiveBuff activeBuff)
+    // { 
+    //     var data = activeBuff.buff.percentValueModifier;
+    //     int stacks = activeBuff.stacks;
+    //
+    //     Current.health += Current.health * data.health * stacks / 100;
+    //     Current.attackMin += Current.attackMin * data.attackMin * stacks / 100;
+    //     Current.attackMax += Current.attackMax * data.attackMax * stacks / 100;
+    //     Current.attackRate += Current.attackRate * data.attackRate * stacks / 100;
+    //     Current.defence += Current.defence * data.defence * stacks / 100;
+    //     Current.speed += Current.speed * data.speed * stacks / 100;
+    //     Current.attackDelay += Current.attackDelay * data.attackDelay * stacks / 100;
+    // }
+    // public void NegatePercent(ActiveBuff activeBuff)
+    // {
+    //     var data = activeBuff.buff.percentValueModifier;
+    //     int stacks = activeBuff.stacks;
+    //     
+    //     Current.health -= Current.health * data.health * stacks / 100;
+    //     Current.attackMin -= Current.attackMin * data.attackMin * stacks / 100;
+    //     Current.attackMax -= Current.attackMax * data.attackMax * stacks / 100;
+    //     Current.attackRate -= Current.attackRate * data.attackRate * stacks / 100;
+    //     Current.defence -= Current.defence * data.defence * stacks / 100;
+    //     Current.speed -= Current.speed * data.speed * stacks / 100;
+    //     Current.attackDelay -= Current.attackDelay * data.attackDelay * stacks / 100;
+    // }
+    public void AddPercent(CharacteristicsData data)
     { 
-        var data = activeBuff.buff.percentValueModifier;
-        int stacks = activeBuff.stacks;
+        int stacks = 1;
 
         Current.health += Current.health * data.health * stacks / 100;
         Current.attackMin += Current.attackMin * data.attackMin * stacks / 100;
@@ -138,10 +233,9 @@ public class Characteristics : MonoBehaviour
         Current.speed += Current.speed * data.speed * stacks / 100;
         Current.attackDelay += Current.attackDelay * data.attackDelay * stacks / 100;
     }
-    public void NegatePercent(ActiveBuff activeBuff)
+    public void NegatePercent(CharacteristicsData data)
     {
-        var data = activeBuff.buff.percentValueModifier;
-        int stacks = activeBuff.stacks;
+        int stacks = 1;
         
         Current.health -= Current.health * data.health * stacks / 100;
         Current.attackMin -= Current.attackMin * data.attackMin * stacks / 100;

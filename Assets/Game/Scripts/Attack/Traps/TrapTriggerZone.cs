@@ -18,7 +18,7 @@ public class TrapTriggerZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.TryGetComponent(out HealthHandler target)) return;
+        if(!other.TryGetComponent(out DamageReceiver target)) return;
         if(!_canActivate.Contains(target.TargetType)) return;
 
         if (_activationDelay > 0)

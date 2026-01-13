@@ -5,11 +5,11 @@ public class BurnEffect : Effects
     [SerializeField] private float _tickInterval = 1f;
     [SerializeField] private float _damagePerSecond = 1f;
     private float _tickTimer;
-    private HealthHandler _target;
+    private HealthComponent _target;
     protected override void OnApply()
     {
         _tickTimer = _tickInterval;
-        _target = Owner.GetComponent<HealthHandler>();
+        _target = Owner.GetComponent<HealthComponent>();
     }
 
     protected override void OnUpdate(float deltaTime)

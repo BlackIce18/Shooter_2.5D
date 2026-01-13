@@ -138,3 +138,5 @@ public struct UpdateLvlXpEvent
         this.xp = xp;
     }
 }
+
+public struct RecalculateCharacteristicsEvent{ }

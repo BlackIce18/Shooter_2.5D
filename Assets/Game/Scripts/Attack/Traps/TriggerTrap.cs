@@ -19,7 +19,7 @@ public class TriggerTrap : Trap
         Invoke(nameof(Deactivate), _activeDuration);
     }
 
-    protected override void PerformAttack(HealthHandler target)
+    protected override void PerformAttack(HealthComponent target)
     {
         EventBus.Publish(new DamageEvent(target.gameObject, _damage, transform.position));
     }

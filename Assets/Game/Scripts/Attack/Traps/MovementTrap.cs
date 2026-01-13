@@ -13,7 +13,7 @@ public class MovementTrap : Trap
         _agent.Goal = _patrol.CurrentPoint;
         _patrol.MoveBetweenPoints();
     }
-    protected override void PerformAttack(HealthHandler target)
+    protected override void PerformAttack(HealthComponent target)
     {
         EventBus.Publish(new DamageEvent(target.gameObject, _damage, Vector3.zero));
     }

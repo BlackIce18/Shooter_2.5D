@@ -48,8 +48,8 @@ public class BuffDebuffController : MonoBehaviour
             {
                 activeBuffList.Remove(key);
             }
-            
             RecalculateStats();
+            EventBus.Publish(new RecalculateCharacteristicsEvent());
         }
     }
     public void Apply(Buff buff, Dictionary<string, ActiveBuff> buffList)
@@ -70,23 +70,31 @@ public class BuffDebuffController : MonoBehaviour
             
             buffList.Add(buff.name, newBuff);
         }
-        
         RecalculateStats();
+        EventBus.Publish(new RecalculateCharacteristicsEvent());
     }
-    private void RecalculateStats()
+    public void RecalculateStats()
     {
-        _characteristics.ResetToBase();
+        _characteristics.ClearModifiers();
+
         foreach (var buffs in _activeBuffList.Values)
         {
-            _characteristics.AddFlat(buffs);
-            _characteristics.AddPercent(buffs);
+            var flat = _characteristics.Multiply(buffs.buff.flatPerStack, buffs.stacks);
+            var percent = _characteristics.Multiply(buffs.buff.percentValueModifier, buffs.stacks);
+            
+            _characteristics.RegisterFlat(flat);
+            _characteristics.RegisterPercent(percent);
         }
 
         foreach (var debuffs in _activeDeBuffList.Values)
         {
-            _characteristics.NegateFlate(debuffs);
-            _characteristics.NegatePercent(debuffs);
+            var flat = _characteristics.Multiply(debuffs.buff.flatPerStack, debuffs.stacks);
+            var percent = _characteristics.Multiply(debuffs.buff.percentValueModifier, debuffs.stacks);
+            
+            _characteristics.RegisterSubFlat(flat);
+            _characteristics.RegisterSubPrecrent(percent);
         }
-        _characteristics.UpdateCharacteristicsList();
+        
+        //_characteristics.UpdateCharacteristicsList();
     }
 }

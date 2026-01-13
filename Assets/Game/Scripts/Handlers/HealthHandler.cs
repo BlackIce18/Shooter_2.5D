@@ -2,13 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public enum TargetType
-{
-    Enemy,
-    Player,
-    Destructible, // бочки, ящики, кусты
-    Neutral       // NPC
-}
+
 [RequireComponent(typeof(AudioData))]
 public class HealthHandler : MonoBehaviour
 {
@@ -43,8 +37,7 @@ public class HealthHandler : MonoBehaviour
     {
         if(e.target != gameObject) return;
         Health -= e.damage;
-        var animator = GetComponent<Animator>();
-        animator?.SetTrigger("WasAttacked");
+        _animator.SetTrigger("WasAttacked");
         EventBus.Publish(new SoundEvent(gameObject, _audioData.soundSet.hitSound));
         Debug.Log($"{Health} осталось хп");
     }

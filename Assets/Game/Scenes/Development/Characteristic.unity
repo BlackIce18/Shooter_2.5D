@@ -1921,6 +1921,24 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cea408ad8333089458f3055c1f4e53fe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1744174093}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cea408ad8333089458f3055c1f4e53fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1744174095}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cea408ad8333089458f3055c1f4e53fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1744174100}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cea408ad8333089458f3055c1f4e53fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1744174099}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cea408ad8333089458f3055c1f4e53fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1744174098}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cea408ad8333089458f3055c1f4e53fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1744174097}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cea408ad8333089458f3055c1f4e53fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1744174096}
   m_SourcePrefab: {fileID: 100100000, guid: cea408ad8333089458f3055c1f4e53fe, type: 3}
 --- !u!1 &216745250
 GameObject:
@@ -4744,9 +4762,11 @@ GameObject:
   - component: {fileID: 514221161}
   - component: {fileID: 514221160}
   - component: {fileID: 514221159}
-  - component: {fileID: 514221158}
   - component: {fileID: 514221157}
   - component: {fileID: 514221166}
+  - component: {fileID: 514221169}
+  - component: {fileID: 514221168}
+  - component: {fileID: 514221167}
   m_Layer: 0
   m_Name: Image
   m_TagString: Player
@@ -4785,22 +4805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190b6f2604ecdc74c8d7e07ac9bc0ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EffectsManager
---- !u!114 &514221158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 514221155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89bdf3f486d0e1c42bfa04d5800f189b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthHandler
-  _characteristics: {fileID: 894068952}
-  _animator: {fileID: 514221162}
-  _audioData: {fileID: 514221159}
-  _targetType: 1
 --- !u!114 &514221159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4951,6 +4955,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b423e7dd0ba23645a836ae141e355d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerWindInteractor
+--- !u!114 &514221167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514221155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec0a67da3f861b44aa0a0e753dd5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _characteristics: {fileID: 894068952}
+--- !u!114 &514221168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514221155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e89c193eeebfd24bb63145e4038ec82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
+  _targetType: 1
+  _healthComponent: {fileID: 514221167}
+--- !u!114 &514221169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514221155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2d5d7e39311da4c8c4af0d423967d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReaction
+  _animator: {fileID: 514221162}
+  _audio: {fileID: 514221159}
 --- !u!1 &514643232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5164,7 +5209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -951.4989, y: 531.4994}
+  m_AnchoredPosition: {x: -951.50006, y: 531.5}
   m_SizeDelta: {x: 3840, y: 2160}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &575709487
@@ -13897,8 +13942,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1306159534}
   m_HandleRect: {fileID: 1306159533}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.49212885
+  m_Value: 1
+  m_Size: 0.49212962
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -16887,8 +16932,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1196459482}
   m_HandleRect: {fileID: 1196459481}
   m_Direction: 0
-  m_Value: -0.00000056718267
-  m_Size: 0.4955722
+  m_Value: 0
+  m_Size: 0.49557292
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -17438,7 +17483,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 605338876}
   m_FillRect: {fileID: 142025106}
   m_HandleRect: {fileID: 605338875}
@@ -17888,7 +17933,6 @@ GameObject:
   - component: {fileID: 1716984474}
   - component: {fileID: 1716984473}
   - component: {fileID: 1716984472}
-  - component: {fileID: 1716984471}
   - component: {fileID: 1716984470}
   - component: {fileID: 1716984469}
   - component: {fileID: 1716984468}
@@ -17899,6 +17943,9 @@ GameObject:
   - component: {fileID: 1716984463}
   - component: {fileID: 1716984462}
   - component: {fileID: 1716984479}
+  - component: {fileID: 1716984482}
+  - component: {fileID: 1716984481}
+  - component: {fileID: 1716984480}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -18142,22 +18189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundHandler
   _source: {fileID: 1716984468}
---- !u!114 &1716984471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716984461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89bdf3f486d0e1c42bfa04d5800f189b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TakeDamageHandler
-  _characteristics: {fileID: 1716984472}
-  _animator: {fileID: 1716984467}
-  _audioData: {fileID: 1716984469}
-  _targetType: 0
 --- !u!114 &1716984472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18320,7 +18351,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InfoAboutObjectOnHover
   _infoData: {fileID: 11400000, guid: 921edcd6b2ac04444ae59127f3be0f92, type: 2}
-  InfoData: {fileID: 0}
+--- !u!114 &1716984480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716984461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2d5d7e39311da4c8c4af0d423967d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReaction
+  _animator: {fileID: 1716984467}
+  _audio: {fileID: 1716984469}
+--- !u!114 &1716984481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716984461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e89c193eeebfd24bb63145e4038ec82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
+  _targetType: 0
+  _healthComponent: {fileID: 1716984482}
+--- !u!114 &1716984482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716984461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec0a67da3f861b44aa0a0e753dd5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _characteristics: {fileID: 1716984472}
 --- !u!1 &1724008618
 GameObject:
   m_ObjectHideFlags: 0
@@ -18534,7 +18605,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InfoAboutObjectOnHover
   _infoData: {fileID: 11400000, guid: 626185e5b52960146a439e1a7b74a35c, type: 2}
-  InfoData: {fileID: 0}
 --- !u!136 &1744174093
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18558,6 +18628,95 @@ CapsuleCollider:
   m_Height: 0.25
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1744174095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744174091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24541d052d9e3f47b36441ca4ecd9ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioData
+  soundSet: {fileID: 0}
+--- !u!95 &1744174096
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744174091}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1744174097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744174091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2d5d7e39311da4c8c4af0d423967d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReaction
+  _animator: {fileID: 1744174096}
+  _audio: {fileID: 1744174095}
+--- !u!114 &1744174098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744174091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e89c193eeebfd24bb63145e4038ec82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
+  _targetType: 2
+  _healthComponent: {fileID: 1744174100}
+--- !u!114 &1744174099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744174091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb835c1802843a40844d182d5566a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Characteristics
+  _base: {fileID: 11400000, guid: 2d9ae0f856cb20a46a14931fe92170c2, type: 2}
+--- !u!114 &1744174100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744174091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec0a67da3f861b44aa0a0e753dd5cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _characteristics: {fileID: 1744174099}
 --- !u!1 &1774105718
 GameObject:
   m_ObjectHideFlags: 0

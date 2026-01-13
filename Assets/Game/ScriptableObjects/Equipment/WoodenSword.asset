@@ -22,11 +22,20 @@ MonoBehaviour:
   _requiredLevel: 1
   equipmentType: 8
   _itemStats:
-    characteristicsData:
+    flatCharacteristics:
       health: 5
+      attackMin: 1
+      attackMax: 0
+      attackRate: 0
+      defence: 0
+      speed: 0
+      attackDistance: 0
+      attackDelay: 0
+    percentCharacteristics:
+      health: 0
       attackMin: 0
       attackMax: 0
-      attackRate: 1
+      attackRate: 0
       defence: 0
       speed: 0
       attackDistance: 0

@@ -253,13 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3b384fc7c98a142a6f1bd1fc722cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  _speed: 5
-  _lifeTime: 5
-  _damage: 1
+  _bulletData: {fileID: 11400000, guid: 43057272e3fd4e44ab30966a945a8e0d, type: 2}
   _collider: {fileID: 7654966200956375849}
   _hitbox: {fileID: -4532945505227703520}
-  _acceleration: 10
-  _deceleration: 12
   isActive: 0
 --- !u!114 &-4532945505227703520
 MonoBehaviour:

@@ -33,9 +33,8 @@ public class Equipment
 }
 public class EquipmentManager : MonoBehaviour
 {
-    [SerializeField] private Characteristics characteristics;
+    [SerializeField] private Characteristics _characteristics;
     [SerializeField] private List<Equipment> _currentEquipmentList;
-    [SerializeField] private Equipment _equipmentTest;
     
     private void Awake()
     {
@@ -76,9 +75,9 @@ public class EquipmentManager : MonoBehaviour
         TryUnEquipItem(type, newItemBaseScriptableObject);
 
         Equipment newEquipment = new(type, newItemBaseScriptableObject);
-
-        EquipItem(newEquipment.itemBaseScriptableObject);
         _currentEquipmentList.Add(newEquipment);
+
+        //EquipItem(newEquipment.itemBaseScriptableObject);
         
         EventBus.Publish(new EquipEvent(type, newItemBaseScriptableObject));
         EventBus.Publish(new SoundEvent(this.gameObject, newItemBaseScriptableObject.EquipSound));
@@ -88,40 +87,29 @@ public class EquipmentManager : MonoBehaviour
     public void TryUnEquipItem(EquipmentType type, EquipmentItemBaseScriptableObject itemBaseScriptableObject)
     {
         var sameSlot = _currentEquipmentList.Find(e => e.type == type);
-        if (sameSlot != null)
-        {
-            if (sameSlot.itemBaseScriptableObject != null)
-            {
-                Debug.Log("Unequip");
-                // Move to Inventory
-                UnequipItem(sameSlot.itemBaseScriptableObject);
-                EventBus.Publish(new UnequipEvent(sameSlot.type, sameSlot.itemBaseScriptableObject));
-                EventBus.Publish(new SoundEvent(this.gameObject, sameSlot.itemBaseScriptableObject.UnEquipSound));
-                sameSlot.itemBaseScriptableObject = null;
-            }
+        if (sameSlot == null) return;
 
-            UpdateCharacteristics();
-            _currentEquipmentList.Remove(sameSlot);
-        }
+        var item = sameSlot.itemBaseScriptableObject;
+        _currentEquipmentList.Remove(sameSlot);
+        
+        UpdateCharacteristics();
+        if (item == null) return;
+        EventBus.Publish(new UnequipEvent(sameSlot.type, sameSlot.itemBaseScriptableObject));
+        EventBus.Publish(new SoundEvent(this.gameObject, sameSlot.itemBaseScriptableObject.UnEquipSound));
     }
     
     public void UpdateCharacteristics()
     {
-        characteristics.ResetToBase();
+        _characteristics.ClearModifiers();
+        
         foreach (var eq in _currentEquipmentList)
         {
             if(eq.itemBaseScriptableObject == null) continue;
-            EquipItem(eq.itemBaseScriptableObject);
+            
+            _characteristics.RegisterFlat(eq.itemBaseScriptableObject.ItemStats.flatCharacteristics);
+            _characteristics.RegisterPercent(eq.itemBaseScriptableObject.ItemStats.percentCharacteristics);
         }
-    }
-
-    private void EquipItem(EquipmentItemBaseScriptableObject equipment)
-    {
-        Debug.Log(equipment.ItemStats.characteristicsData.health);
-        characteristics.AddFlat(equipment.ItemStats.characteristicsData);
-    }
-    public void UnequipItem(EquipmentItemBaseScriptableObject equipment)
-    {
-        characteristics.Negate(equipment.ItemStats.characteristicsData);
+        
+        _characteristics.Recalculate();
     }
 }

@@ -14,7 +14,7 @@ public class ShootingTrap : Trap
             _attackCooldownTimer = _attackRate;
         }
     }
-    protected override void PerformAttack(HealthHandler target)
+    protected override void PerformAttack(HealthComponent target)
     {
         
     }

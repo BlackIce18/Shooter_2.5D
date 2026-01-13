@@ -76,7 +76,7 @@ public class Bullet : MonoBehaviour
         else
             transform.position += _currentVelocity * Time.fixedDeltaTime;
     }
-    private void HandleHit(HealthHandler target)
+    private void HandleHit(HealthComponent target)
     {
         _objectPool.Release(this);
         EventBus.Publish(new DamageEvent(target.gameObject, _bulletData.damage, Vector3.zero));
