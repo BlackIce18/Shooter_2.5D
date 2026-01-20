@@ -8,6 +8,9 @@ using UnityEngine;
 public class CharacteristicsData
 {
     public float health;
+    public float healthMax;
+    public float mana;
+    public float manaMax;
     public float attackMin;
     public float attackMax;
     public float attackRate;
@@ -38,6 +41,9 @@ public class Characteristics : MonoBehaviour
     {
         ResetToBase();
         CharacteristicsList.Add("health", _current.health);
+        CharacteristicsList.Add("healthMax", _current.healthMax);
+        CharacteristicsList.Add("mana", _current.mana);
+        CharacteristicsList.Add("manaMax", _current.manaMax);
         CharacteristicsList.Add("attackMin", _current.attackMin);
         CharacteristicsList.Add("attackMax", _current.attackMax);
         CharacteristicsList.Add("attackRate", _current.attackRate);
@@ -78,24 +84,11 @@ public class Characteristics : MonoBehaviour
 
         foreach (var flat in _flatAdditions)
         {
-            Debug.Log("F:"+flat.health);
             AddFlat(flat);
-        }
-        foreach (var flat in _flatSubtraction)
-        {
-            Debug.Log("F:"+flat.health);
-            Negate(flat);
         }
         foreach (var percent in _percentAdditions)
         {
-            Debug.Log("P:"+percent.health);
             AddPercent(percent);
-        }
-        
-        foreach (var percent in _percentSubtraction)
-        {
-            Debug.Log("P:"+percent.health);
-            NegatePercent(percent);
         }
 
         UpdateCharacteristicsList();
@@ -104,6 +97,9 @@ public class Characteristics : MonoBehaviour
     public void UpdateCharacteristicsList()
     {
         CharacteristicsList["health"] = _current.health;
+        CharacteristicsList["healthMax"] = _current.healthMax;
+        CharacteristicsList["mana"] = _current.mana;
+        CharacteristicsList["manaMax"] = _current.manaMax;
         CharacteristicsList["attackMin"] = _current.attackMin;
         CharacteristicsList["attackMax"] = _current.attackMax;
         CharacteristicsList["attackRate"] = _current.attackRate;
@@ -116,6 +112,9 @@ public class Characteristics : MonoBehaviour
     public void ResetToBase()
     {
         _current.health = _base.CharacteristicsData.health;
+        _current.healthMax = _base.CharacteristicsData.healthMax;
+        _current.mana = _base.CharacteristicsData.mana;
+        _current.manaMax = _base.CharacteristicsData.manaMax;
         _current.attackMin = _base.CharacteristicsData.attackMin;
         _current.attackMax = _base.CharacteristicsData.attackMax;
         _current.attackRate = _base.CharacteristicsData.attackRate;
@@ -132,6 +131,9 @@ public class Characteristics : MonoBehaviour
     public void AddFlat(CharacteristicsData data)
     {
         Current.health += data.health;
+        Current.healthMax += data.healthMax;
+        Current.mana += data.mana;
+        Current.manaMax += data.manaMax;
         Current.attackMin += data.attackMin;
         Current.attackMax += data.attackMax;
         Current.attackRate += data.attackRate;
@@ -146,6 +148,9 @@ public class Characteristics : MonoBehaviour
         return new CharacteristicsData
         {
             health = data.health * stacks,
+            healthMax = data.healthMax * stacks,
+            mana = data.mana * stacks,
+            manaMax = data.manaMax * stacks,
             attackMin = data.attackMin * stacks,
             attackMax = data.attackMax * stacks,
             attackRate = data.attackRate * stacks,
@@ -155,94 +160,17 @@ public class Characteristics : MonoBehaviour
             attackDelay = data.attackDelay * stacks
         };
     }
-    public void Negate(CharacteristicsData data)
-    {
-        Current.health -= data.health;
-        Current.attackMin -= data.attackMin;
-        Current.attackMax -= data.attackMax;
-        Current.attackRate -= data.attackRate;
-        Current.defence -= data.defence;
-        Current.speed -= data.speed;
-        Current.attackDelay -= data.attackDelay;
-
-        UpdateCharacteristicsList();
-    }
-    
-        public void AddFlat(ActiveBuff activeBuff)
-    {
-        var data = activeBuff.buff.flatPerStack;
-        int stacks = activeBuff.stacks;
-    
-        Current.health += data.health * stacks;
-        Current.attackMin += data.attackMin * stacks;
-        Current.attackMax += data.attackMax * stacks;
-        Current.attackRate += data.attackRate * stacks;
-        Current.defence += data.defence * stacks;
-        Current.speed += data.speed * stacks;
-        Current.attackDelay += data.attackDelay * stacks;
-    }
-
-    // public void NegateFlate(ActiveBuff activeBuff)
-    // {
-    //     var data = activeBuff.buff.flatPerStack;
-    //     int stacks = activeBuff.stacks;
-    //     
-    //     Current.health -= data.health * stacks;
-    //     Current.attackMin -= data.attackMin * stacks;
-    //     Current.attackMax -= data.attackMax * stacks;
-    //     Current.attackRate -= data.attackRate * stacks;
-    //     Current.defence -= data.defence * stacks;
-    //     Current.speed -= data.speed * stacks;
-    //     Current.attackDelay -= data.attackDelay * stacks;
-    // }
-    // public void AddPercent(ActiveBuff activeBuff)
-    // { 
-    //     var data = activeBuff.buff.percentValueModifier;
-    //     int stacks = activeBuff.stacks;
-    //
-    //     Current.health += Current.health * data.health * stacks / 100;
-    //     Current.attackMin += Current.attackMin * data.attackMin * stacks / 100;
-    //     Current.attackMax += Current.attackMax * data.attackMax * stacks / 100;
-    //     Current.attackRate += Current.attackRate * data.attackRate * stacks / 100;
-    //     Current.defence += Current.defence * data.defence * stacks / 100;
-    //     Current.speed += Current.speed * data.speed * stacks / 100;
-    //     Current.attackDelay += Current.attackDelay * data.attackDelay * stacks / 100;
-    // }
-    // public void NegatePercent(ActiveBuff activeBuff)
-    // {
-    //     var data = activeBuff.buff.percentValueModifier;
-    //     int stacks = activeBuff.stacks;
-    //     
-    //     Current.health -= Current.health * data.health * stacks / 100;
-    //     Current.attackMin -= Current.attackMin * data.attackMin * stacks / 100;
-    //     Current.attackMax -= Current.attackMax * data.attackMax * stacks / 100;
-    //     Current.attackRate -= Current.attackRate * data.attackRate * stacks / 100;
-    //     Current.defence -= Current.defence * data.defence * stacks / 100;
-    //     Current.speed -= Current.speed * data.speed * stacks / 100;
-    //     Current.attackDelay -= Current.attackDelay * data.attackDelay * stacks / 100;
-    // }
     public void AddPercent(CharacteristicsData data)
     { 
-        int stacks = 1;
-
-        Current.health += Current.health * data.health * stacks / 100;
-        Current.attackMin += Current.attackMin * data.attackMin * stacks / 100;
-        Current.attackMax += Current.attackMax * data.attackMax * stacks / 100;
-        Current.attackRate += Current.attackRate * data.attackRate * stacks / 100;
-        Current.defence += Current.defence * data.defence * stacks / 100;
-        Current.speed += Current.speed * data.speed * stacks / 100;
-        Current.attackDelay += Current.attackDelay * data.attackDelay * stacks / 100;
-    }
-    public void NegatePercent(CharacteristicsData data)
-    {
-        int stacks = 1;
-        
-        Current.health -= Current.health * data.health * stacks / 100;
-        Current.attackMin -= Current.attackMin * data.attackMin * stacks / 100;
-        Current.attackMax -= Current.attackMax * data.attackMax * stacks / 100;
-        Current.attackRate -= Current.attackRate * data.attackRate * stacks / 100;
-        Current.defence -= Current.defence * data.defence * stacks / 100;
-        Current.speed -= Current.speed * data.speed * stacks / 100;
-        Current.attackDelay -= Current.attackDelay * data.attackDelay * stacks / 100;
+        Current.health += Current.health * data.health / 100;
+        Current.healthMax += Current.healthMax * data.healthMax / 100;
+        Current.mana += Current.mana * data.mana / 100;
+        Current.manaMax += Current.manaMax * data.manaMax / 100;
+        Current.attackMin += Current.attackMin * data.attackMin / 100;
+        Current.attackMax += Current.attackMax * data.attackMax / 100;
+        Current.attackRate += Current.attackRate * data.attackRate / 100;
+        Current.defence += Current.defence * data.defence / 100;
+        Current.speed += Current.speed * data.speed / 100;
+        Current.attackDelay += Current.attackDelay * data.attackDelay / 100;
     }
 }

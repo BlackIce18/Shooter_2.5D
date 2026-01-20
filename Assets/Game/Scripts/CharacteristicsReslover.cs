@@ -23,7 +23,7 @@ public class CharacteristicsReslover : MonoBehaviour
     {
         _characteristics.ClearModifiers();
         
-        _equipmentManager.UpdateCharacteristics();
+        _equipmentManager.RegisterModifiers();
         _buffDebuffController.RecalculateStats();
         
         _characteristics.Recalculate();

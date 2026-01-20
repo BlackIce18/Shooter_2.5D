@@ -29,7 +29,7 @@ public class HealthHandler : MonoBehaviour
             }
         }
     }
-    
+    /*
     private void OnEnable() => EventBus.Subscribe<DamageEvent>(OnTakeDamage);
     private void OnDisable() => EventBus.Unsubscribe<DamageEvent>(OnTakeDamage);
 
@@ -40,5 +40,5 @@ public class HealthHandler : MonoBehaviour
         _animator.SetTrigger("WasAttacked");
         EventBus.Publish(new SoundEvent(gameObject, _audioData.soundSet.hitSound));
         Debug.Log($"{Health} осталось хп");
-    }
+    }*/
 }

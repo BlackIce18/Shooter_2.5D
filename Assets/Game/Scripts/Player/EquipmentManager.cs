@@ -38,7 +38,7 @@ public class EquipmentManager : MonoBehaviour
     
     private void Awake()
     {
-        UpdateCharacteristics();
+        RegisterModifiers();
     }
 
     private void OnEnable()
@@ -78,10 +78,10 @@ public class EquipmentManager : MonoBehaviour
         _currentEquipmentList.Add(newEquipment);
 
         //EquipItem(newEquipment.itemBaseScriptableObject);
-        
         EventBus.Publish(new EquipEvent(type, newItemBaseScriptableObject));
         EventBus.Publish(new SoundEvent(this.gameObject, newItemBaseScriptableObject.EquipSound));
-        UpdateCharacteristics();
+        RegisterModifiers();
+        EventBus.Publish(new RecalculateCharacteristicsEvent());
     }
 
     public void TryUnEquipItem(EquipmentType type, EquipmentItemBaseScriptableObject itemBaseScriptableObject)
@@ -92,16 +92,15 @@ public class EquipmentManager : MonoBehaviour
         var item = sameSlot.itemBaseScriptableObject;
         _currentEquipmentList.Remove(sameSlot);
         
-        UpdateCharacteristics();
+        RegisterModifiers();
         if (item == null) return;
+        EventBus.Publish(new RecalculateCharacteristicsEvent());
         EventBus.Publish(new UnequipEvent(sameSlot.type, sameSlot.itemBaseScriptableObject));
         EventBus.Publish(new SoundEvent(this.gameObject, sameSlot.itemBaseScriptableObject.UnEquipSound));
     }
     
-    public void UpdateCharacteristics()
+    public void RegisterModifiers()
     {
-        _characteristics.ClearModifiers();
-        
         foreach (var eq in _currentEquipmentList)
         {
             if(eq.itemBaseScriptableObject == null) continue;
@@ -109,7 +108,5 @@ public class EquipmentManager : MonoBehaviour
             _characteristics.RegisterFlat(eq.itemBaseScriptableObject.ItemStats.flatCharacteristics);
             _characteristics.RegisterPercent(eq.itemBaseScriptableObject.ItemStats.percentCharacteristics);
         }
-        
-        _characteristics.Recalculate();
     }
 }

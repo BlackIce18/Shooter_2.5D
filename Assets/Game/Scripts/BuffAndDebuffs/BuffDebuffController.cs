@@ -75,8 +75,6 @@ public class BuffDebuffController : MonoBehaviour
     }
     public void RecalculateStats()
     {
-        _characteristics.ClearModifiers();
-
         foreach (var buffs in _activeBuffList.Values)
         {
             var flat = _characteristics.Multiply(buffs.buff.flatPerStack, buffs.stacks);
@@ -94,7 +92,5 @@ public class BuffDebuffController : MonoBehaviour
             _characteristics.RegisterSubFlat(flat);
             _characteristics.RegisterSubPrecrent(percent);
         }
-        
-        //_characteristics.UpdateCharacteristicsList();
     }
 }

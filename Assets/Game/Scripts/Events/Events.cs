@@ -14,6 +14,20 @@ public struct DamageEvent
     }
 }
 
+public struct PlayerTakeDamageEvent
+{
+    public GameObject target;
+    public float damage;
+    public Vector3 hitPoint;
+
+    public PlayerTakeDamageEvent(GameObject target, float damage, Vector3 hitPoint)
+    {
+        this.target = target;
+        this.damage = damage;
+        this.hitPoint = hitPoint;
+    }
+}
+
 public struct DeathEvent
 {
     public GameObject target;
