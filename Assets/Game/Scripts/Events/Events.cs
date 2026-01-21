@@ -49,6 +49,18 @@ public struct SoundEvent
         this.audioClip = audioClip;
     }
 }
+public struct PitchedSoundEvent
+{
+    public GameObject target;
+    public AudioClip audioClip;
+    public Vector2 randomDiaposon;
+    public PitchedSoundEvent(GameObject target, AudioClip audioClip, Vector2 randomDiaposon)
+    {
+        this.target = target;
+        this.audioClip = audioClip;
+        this.randomDiaposon = randomDiaposon;
+    }
+}
 // Проверки можно ли экипировать
 public struct TryEquipEvent
 {

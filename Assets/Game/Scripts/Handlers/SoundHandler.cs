@@ -1,18 +1,27 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SoundHandler : MonoBehaviour
 {
     [SerializeField] private AudioSource _source;
+    private float _defaultPitch;
+
+    private void Start()
+    {
+        _defaultPitch = _source.pitch;
+    }
 
     private void OnEnable()
     {
         EventBus.Subscribe<SoundEvent>(OnSoundEvent);
+        EventBus.Subscribe<PitchedSoundEvent>(OnPitchedSoundEvent);
     }
 
     private void OnDisable()
     {
         EventBus.Unsubscribe<SoundEvent>(OnSoundEvent);
+        EventBus.Unsubscribe<PitchedSoundEvent>(OnPitchedSoundEvent);
     }
 
     private void OnSoundEvent(SoundEvent e)
@@ -30,5 +39,18 @@ public class SoundHandler : MonoBehaviour
                 _source.PlayOneShot(clip);
             }
         }
+    }
+
+    private void OnPitchedSoundEvent(PitchedSoundEvent e)
+    {
+        if (e.audioClip != null)
+        {
+            _source.pitch = Random.Range(_defaultPitch + e.randomDiaposon.x, _defaultPitch + e.randomDiaposon.y);
+            Debug.Log(_source.pitch);
+            var clip = e.audioClip;
+            _source.PlayOneShot(clip);
+        }
+
+        //_source.pitch = _defaultPitch;
     }
 }
