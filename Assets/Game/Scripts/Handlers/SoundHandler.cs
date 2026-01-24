@@ -1,6 +1,5 @@
-using System;
+using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class SoundHandler : MonoBehaviour
 {
@@ -46,11 +45,8 @@ public class SoundHandler : MonoBehaviour
         if (e.audioClip != null)
         {
             _source.pitch = Random.Range(_defaultPitch + e.randomDiaposon.x, _defaultPitch + e.randomDiaposon.y);
-            Debug.Log(_source.pitch);
             var clip = e.audioClip;
             _source.PlayOneShot(clip);
         }
-
-        //_source.pitch = _defaultPitch;
     }
 }

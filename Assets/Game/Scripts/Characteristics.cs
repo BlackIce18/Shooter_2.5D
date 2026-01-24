@@ -90,6 +90,15 @@ public class Characteristics : MonoBehaviour
         {
             AddPercent(percent);
         }
+        
+        foreach (var flat in _flatSubtraction)
+        {
+            AddFlat(flat);
+        }
+        foreach (var percent in _percentSubtraction)
+        {
+            AddPercent(percent);
+        }
 
         UpdateCharacteristicsList();
     }

@@ -18,7 +18,10 @@ MonoBehaviour:
   icon: {fileID: 0}
   maxStacks: 5
   flatPerStack:
-    health: 20
+    health: -20
+    healthMax: 0
+    mana: 0
+    manaMax: 0
     attackMin: 0
     attackMax: 0
     attackRate: 0
@@ -28,6 +31,9 @@ MonoBehaviour:
     attackDelay: 0
   percentValueModifier:
     health: 0
+    healthMax: 0
+    mana: 0
+    manaMax: 0
     attackMin: 0
     attackMax: 0
     attackRate: 0

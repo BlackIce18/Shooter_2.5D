@@ -67,7 +67,7 @@ public class BuffDebuffController : MonoBehaviour
                 buff = buff,
                 stacks = 1,
             };
-            
+            Debug.Log(buffList);
             buffList.Add(buff.name, newBuff);
         }
         RecalculateStats();

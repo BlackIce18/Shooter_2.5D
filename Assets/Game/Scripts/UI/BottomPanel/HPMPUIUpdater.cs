@@ -25,7 +25,6 @@ public class HPMPUIUpdater : MonoBehaviour
     private void UpdateLvlXpEvent(UpdateLvlXpEvent e) {UpdateUI();}
     private void UpdateUI()
     {
-        Debug.Log(_characteristics.Current.health);
         _hpSlider.Slider.maxValue = _characteristics.Current.healthMax;
         _hpSlider.Slider.value = _characteristics.Current.health;
         _manaSlider.Slider.maxValue = _characteristics.Current.manaMax;

@@ -29,7 +29,7 @@ public class DialogueRunner : MonoBehaviour
         if(!CheckConditions(node.conditions)) return;
 
         _currentNode = node;
-
+        
         ExecuteEvents(node.events);
 
         ui.ShowText(LocalizationManager.Instance.Get(node.textKey));

@@ -10,8 +10,11 @@ public class AreaBuffApplicator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var buffController = PlayerSystems.instance.BuffDebuffController;
-            if(_buff) buffController.Apply(_buff, buffController.ActiveBuffs);
-            if(_deBuff) buffController.Apply(_deBuff, buffController.ActiveDebuffs);
+            if(_buff) 
+                buffController.Apply(_buff, buffController.ActiveBuffs);
+            if(_deBuff)
+                buffController.Apply(_deBuff, buffController.ActiveDebuffs);
+            
         }
     }
 

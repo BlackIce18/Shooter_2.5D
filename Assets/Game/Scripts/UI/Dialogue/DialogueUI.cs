@@ -11,10 +11,10 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private Transform _choicesContainer;
     [SerializeField] private Button _choiceButtonPrefab;
     [SerializeField] private DialogueHistory _dialogueHistory;
-    
+    [SerializeField] private GameObject _dialogueUI;
     public void ShowText(string text)
     {
-        gameObject.SetActive(true);
+        _dialogueUI.SetActive(true);
         _dialogueHistory.AddToHistory(text);
         //_dialogueText.text = text;
     }
@@ -44,7 +44,7 @@ public class DialogueUI : MonoBehaviour
     {
         ClearChoices();
         _dialogueHistory.Clear();
-        gameObject.SetActive(false);
+        _dialogueUI.SetActive(false);
     }
     
     private void ClearChoices()
