@@ -166,3 +166,19 @@ public struct UpdateLvlXpEvent
 }
 
 public struct RecalculateCharacteristicsEvent{ }
+
+public struct UnlockSkillEvent
+{
+    public GameObject skillGameObject;
+    public SkillUI skillUI;
+    public int tier;
+    public skillScriptableObject skillScriptableObject;
+    
+    public UnlockSkillEvent(GameObject skillGameObject, SkillUI skillUI, int tier, skillScriptableObject skillScriptableObject)
+    {
+        this.skillGameObject = skillGameObject;
+        this.skillUI = skillUI;
+        this.tier = tier;
+        this.skillScriptableObject = skillScriptableObject;
+    }
+}

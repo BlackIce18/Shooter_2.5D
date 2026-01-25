@@ -17,17 +17,17 @@ public class LVLSystem : MonoBehaviour
     private void OnEnable()
     {
         EventBus.Subscribe<AddXpEvent>(AddXp);
-        EventBus.Subscribe<LvlUpEvent>(LvlUp);
         EventBus.Subscribe<SubXpEvent>(SubXp);
-        EventBus.Subscribe<LvlDownEvent>(LvlDown);
+       /*EventBus.Subscribe<LvlUpEvent>(LvlUp);
+        EventBus.Subscribe<LvlDownEvent>(LvlDown);*/
     }
 
     private void OnDisable()
     {
         EventBus.Unsubscribe<AddXpEvent>(AddXp);
-        EventBus.Unsubscribe<LvlUpEvent>(LvlUp);
         EventBus.Unsubscribe<SubXpEvent>(SubXp);
-        EventBus.Unsubscribe<LvlDownEvent>(LvlDown);
+        /*EventBus.Unsubscribe<LvlUpEvent>(LvlUp);
+        EventBus.Unsubscribe<LvlDownEvent>(LvlDown);*/
     }
 
     private void AddXp(AddXpEvent addXp)
@@ -47,8 +47,12 @@ public class LVLSystem : MonoBehaviour
         while (_currentXp >= _lvlList[_currentLvl - 1].xpToLvl)
         {
             _currentXp -= _lvlList[_currentLvl - 1].xpToLvl;
-            if(_currentLvl <= _lvlList.Count - 1)
-                _currentLvl++;
+            if (_currentLvl <= _lvlList.Count - 1)
+            {
+                _currentLvl++; 
+                EventBus.Publish(new LvlUpEvent());
+                
+            }
         }
         EventBus.Publish(new UpdateLvlXpEvent(_currentXp, _currentLvl));
     }
@@ -79,6 +83,7 @@ public class LVLSystem : MonoBehaviour
     public void LvlUp()
     {
         _currentLvl++;
+        EventBus.Publish(new LvlUpEvent());
         EventBus.Publish(new UpdateLvlXpEvent(_currentXp, _currentLvl));
     }
 
