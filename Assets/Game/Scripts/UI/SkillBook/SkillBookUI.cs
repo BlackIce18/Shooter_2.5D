@@ -10,7 +10,6 @@ public class SkillBookUI : KeyCommand
     [SerializeField] private LVLSystem _lvlSystem;
     public int availableUnlockSkillCount = 0;
     [SerializeField] private TextMeshProUGUI _text;
-
     private void OnEnable()
     {
         EventBus.Subscribe<LvlUpEvent>(LvlUp);
@@ -48,7 +47,6 @@ public class SkillBookUI : KeyCommand
                 var button = skill.SkillBookButtonUI;
                 var skillSO = button.SkillScriptableObject;
                 
-                //if(_unlockedSkills.Contains(button)) continue;
                 if(!button.CanUpgrade) continue;
                 if (availableUnlockSkillCount <= 0)
                 {

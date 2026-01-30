@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 [Serializable]
 public class SkillBookButtonUI
@@ -8,7 +10,6 @@ public class SkillBookButtonUI
     [SerializeField] private SkillUI _skillUI;
     [SerializeField] private int _currentTier = 1;
     [SerializeField] private skillScriptableObject _skillScriptableObject;
-
     public GameObject SkillGameObject => _skillGameObject;
     public SkillUI SkillUI => _skillUI;
     public int currentTier
@@ -19,7 +20,8 @@ public class SkillBookButtonUI
     public bool CanUpgrade => currentTier < SkillScriptableObject.MaxTier;
     public skillScriptableObject SkillScriptableObject => _skillScriptableObject;
 }
-public class SkillUI : MonoBehaviour
+[RequireComponent(typeof(CanvasGroup))]
+public class SkillUI : SkillUIBase
 {
     public bool isAvailable;
     [SerializeField] private Button _button;
@@ -31,7 +33,9 @@ public class SkillUI : MonoBehaviour
     public Button UpgradeButton => _upgradeButton;
     private void Start()
     {
+        Image.sprite = _skillBookButtonUI.SkillScriptableObject.Icon;
         LockSkill();
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public void LockSkill()
@@ -57,7 +61,6 @@ public class SkillUI : MonoBehaviour
 
     public void UnlockToUpgrade()
     {
-        Debug.Log("2");
         _upgradeButton.interactable = true;
         _upgradeButton.gameObject.SetActive(true);
     }
@@ -66,5 +69,41 @@ public class SkillUI : MonoBehaviour
     {
         _upgradeButton.interactable = false;
         _upgradeButton.gameObject.SetActive(false);
+    }
+
+    public override void OnDrag(PointerEventData eventData)
+    {
+        SkillsDragAndDropController.Instance?.OnDragUpdate(eventData.position);
+    }
+
+    public override void OnBeginDrag(PointerEventData eventData)
+    {
+        canvasGroup.blocksRaycasts = false;
+        SkillsDragAndDropController.Instance?.StartDrag(this);
+    }
+
+    public override void OnEndDrag(PointerEventData eventData)
+    {
+        Debug.Log("On end drag");
+    }
+
+    public override void OnPointerClick(PointerEventData eventData)
+    {        
+        Debug.Log("click");
+    }
+
+    public override void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("enter");
+    }
+
+    public override void OnPointerMove(PointerEventData eventData)
+    {
+        Debug.Log("move");
+    }
+
+    public override void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("exit");
     }
 }

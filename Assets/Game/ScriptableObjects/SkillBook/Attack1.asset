@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b38e98d477e5564fbc5f7bcadc7c60e, type: 3}
   m_Name: Attack1
   m_EditorClassIdentifier: Assembly-CSharp::skillScriptableObject
+  _name: 
+  _requiredLvl: 0
+  _tier: 1
+  _maxTier: 5
+  _requiredUnlockedSkill: {fileID: 0}
+  _icon: {fileID: -1220627927, guid: ce0ebcda86a32294a950c8025b939158, type: 3}

@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Pointer2
   _description: Pointer2
   _icon: {fileID: 21300000, guid: 57ea35175b53433499ed64ebdf9ca2b2, type: 3}
-  _size: {x: 1, y: 2}
+  _size: {x: 1, y: 1}
   _maxStack: 1
   _itemType: 0
   _requiredLevel: 1
@@ -24,6 +24,9 @@ MonoBehaviour:
   _itemStats:
     flatCharacteristics:
       health: 5
+      healthMax: 0
+      mana: 0
+      manaMax: 0
       attackMin: 0
       attackMax: 0
       attackRate: 0
@@ -33,6 +36,9 @@ MonoBehaviour:
       attackDelay: 0
     percentCharacteristics:
       health: 0
+      healthMax: 0
+      mana: 0
+      manaMax: 0
       attackMin: 0
       attackMax: 0
       attackRate: 0
