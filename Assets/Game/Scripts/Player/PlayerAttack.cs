@@ -111,7 +111,6 @@ public class PlayerAttack : MonoBehaviour
     }
     private void HandleHit(HealthComponent target) 
     {
-        Debug.Log(_characteristics.Current.attackMin);
         EventBus.Publish(new DamageEvent(target.gameObject, _characteristics.Current.attackMin, Vector3.zero));
     }
 

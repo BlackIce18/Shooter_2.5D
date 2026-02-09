@@ -21,6 +21,9 @@ public class InfoAboutObjectManager : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, hoverMask))
         {
             hit.transform.TryGetComponent(out newHover);
+            newHover.TryGetComponent(out HealthComponent healthComponent);
+            _ui.Slider.maxValue = healthComponent.Max;
+            _ui.Slider.value = healthComponent.Current;
         }
 
         if (_currentHover == newHover) return;

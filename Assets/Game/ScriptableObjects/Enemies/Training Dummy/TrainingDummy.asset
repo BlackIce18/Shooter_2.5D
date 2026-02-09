@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseCharacteristicsData
   _characteristicsData:
     health: 30
+    healthMax: 30
+    mana: 0
+    manaMax: 0
     attackMin: 1
     attackMax: 1
     attackRate: 1

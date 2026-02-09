@@ -30,6 +30,7 @@ public class DamageReceiver : MonoBehaviour
 
         float finalDamage = CalculateDamage(e);
         _healthComponent.Apply(-finalDamage);
+        Debug.Log(_healthComponent.Current);
         if (_targetType == TargetType.Player)
         {
             EventBus.Publish(new PlayerTakeDamageEvent(gameObject, finalDamage, Vector3.zero));
