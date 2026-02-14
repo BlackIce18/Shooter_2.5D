@@ -1,11 +1,11 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public struct SkillContext
 {
     public GameObject caster;
-    public Transform castPoint;
+    public GameObject target;
+    public Vector3 castPoint;
     public Vector3 targetPoint;
-
-    public BuffDebuffController buffController;
-    public Characteristics characteristics;
 }

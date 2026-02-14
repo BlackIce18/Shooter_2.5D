@@ -11,6 +11,6 @@ public class ModifierSkill : BaseSkill
 
     public override void Execute(SkillContext context)
     {
-        context.buffController.Apply(_buff, context.buffController.ActiveBuffs);
+        //context.buffController.Apply(_buff, context.buffController.ActiveBuffs);
     }
 }

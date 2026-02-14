@@ -23,7 +23,7 @@ public class DamageReaction : MonoBehaviour
         if(e.target != gameObject) return;
         
         _animator?.SetTrigger("WasAttacked");
-        EventBus.Publish(new SoundEvent(gameObject, _audio.soundSet.hitSound));
+        EventBus.Publish(new PitchedSoundEvent(gameObject, _audio.soundSet.hitSound, _audio.pitchSoundOffsets));
     }
 
     private void OnDeath(DeathEvent e)
@@ -31,6 +31,6 @@ public class DamageReaction : MonoBehaviour
         if(e.target != gameObject) return;
         
         _animator?.SetTrigger("Die");
-        EventBus.Publish(new SoundEvent(gameObject, _audio.soundSet.deathSound));
+        EventBus.Publish(new PitchedSoundEvent(gameObject, _audio.soundSet.deathSound, _audio.pitchSoundOffsets));
     }
 }

@@ -27,4 +27,28 @@ public class SkillsController : MonoBehaviour
         currentGlobalCooldown = globalCooldown;
         _cooldowns[skill.id] = Time.time + skill.cooldown;
     }
+
+    private SkillContext BuildContext()
+    {
+        return new SkillContext
+        {
+            /*caster = this.gameObject,
+            //target = _targetSystem.CurrentTarget,
+            castPoint = transform.position,
+            targetPoint =*/
+        };
+    }
+
+    public void TryCast(SkillScriptableObject data)
+    {
+        if(!CanCast(data)) return;
+
+        SkillContext context = BuildContext();
+
+        ISkill skill = SkillFactory.Create(data);
+        skill.Execute(context);
+        
+        RegisterCast(data);
+
+    }
 }
