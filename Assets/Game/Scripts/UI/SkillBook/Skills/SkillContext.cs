@@ -8,4 +8,7 @@ public struct SkillContext
     public GameObject target;
     public Vector3 castPoint;
     public Vector3 targetPoint;
+    
+    public Animator casterAnimator;
+    public UnityEngine.AI.NavMeshAgent casterAgent;
 }

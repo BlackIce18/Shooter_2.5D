@@ -24,9 +24,11 @@ public class TargetManager : MonoBehaviour
         {
             hit.transform.TryGetComponent(out newHover);
             newHover.TryGetComponent(out HealthComponent healthComponent);
-            
-            _ui.Slider.maxValue = healthComponent.Max;
-            _ui.Slider.value = healthComponent.Current;
+            if (healthComponent)
+            {
+                _ui.Slider.maxValue = healthComponent.Max;
+                _ui.Slider.value = healthComponent.Current;
+            }
         }
 
         if (_currentHover == newHover) return;

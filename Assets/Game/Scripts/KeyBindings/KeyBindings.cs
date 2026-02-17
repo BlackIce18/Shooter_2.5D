@@ -9,7 +9,7 @@ public class KeyBindings : MonoBehaviour
     [SerializeField] private KeyCommand _characteristicsUICommand;
     
     [SerializeField] private KeyCommand _skillPanelKeyBindQ;
-    [SerializeField] private KeyCommand _skillPanelKeyBindE;
+    [SerializeField] private KeyCommand _skillPanelKeyBindR;
     [SerializeField] private KeyCommand _skillPanel1KeyBind1;
     [SerializeField] private KeyCommand _skillPanel1KeyBind2;
     [SerializeField] private KeyCommand _skillPanel1KeyBind3;
@@ -99,7 +99,7 @@ public class KeyBindings : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.R))
         {
-            _skillPanelKeyBindE.Execute();
+            _skillPanelKeyBindR.Execute();
         }
     }
     public void BindInteract(KeyCommand keyCommand)

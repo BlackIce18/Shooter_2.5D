@@ -6,6 +6,10 @@ public enum SkillType
     Modifier,
     Instantiate
 }
+public abstract class StatusBehaviour : ScriptableObject
+{
+    public abstract void Execute(SkillContext context);
+}
 
 [CreateAssetMenu(menuName = "Skills/Skill")]
 public class SkillScriptableObject : ScriptableObject
@@ -28,6 +32,9 @@ public class SkillScriptableObject : ScriptableObject
     public ItemBaseScriptableObject requiredItem;
     [Space]
     public SkillType SkillType;
+
+    [Header("Status Skill")] 
+    public StatusBehaviour statusBehaviour;
     [Header("Modifier Skill")]
     public Buff buffData;
 

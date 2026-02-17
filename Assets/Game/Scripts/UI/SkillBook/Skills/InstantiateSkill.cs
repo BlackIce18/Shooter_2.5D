@@ -10,7 +10,7 @@ public class InstantiateSkill : BaseSkill
     }
     public override void Execute(SkillContext context)
     {
-        GameObject obj = Object.Instantiate(prefab, context.castPoint,
+        GameObject obj = Object.Instantiate(prefab, context.targetPoint,
             Quaternion.LookRotation(context.targetPoint - context.castPoint));
     }
 }

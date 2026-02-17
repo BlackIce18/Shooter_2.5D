@@ -1,16 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SkillsController : MonoBehaviour
 {
+    [SerializeField] private SkillContext _skillContext;
     public readonly float globalCooldown = 1f;
     public float currentGlobalCooldown;
-
+    private bool _canCast = false;
     private Dictionary<string, float> _cooldowns = new();
 
     private void Update()
     {
-        currentGlobalCooldown -= Time.deltaTime;
+        //if(!_canCast)
+            currentGlobalCooldown -= Time.deltaTime;
+        /*if (currentGlobalCooldown <= 0)
+        {
+            currentGlobalCooldown = globalCooldown;
+            _canCast = true;
+        }*/
     }
 
     public bool CanCast(SkillScriptableObject skill)
@@ -30,12 +38,23 @@ public class SkillsController : MonoBehaviour
 
     private SkillContext BuildContext()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.value);
+        
+        Vector3 position = Vector3.zero;
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            position = hit.point;
+            Debug.Log(position);
+        }
+        
+        
         return new SkillContext
         {
-            /*caster = this.gameObject,
+            caster = _skillContext.caster,
             //target = _targetSystem.CurrentTarget,
             castPoint = transform.position,
-            targetPoint =*/
+            targetPoint = position,
+            casterAnimator = _skillContext.casterAnimator
         };
     }
 
@@ -47,7 +66,7 @@ public class SkillsController : MonoBehaviour
 
         ISkill skill = SkillFactory.Create(data);
         skill.Execute(context);
-        
+        _canCast = false;
         RegisterCast(data);
 
     }

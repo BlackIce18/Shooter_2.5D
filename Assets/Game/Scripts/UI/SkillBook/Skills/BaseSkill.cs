@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BaseSkill : MonoBehaviour, ISkill
+public abstract class BaseSkill : ISkill
 {
     protected SkillScriptableObject data;
     public SkillScriptableObject Data => data;
