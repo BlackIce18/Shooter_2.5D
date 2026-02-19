@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -20,7 +18,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float _dashDistance;
     private Mouse _mouse;
     private bool _isDashing = false;
-    //[SerializeField] private float _damage = 1;
     [SerializeField] private Characteristics _characteristics;
 
     private Vector3 mousePosition;
@@ -53,9 +50,9 @@ public class PlayerAttack : MonoBehaviour
             if (_isDashing)
             {
                 if (_attackNumber == 0)
-                    MicroDash(_animator.transform, _dashDistance / 2);
+                    MicroDash(_playerInput.transform, _dashDistance / 2);
                 if (_attackNumber == 1)
-                    MicroDash(_animator.transform, _dashDistance);
+                    MicroDash(_playerInput.transform, _dashDistance);
             }
         }
         else
@@ -86,9 +83,9 @@ public class PlayerAttack : MonoBehaviour
         mouseDirection = _camera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y, _camera.transform.position.z * -1)) - Vector3.one / 2;
         mouseDirection.Normalize();
         //_targetPosition = _animator.transform.parent.localPosition + (new Vector3(mouseDirection.x, 0, mouseDirection.y) * distance);
-        _targetPosition = _animator.transform.parent.localPosition + new Vector3(mouseDirection.x, 0, mouseDirection.y) * distance;
+        _targetPosition = _playerInput.transform.localPosition + new Vector3(mouseDirection.x, 0, mouseDirection.y) * distance;
         //objectPosition.RotateAround(objectPosition.parent.transform.position, new Vector3(objectPosition.rotation.x, mouseDirection.x, objectPosition.rotation.z), 0.5f * Time.deltaTime);
-        objectPosition.parent.localPosition = Vector3.SmoothDamp(objectPosition.parent.localPosition, _targetPosition, ref _velocity, 0.1f);
+        objectPosition.localPosition = Vector3.SmoothDamp(objectPosition.localPosition, _targetPosition, ref _velocity, 0.1f);
     }
 
     private IEnumerator ResetAttack()
