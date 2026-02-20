@@ -17,7 +17,7 @@ public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
             
             EventBus.Publish(new PickUpItemEvent(ItemBaseScriptableObject));
             Destroy(gameObject);
-            windowUI.transform.parent.gameObject.SetActive(false);
+            windowUI.transform.gameObject.SetActive(false);
             windowUI.Hide();
         }
 
@@ -25,7 +25,7 @@ public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        windowUI.transform.parent.gameObject.SetActive(true);
+        windowUI.transform.gameObject.SetActive(true);
         textField.text = ItemBaseScriptableObject.Name;
         windowUI.Show();
     }
@@ -37,7 +37,7 @@ public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        windowUI.transform.parent.gameObject.SetActive(false);
+        windowUI.transform.gameObject.SetActive(false);
         windowUI.Hide();
     }
 }

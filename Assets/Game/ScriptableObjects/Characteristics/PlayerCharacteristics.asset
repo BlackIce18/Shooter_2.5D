@@ -21,6 +21,6 @@ MonoBehaviour:
     attackMax: 1
     attackRate: 1
     defence: 1
-    speed: 0.9
+    speed: 5.9
     attackDistance: 1
     attackDelay: 1
