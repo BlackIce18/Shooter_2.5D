@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CharacteristicsReslover : MonoBehaviour
+public class CharacteristicsResolver : MonoBehaviour
 {
     [SerializeField] private Characteristics _characteristics;
     [SerializeField] private BuffDebuffController _buffDebuffController;

@@ -15,14 +15,14 @@ public class CameraMovement : MonoBehaviour
     public GameObject LookTarget => _lookTarget;
     public float SmoothDelay => _smoothDelay;
     public bool CanMove { get; set; }
-    private void Start()
+
+    public void Initialize()
     {
-        if(_mainCamera == null) _mainCamera = Camera.main;
+        _mainCamera = GameSettings.MainCamera;
 
         _offset = _mainCamera.transform.position - _lookTarget.transform.position;
         CanMove = true;
     }
-
     private void LateUpdate()
     {
         if(CanMove)
