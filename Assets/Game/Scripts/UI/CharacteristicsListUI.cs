@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacteristicsListUI : KeyCommand
 {
-    [SerializeField] private Characteristics _characteristics;
+    private Characteristics _characteristics;
     [SerializeField] private GameObject _parent;
     [SerializeField] private GameObject _characteristicPrefab;
     [SerializeField] private WindowUICommand _windowUICommand;
@@ -31,6 +31,9 @@ public class CharacteristicsListUI : KeyCommand
     private void UnequipEvent(UnequipEvent unequipEvent) { UpdateCharacteristics(); }
     private void Start()
     {
+        Debug.Log(UIFacade.Instance);
+        _characteristics = UIFacade.Instance.Characteristics;
+        
         foreach (var keyValue in _characteristics.CharacteristicsList)
         {
             GameObject characteristicElementUI = Instantiate(_characteristicPrefab, _parent.transform);

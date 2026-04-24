@@ -165,6 +165,16 @@ public struct UpdateLvlXpEvent
     }
 }
 
+public struct UpdateAvailableSkillPoints
+{
+    public int skillPoints;
+
+    public UpdateAvailableSkillPoints(int skillPoints)
+    {
+        this.skillPoints = skillPoints;
+    }
+}
+
 public struct RecalculateCharacteristicsEvent{ }
 
 public struct UnlockSkillEvent

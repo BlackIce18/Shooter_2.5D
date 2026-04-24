@@ -6,10 +6,12 @@ public class LvlXPUIUpdater : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _lvl;
     [SerializeField] private TextMeshProUGUI _currentXp;
-    [SerializeField] private LVLSystem _lvlSystem;
-
+    private LVLSystem _lvlSystem;
+    
     private void Start()
     {
+        Debug.Log("1 "+UIFacade.Instance);
+        _lvlSystem = UIFacade.Instance.LvlSystem;
         UpdateLVLAndXP();
     }
 

@@ -103,7 +103,7 @@ public class Characteristics : MonoBehaviour
         UpdateCharacteristicsList();
     }
 
-    public void UpdateCharacteristicsList()
+    private void UpdateCharacteristicsList()
     {
         CharacteristicsList["health"] = _current.health;
         CharacteristicsList["healthMax"] = _current.healthMax;
@@ -118,7 +118,7 @@ public class Characteristics : MonoBehaviour
         CharacteristicsList["attackDelay"] = _current.attackDelay;
     }
 
-    public void ResetToBase()
+    private void ResetToBase()
     {
         _current.health = _base.CharacteristicsData.health;
         _current.healthMax = _base.CharacteristicsData.healthMax;

@@ -1,10 +1,12 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EntryPoint : MonoBehaviour
 {
     public GameSettings gameSettings;
     public CameraService cameraService;
+
     private void Awake()
     {
         gameSettings.Initialize();
@@ -12,26 +14,24 @@ public class EntryPoint : MonoBehaviour
 
     private void Start()
     {
+        /*SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Gameplay", LoadSceneMode.Additive);*/
         cameraService.Initialize();
     }
-    
+
     private void Update()
     {
-        
     }
 
     private void OnEnable()
     {
-        
     }
 
     private void OnDisable()
     {
-        
     }
 
     private void OnDestroy()
     {
-        
     }
 }

@@ -8,7 +8,7 @@ public class SkillBookUI : KeyCommand
     [SerializeField] private List<SkillBookButtonUI> _unlockedSkills;
     [SerializeField] private List<SkillBookPageUI> _skillbookPages;
     [SerializeField] private LVLSystem _lvlSystem;
-    public int availableUnlockSkillCount = 0;
+    public int skillPoints = 0;
     [SerializeField] private TextMeshProUGUI _text;
     private void OnEnable()
     {
@@ -24,9 +24,9 @@ public class SkillBookUI : KeyCommand
 
     private void LvlUp(LvlUpEvent e)
     {
-        availableUnlockSkillCount++;
+        skillPoints++;
         OpenPage();
-        _text.text = availableUnlockSkillCount.ToString();
+        EventBus.Publish(new UpdateAvailableSkillPoints(skillPoints));
     }
     private void Start()
     {
@@ -48,7 +48,7 @@ public class SkillBookUI : KeyCommand
                 var skillSO = button.SkillScriptableObject;
                 
                 if(!button.CanUpgrade) continue;
-                if (availableUnlockSkillCount <= 0)
+                if (skillPoints <= 0)
                 {
                     skill.DisableUpgradeButton();
                     continue;
@@ -85,12 +85,12 @@ public class SkillBookUI : KeyCommand
             e.skillUI.UnlockSkill();
         }
         
-        availableUnlockSkillCount--;
-        if (availableUnlockSkillCount <= 0 || !e.skillUI.SkillBookButtonUI.CanUpgrade)
+        skillPoints--;
+        if (skillPoints <= 0 || !e.skillUI.SkillBookButtonUI.CanUpgrade)
         {
             e.skillUI.UpgradeButton.gameObject.SetActive(false);
         }
-        _text.text = availableUnlockSkillCount.ToString();
+        EventBus.Publish(new UpdateAvailableSkillPoints(skillPoints));
 
         Execute();
     }

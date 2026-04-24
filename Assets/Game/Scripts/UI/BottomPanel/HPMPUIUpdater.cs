@@ -5,7 +5,12 @@ public class HPMPUIUpdater : MonoBehaviour
 {
     [SerializeField] private SliderValue _hpSlider;
     [SerializeField] private SliderValue _manaSlider;
-    [SerializeField] private Characteristics _characteristics;
+    private Characteristics _characteristics;
+
+    private void Start()
+    {
+        _characteristics = UIFacade.Instance.Characteristics;
+    }
 
     private void OnEnable()
     {
