@@ -9,7 +9,7 @@ public class AreaBuffApplicator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var buffController = PlayerSystems.instance.BuffDebuffController;
+            var buffController = PlayerSystemsSingleton.instance.BuffDebuffController;
             if(_buff) 
                 buffController.Apply(_buff, buffController.ActiveBuffs);
             if(_deBuff)

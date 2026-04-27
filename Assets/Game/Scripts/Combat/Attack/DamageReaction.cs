@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioData))]
 public class DamageReaction : MonoBehaviour
 {
     [SerializeField] private Animator _animator;

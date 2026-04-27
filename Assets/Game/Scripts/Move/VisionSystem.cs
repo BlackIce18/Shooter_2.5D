@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyFSM))]
 public class VisionSystem : MonoBehaviour
 {
     [SerializeField] private float _viewDistance = 5f;

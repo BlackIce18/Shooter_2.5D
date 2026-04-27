@@ -9,7 +9,6 @@ public class SkillBookUI : KeyCommand
     [SerializeField] private List<SkillBookPageUI> _skillbookPages;
     [SerializeField] private LVLSystem _lvlSystem;
     public int skillPoints = 0;
-    [SerializeField] private TextMeshProUGUI _text;
     private void OnEnable()
     {
         EventBus.Subscribe<LvlUpEvent>(LvlUp);

@@ -78,8 +78,8 @@ public class EnemyPatrolState : IState<EnemyFSM>
     public void Enter(EnemyFSM owner)
     {
         //Debug.Log($"{owner.name} начинает патрулирование");
-        
-        owner.NavMeshAgent.Goal = owner.Patrol.CurrentPoint;
+        if(owner.Patrol.PatrolPoints.Count > 0)
+            owner.NavMeshAgent.Goal = owner.Patrol.CurrentPoint;
     }
 
     public void Update(EnemyFSM owner)
@@ -94,8 +94,8 @@ public class EnemyPatrolState : IState<EnemyFSM>
             owner.Fsm.ChangeState(new EnemyChaseState());
             return;
         }
-        
-        owner.Patrol.MoveBetweenPoints();
+        if(owner.Patrol.PatrolPoints.Count > 0)
+            owner.Patrol.MoveBetweenPoints();
     }
 
     public void Exit(EnemyFSM owner)

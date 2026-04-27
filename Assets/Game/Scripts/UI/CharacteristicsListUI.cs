@@ -29,7 +29,7 @@ public class CharacteristicsListUI : KeyCommand
     }
     private void EquipEvent(EquipEvent equipEvent) { UpdateCharacteristics();}
     private void UnequipEvent(UnequipEvent unequipEvent) { UpdateCharacteristics(); }
-    private void Start()
+    public void Initialize()
     {
         Debug.Log(UIFacade.Instance);
         _characteristics = UIFacade.Instance.Characteristics;

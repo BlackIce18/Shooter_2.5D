@@ -2,14 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyDeathHandler : MonoBehaviour
 {
-    private NavMeshAgent _navMeshAgent;
-    private void Start()
-    {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-    }
+    [SerializeField] private NavMeshAgent _navMeshAgent;
+    [SerializeField] private Animator _animator; 
 
     private void OnEnable() => EventBus.Subscribe<DeathEvent>(OnDeath);
     private void OnDisable() => EventBus.Unsubscribe<DeathEvent>(OnDeath);
@@ -22,8 +18,8 @@ public class EnemyDeathHandler : MonoBehaviour
             _navMeshAgent.speed = 0;
             _navMeshAgent.destination = gameObject.transform.position;
         }
-        var animator = GetComponent<Animator>();
-        animator?.SetTrigger("Die");
+
+        _animator?.SetTrigger("Die");
         
         Destroy(gameObject, 1.5f);
     }

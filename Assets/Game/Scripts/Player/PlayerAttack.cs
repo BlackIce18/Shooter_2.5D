@@ -30,16 +30,16 @@ public class PlayerAttack : MonoBehaviour
         _hitbox.gameObject.SetActive(false);
         _currentTimeBetweenAttack = 0;
         _hitbox.OnHit += HandleHit;
-        PlayerSystems.instance.CanAttack = true;
+        PlayerSystemsSingleton.instance.CanAttack = true;
     }
     private void Update()
     {
         if (_currentTimeBetweenAttack <= 0)
         {
-            if (_mouse.leftButton.wasPressedThisFrame && PlayerSystems.instance.CanAttack)
+            if (_mouse.leftButton.wasPressedThisFrame && PlayerSystemsSingleton.instance.CanAttack)
             {
                 Attack();
-                PlayerSystems.instance.CanAttack = false;
+                PlayerSystemsSingleton.instance.CanAttack = false;
                 _animator.SetTrigger("IsAttack");
                 _animator.SetBool("IsAttacking", true);
                 _animator.SetFloat("AttackNumber", _attackNumber);
@@ -94,7 +94,7 @@ public class PlayerAttack : MonoBehaviour
         _animator.SetBool("IsAttacking", false); 
         _hitbox.gameObject.SetActive(false);
         yield return new WaitForSeconds(_timeBetweenAttack - 0.25f);
-        PlayerSystems.instance.CanAttack = true;
+        PlayerSystemsSingleton.instance.CanAttack = true;
         _animator.ResetTrigger("IsAttack");
 
         _currentTimeBetweenAttack = _timeBetweenAttack;

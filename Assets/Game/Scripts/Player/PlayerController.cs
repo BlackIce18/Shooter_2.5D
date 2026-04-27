@@ -41,13 +41,13 @@ public class PlayerController : MonoBehaviour
         _rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
         _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         
-        _camera = Camera.main;
-        PlayerSystems.instance.CanMove = true;
+        _camera = GameSettings.MainCamera;
+        PlayerSystemsSingleton.instance.CanMove = true;
     }
 
     private void FixedUpdate()
     {
-        if (PlayerSystems.instance.CanMove)
+        if (PlayerSystemsSingleton.instance.CanMove)
         {
             _inputDirection = _playerInput.actions["Move"].ReadValue<Vector2>();
             Vector3 moveDir = new Vector3(_inputDirection.x, 0f, _inputDirection.y).normalized;

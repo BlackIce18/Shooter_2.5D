@@ -9,6 +9,7 @@ public class LookAtPointer : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()

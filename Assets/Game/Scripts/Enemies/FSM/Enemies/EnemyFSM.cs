@@ -25,7 +25,10 @@ public abstract class EnemyFSM : MonoBehaviour, IEnemy
     public Collider Collider => _collider;
     public virtual bool InAttackRange { get; protected set; }
     public virtual bool CanSeePlayer { get; protected set; }
-    public virtual Vector3 PlayerPosition => _player.Transform.position;
+    public virtual Vector3 PlayerPosition
+    {
+        get => PlayerSystemsSingleton.instance.transform.position;
+    }
     public virtual PlayerController Player => _player;
     protected virtual void Awake()
     {
