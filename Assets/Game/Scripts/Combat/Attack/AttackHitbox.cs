@@ -14,18 +14,15 @@ public class AttackHitbox : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.TryGetComponent(out DamageReceiver target)) return;
-        Debug.Log(_canDamage.Contains(target.TargetType));
-        if(!_canDamage.Contains(target.TargetType)) return;
+        Debug.Log(other.gameObject);
+        if(!other.TryGetComponent(out EnemyHitDetector target)) return;
         
-        if (!other.TryGetComponent(out HealthComponent healthComponent)) return;
+        if(!_canDamage.Contains(target.DamageReceiver.TargetType)) {return;}
         
-        if(!_canDamage.Contains(target.TargetType)) {return;}
-        
-        if (!_hitTargets.Contains(healthComponent))
+        if (!_hitTargets.Contains(target.HealthComponent))
         {
-            _hitTargets.Add(healthComponent);
-            OnHit?.Invoke(healthComponent);
+            _hitTargets.Add(target.HealthComponent);
+            OnHit?.Invoke(target.HealthComponent);
         }
     }
 }

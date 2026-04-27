@@ -8681,7 +8681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733a0e9bcce559744adb934c6fb8cac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIFacade
-  _characteristics: {fileID: 0}
+  _characteristics: {fileID: 749538619}
   _lvlSystem: {fileID: 1776835112}
 --- !u!4 &427301477
 Transform:
@@ -22939,7 +22939,7 @@ GameObject:
   - component: {fileID: 1211721989}
   - component: {fileID: 1211721990}
   m_Layer: 0
-  m_Name: SkillBook
+  m_Name: '!!!SkillBook'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25763,7 +25763,7 @@ GameObject:
   - component: {fileID: 1360548573}
   - component: {fileID: 1360548574}
   m_Layer: 0
-  m_Name: RotateSword
+  m_Name: '!!!RotateSword'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
