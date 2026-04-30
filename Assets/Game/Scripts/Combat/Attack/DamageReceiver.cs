@@ -11,7 +11,8 @@ public class DamageReceiver : MonoBehaviour
 {
     [SerializeField] private TargetType _targetType;
     [SerializeField] private HealthComponent _healthComponent;
-
+    [SerializeField] private EffectsManager _effectsManager;
+    public EffectsManager EffectsManager => _effectsManager;
     public TargetType TargetType => _targetType;
 
     private void OnEnable()

@@ -18,6 +18,7 @@ public class EffectsManager : MonoBehaviour
             if (!effect.IsActive)
             {
                 Debug.Log($"{effect} is out!");   
+                EventBus.Publish(new EffectOutEvent(effect));
                 _activeEffects.RemoveAt(i);
             }
         }

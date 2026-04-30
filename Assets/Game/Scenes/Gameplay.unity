@@ -10588,7 +10588,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 876500534}
   m_Father: {fileID: 652681967}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &536493853
@@ -10603,8 +10604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e1fb9435d12aa4b9b2006f98414dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuffsDebuffsManager
-  _buffs:
-  - {fileID: 0}
+  _buffs: []
 --- !u!1 &540078732
 GameObject:
   m_ObjectHideFlags: 0
@@ -12985,7 +12985,6 @@ Transform:
   - {fileID: 117556229}
   - {fileID: 1924085233}
   - {fileID: 1481956971}
-  - {fileID: 876500534}
   - {fileID: 504918278}
   - {fileID: 1356107492}
   - {fileID: 1494118492}
@@ -13449,6 +13448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitbox
   _ownerTargetType: 1
   _canDamage: 0000000002000000
+  _inAirEffect: {fileID: 0}
 --- !u!65 &690527786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14194,6 +14194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReaction
   _animator: {fileID: 241272308}
   _audio: {fileID: 639620793}
+  _enemyHitDetector: {fileID: 0}
 --- !u!114 &749538622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14208,6 +14209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
   _targetType: 1
   _healthComponent: {fileID: 749538623}
+  _effectsManager: {fileID: 0}
 --- !u!114 &749538623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17028,12 +17030,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876500533}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 652681967}
+  m_Father: {fileID: 536493852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &878345828
 GameObject:
@@ -36457,6 +36459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitbox
   _ownerTargetType: 1
   _canDamage: 0000000002000000
+  _inAirEffect: {fileID: 11400000, guid: cd2247ba3369a134c8a5738e8ff9819e, type: 2}
 --- !u!65 &1813442474
 BoxCollider:
   m_ObjectHideFlags: 0

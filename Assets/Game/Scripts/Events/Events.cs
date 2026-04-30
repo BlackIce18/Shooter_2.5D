@@ -14,6 +14,30 @@ public struct DamageEvent
     }
 }
 
+public struct InAirEvent
+{
+    public GameObject target;
+    public InAirEvent(GameObject target)
+    {
+        this.target = target;
+    }
+}
+public struct InAirOutEvent
+{
+    public GameObject target;
+    public InAirOutEvent(GameObject target)
+    {
+        this.target = target;
+    }
+}
+public struct EffectOutEvent
+{
+    public Effects effect;
+    public EffectOutEvent(Effects effect)
+    {
+        this.effect = effect;
+    }
+}
 public struct PlayerTakeDamageEvent
 {
     public GameObject target;

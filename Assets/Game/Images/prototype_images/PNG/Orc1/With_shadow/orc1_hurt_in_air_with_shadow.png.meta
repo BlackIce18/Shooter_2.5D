@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7ab87eaeb92e2474ab6d9b27ea6842d2
+guid: f8ebced4cc381d1449002fe8f24fc4d3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: orc1_death_with_shadow_0
+      name: orc1_hurt_with_shadow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -138,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26c2d970e39fba947ac0a19a7b1c3b70
-      internalID: -2039384064
+      spriteID: 047dc25c57fa1984caa00d2916b5473a
+      internalID: 1206648600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_1
+      name: orc1_hurt_with_shadow_1
       rect:
         serializedVersion: 2
         x: 64
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 851a11dcb15ca714dbd8d23dac739bd6
-      internalID: 360774200
+      spriteID: 8ca52dba45252e44596d95d2fa6b3b98
+      internalID: -738233814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_2
+      name: orc1_hurt_with_shadow_2
       rect:
         serializedVersion: 2
         x: 128
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 440ed6eafb6c5ac40a28959d0677fea7
-      internalID: 1584883779
+      spriteID: c252738549beafd4dbbef92a093091e7
+      internalID: 776187041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_3
+      name: orc1_hurt_with_shadow_3
       rect:
         serializedVersion: 2
         x: 192
@@ -204,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c93495f7c21950b4a955b4df3a275317
-      internalID: -553916367
+      spriteID: 46135882e98571d4ebb4940e5c90706a
+      internalID: 1443878217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_4
+      name: orc1_hurt_with_shadow_4
       rect:
         serializedVersion: 2
         x: 256
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df24d80f7b607ce4ea857d3011335ee9
-      internalID: -1649187511
+      spriteID: b674513258e6dfc4cad2e1baadf3b0d5
+      internalID: -783477332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_5
+      name: orc1_hurt_with_shadow_5
       rect:
         serializedVersion: 2
         x: 320
@@ -248,58 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2c4e751ddbc3f442912caa73a03e10e
-      internalID: -1484791206
+      spriteID: bb70d19bae8e1c746b90432bdc8c826f
+      internalID: 602066358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea1e01c2888d25648a5fce27cb6b5e7b
-      internalID: -604051926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orc1_death_with_shadow_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30dc57d8c14ba7d449f6258456391245
-      internalID: -1203025526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orc1_death_with_shadow_8
+      name: orc1_hurt_with_shadow_6
       rect:
         serializedVersion: 2
         x: 0
@@ -314,14 +270,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1218885c562233044bd162146cc1d73c
-      internalID: -528215126
+      spriteID: b30f6bfc258c53a44ab0bd3f9372a936
+      internalID: -1326513360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_9
+      name: orc1_hurt_with_shadow_7
       rect:
         serializedVersion: 2
         x: 64
@@ -336,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fea4954dfefab943bd7411f7ec874ec
-      internalID: -645420019
+      spriteID: cd1ec42bacf8c074ab1dd44fd8a0e983
+      internalID: -1753480823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_10
+      name: orc1_hurt_with_shadow_8
       rect:
         serializedVersion: 2
         x: 128
@@ -358,14 +314,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723c338594e433e49be8ec68f9f6e0df
-      internalID: 4302984
+      spriteID: b218582510131764ca8fa5edd6b1a3d3
+      internalID: -627288225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_11
+      name: orc1_hurt_with_shadow_9
       rect:
         serializedVersion: 2
         x: 192
@@ -380,14 +336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53c111583556f9c4294c7aca47f96989
-      internalID: -2005306308
+      spriteID: c450a50d39a26f448ba2f377a5ed408a
+      internalID: 1039165733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_12
+      name: orc1_hurt_with_shadow_10
       rect:
         serializedVersion: 2
         x: 256
@@ -402,14 +358,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46335707d7625124988fe4332077d44f
-      internalID: 1504748462
+      spriteID: e2e429c592c46784388a2bcbdfb11b54
+      internalID: -1376986803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_13
+      name: orc1_hurt_with_shadow_11
       rect:
         serializedVersion: 2
         x: 320
@@ -424,58 +380,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5592b5ec36c3604489912afe76515819
-      internalID: 730630669
+      spriteID: 6cbb5b36f2372844097c6e3e3e965fd3
+      internalID: -781997574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_14
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df3a6ffbefe3a334c82ef20f21113bb5
-      internalID: 1829200025
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orc1_death_with_shadow_15
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d26f45ddb0517c479b7707250288e58
-      internalID: 1930191515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orc1_death_with_shadow_16
+      name: orc1_hurt_with_shadow_12
       rect:
         serializedVersion: 2
         x: 0
@@ -490,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8b6f1460b62bb342b1cc45be01012da
-      internalID: 540804024
+      spriteID: 940b6b9f34288a24b975886c8981cc89
+      internalID: -1590794695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_17
+      name: orc1_hurt_with_shadow_13
       rect:
         serializedVersion: 2
         x: 64
@@ -512,14 +424,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f44d84fd3c8ff94a8ea53d9622ed0e2
-      internalID: -1729946139
+      spriteID: 0cc91e6a9ad8d5c4f953fb93f3821881
+      internalID: 1637858813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_18
+      name: orc1_hurt_with_shadow_14
       rect:
         serializedVersion: 2
         x: 128
@@ -534,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b45d51e9c1f2c034c9373fbee87ef931
-      internalID: -1109100511
+      spriteID: 5afbbf8826bbb8f41b89e1dc52b79eb3
+      internalID: 1438686139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_19
+      name: orc1_hurt_with_shadow_15
       rect:
         serializedVersion: 2
         x: 192
@@ -556,14 +468,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c2266e341f7b894bbfaa11c637b83e2
-      internalID: -1705874947
+      spriteID: 7cf38ebd1abfe54428139e804404af93
+      internalID: 1691570676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_20
+      name: orc1_hurt_with_shadow_16
       rect:
         serializedVersion: 2
         x: 256
@@ -578,14 +490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e06a3d57a3f09bc4da1e41aa82898fbf
-      internalID: 361926229
+      spriteID: 8c26f5aea09fc04418b3ef03d56316ed
+      internalID: -1485163742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_21
+      name: orc1_hurt_with_shadow_17
       rect:
         serializedVersion: 2
         x: 320
@@ -600,58 +512,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01804931f06254a4c8301d3e9ec611b0
-      internalID: -941888582
+      spriteID: d84ca493d77f9434086246352a201fb1
+      internalID: 471005910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_22
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 586eebee743c0704dac58663fb68edbe
-      internalID: -1098398024
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orc1_death_with_shadow_23
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad9734fff31ce6b40ab3fb011f6aa871
-      internalID: -662971356
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orc1_death_with_shadow_24
+      name: orc1_hurt_with_shadow_18
       rect:
         serializedVersion: 2
         x: 0
@@ -666,14 +534,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfb28069840a9274ead83ee1c4a36a16
-      internalID: -559903699
+      spriteID: 6692ecf51052d654bbd40f141ad98a16
+      internalID: -555177255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_25
+      name: orc1_hurt_with_shadow_19
       rect:
         serializedVersion: 2
         x: 64
@@ -688,14 +556,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 789dd5810d448244e9b500f3fa9d1833
-      internalID: -691194382
+      spriteID: 86d862c94ef595c4aa147afbce734b0d
+      internalID: 1518601202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_26
+      name: orc1_hurt_with_shadow_20
       rect:
         serializedVersion: 2
         x: 128
@@ -710,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06cd0490dcb066c4eb0d75105fe02182
-      internalID: -970743170
+      spriteID: 83173e8c644c0bf4d8aeeb1c2dd0b367
+      internalID: 818173021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_27
+      name: orc1_hurt_with_shadow_21
       rect:
         serializedVersion: 2
         x: 192
@@ -732,14 +600,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9477e669cedb1ac47a82fe820bf8ac6a
-      internalID: 2009786890
+      spriteID: 4cf1dc97f21b99841bd4bc64de21f88f
+      internalID: 1183649979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_28
+      name: orc1_hurt_with_shadow_22
       rect:
         serializedVersion: 2
         x: 256
@@ -754,14 +622,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8152775b959729d428a6fb4f7c1ba3e2
-      internalID: 1951484004
+      spriteID: 2ec58b2bda96f8c45974ac16cc7627c0
+      internalID: 17491754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orc1_death_with_shadow_29
+      name: orc1_hurt_with_shadow_23
       rect:
         serializedVersion: 2
         x: 320
@@ -776,52 +644,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 682c7a79f78d3294b8ebe1280499658e
-      internalID: -59595970
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orc1_death_with_shadow_30
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 595db30c5976b0f4d88175c60aa4e46f
-      internalID: -1509459515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orc1_death_with_shadow_31
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e362bb123f282e45bc80e8846da772f
-      internalID: 912333759
+      spriteID: e8f1003022416be4f8e23179a454ebb6
+      internalID: -1957641531
       vertices: []
       indices: 
       edges: []
@@ -830,7 +654,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d97c63ad34021154a99c16362fb08da9
+    spriteID: f0e26c0d3f4f80442bb10be07e0d3524
     internalID: 0
     vertices: []
     indices: 
@@ -842,38 +666,30 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      orc1_death_with_shadow_0: -2039384064
-      orc1_death_with_shadow_1: 360774200
-      orc1_death_with_shadow_10: 4302984
-      orc1_death_with_shadow_11: -2005306308
-      orc1_death_with_shadow_12: 1504748462
-      orc1_death_with_shadow_13: 730630669
-      orc1_death_with_shadow_14: 1829200025
-      orc1_death_with_shadow_15: 1930191515
-      orc1_death_with_shadow_16: 540804024
-      orc1_death_with_shadow_17: -1729946139
-      orc1_death_with_shadow_18: -1109100511
-      orc1_death_with_shadow_19: -1705874947
-      orc1_death_with_shadow_2: 1584883779
-      orc1_death_with_shadow_20: 361926229
-      orc1_death_with_shadow_21: -941888582
-      orc1_death_with_shadow_22: -1098398024
-      orc1_death_with_shadow_23: -662971356
-      orc1_death_with_shadow_24: -559903699
-      orc1_death_with_shadow_25: -691194382
-      orc1_death_with_shadow_26: -970743170
-      orc1_death_with_shadow_27: 2009786890
-      orc1_death_with_shadow_28: 1951484004
-      orc1_death_with_shadow_29: -59595970
-      orc1_death_with_shadow_3: -553916367
-      orc1_death_with_shadow_30: -1509459515
-      orc1_death_with_shadow_31: 912333759
-      orc1_death_with_shadow_4: -1649187511
-      orc1_death_with_shadow_5: -1484791206
-      orc1_death_with_shadow_6: -604051926
-      orc1_death_with_shadow_7: -1203025526
-      orc1_death_with_shadow_8: -528215126
-      orc1_death_with_shadow_9: -645420019
+      orc1_hurt_with_shadow_0: 1206648600
+      orc1_hurt_with_shadow_1: -738233814
+      orc1_hurt_with_shadow_10: -1376986803
+      orc1_hurt_with_shadow_11: -781997574
+      orc1_hurt_with_shadow_12: -1590794695
+      orc1_hurt_with_shadow_13: 1637858813
+      orc1_hurt_with_shadow_14: 1438686139
+      orc1_hurt_with_shadow_15: 1691570676
+      orc1_hurt_with_shadow_16: -1485163742
+      orc1_hurt_with_shadow_17: 471005910
+      orc1_hurt_with_shadow_18: -555177255
+      orc1_hurt_with_shadow_19: 1518601202
+      orc1_hurt_with_shadow_2: 776187041
+      orc1_hurt_with_shadow_20: 818173021
+      orc1_hurt_with_shadow_21: 1183649979
+      orc1_hurt_with_shadow_22: 17491754
+      orc1_hurt_with_shadow_23: -1957641531
+      orc1_hurt_with_shadow_3: 1443878217
+      orc1_hurt_with_shadow_4: -783477332
+      orc1_hurt_with_shadow_5: 602066358
+      orc1_hurt_with_shadow_6: -1326513360
+      orc1_hurt_with_shadow_7: -1753480823
+      orc1_hurt_with_shadow_8: -627288225
+      orc1_hurt_with_shadow_9: 1039165733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

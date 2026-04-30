@@ -10,7 +10,6 @@ public class LvlXPUIUpdater : MonoBehaviour
     
     private void Start()
     {
-        Debug.Log("1 "+UIFacade.Instance);
         _lvlSystem = UIFacade.Instance.LvlSystem;
         UpdateLVLAndXP();
     }
