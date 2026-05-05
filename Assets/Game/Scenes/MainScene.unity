@@ -5480,10 +5480,10 @@ RectTransform:
   - {fileID: 776984512}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!43 &74154443
 Mesh:
@@ -9971,6 +9971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitbox
   _ownerTargetType: 0
   _canDamage: 01000000
+  _inAirEffect: {fileID: 0}
 --- !u!1 &112895921
 GameObject:
   m_ObjectHideFlags: 0
@@ -10914,10 +10915,10 @@ RectTransform:
   - {fileID: 1129610156}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 181, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &128033839
 GameObject:
@@ -11251,6 +11252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f032674169e8fc54688a5523264ad9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathHandler
+  _navMeshAgent: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!195 &128033851
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12085,10 +12088,10 @@ RectTransform:
   - {fileID: 667745842}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &142079237
 GameObject:
@@ -29076,7 +29079,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 258150530}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.49557292
+  m_Size: 0.4955083
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -42275,6 +42278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReaction
   _animator: {fileID: 514221162}
   _audio: {fileID: 514221159}
+  _enemyHitDetector: {fileID: 0}
 --- !u!114 &514221168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42289,6 +42293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
   _targetType: 1
   _healthComponent: {fileID: 514221169}
+  _effectsManager: {fileID: 0}
 --- !u!114 &514221169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45708,7 +45713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13348e72cb40504eb16c6ed74b5c902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacteristicsListUI
-  _characteristics: {fileID: 894068952}
   _parent: {fileID: 703170135}
   _characteristicPrefab: {fileID: 4346531925514944978, guid: 7b47b261c17943546aa8bc31bfef9ffe, type: 3}
   _windowUICommand: {fileID: 571571314}
@@ -63131,10 +63135,10 @@ RectTransform:
   - {fileID: 1724516345}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 233, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &785448233
 GameObject:
@@ -67915,10 +67919,10 @@ RectTransform:
   - {fileID: 471478545}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 77, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &834209992
 GameObject:
@@ -70193,6 +70197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f032674169e8fc54688a5523264ad9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathHandler
+  _navMeshAgent: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!195 &858971334
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -71253,6 +71259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f032674169e8fc54688a5523264ad9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathHandler
+  _navMeshAgent: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!54 &885009826
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -71391,6 +71399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
   _targetType: 0
   _healthComponent: {fileID: 885009833}
+  _effectsManager: {fileID: 0}
 --- !u!114 &885009832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71405,6 +71414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReaction
   _animator: {fileID: 885009819}
   _audio: {fileID: 885009821}
+  _enemyHitDetector: {fileID: 0}
 --- !u!114 &885009833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90376,8 +90386,7 @@ MonoBehaviour:
   _skillbookPages:
   - {fileID: 71602704}
   _lvlSystem: {fileID: 903966720}
-  availableUnlockSkillCount: 1
-  _text: {fileID: 1423598359}
+  skillPoints: 0
 --- !u!1 &1125385613
 GameObject:
   m_ObjectHideFlags: 0
@@ -104430,10 +104439,10 @@ RectTransform:
   - {fileID: 1385531280}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 285, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1284309395
 GameObject:
@@ -105748,10 +105757,10 @@ RectTransform:
   - {fileID: 1804680766}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 441, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!43 &1301774359
 Mesh:
@@ -111717,10 +111726,10 @@ RectTransform:
   - {fileID: 194733756}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 493, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1385531279
 GameObject:
@@ -118908,6 +118917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitbox
   _ownerTargetType: 1
   _canDamage: 0000000002000000
+  _inAirEffect: {fileID: 0}
 --- !u!65 &1498564212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -135048,7 +135058,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 687689787}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.49212962
+  m_Size: 0.49206555
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -139192,10 +139202,10 @@ RectTransform:
   - {fileID: 1198320483}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 389, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1733985070
 GameObject:
@@ -140708,6 +140718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitbox
   _ownerTargetType: 0
   _canDamage: 01000000
+  _inAirEffect: {fileID: 0}
 --- !u!65 &1750182756
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -148638,6 +148649,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f032674169e8fc54688a5523264ad9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathHandler
+  _navMeshAgent: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!114 &1846729290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162622,6 +162635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f032674169e8fc54688a5523264ad9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeathHandler
+  _navMeshAgent: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!136 &1981595170
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -162734,6 +162749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
   _targetType: 0
   _healthComponent: {fileID: 1981595176}
+  _effectsManager: {fileID: 0}
 --- !u!114 &1981595175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162748,6 +162764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReaction
   _animator: {fileID: 1981595163}
   _audio: {fileID: 1981595165}
+  _enemyHitDetector: {fileID: 0}
 --- !u!114 &1981595176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163084,7 +163101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HPMPUIUpdater
   _hpSlider: {fileID: 11703548}
   _manaSlider: {fileID: 2075940578}
-  _characteristics: {fileID: 894068952}
 --- !u!114 &2000013260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163099,7 +163115,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LvlXPUIUpdater
   _lvl: {fileID: 1665603254}
   _currentXp: {fileID: 1177990746}
-  _lvlSystem: {fileID: 903966720}
 --- !u!1 &2001893725
 GameObject:
   m_ObjectHideFlags: 0
@@ -166995,10 +167010,10 @@ RectTransform:
   - {fileID: 207606090}
   m_Father: {fileID: 1834799015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 337, y: -25}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2070193649
 GameObject:
@@ -170204,7 +170219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -951.49994, y: 531.50006}
+  m_AnchoredPosition: {x: -951.50006, y: 531.5}
   m_SizeDelta: {x: 3840, y: 2160}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2106085678

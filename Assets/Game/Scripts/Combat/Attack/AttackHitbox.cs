@@ -16,7 +16,7 @@ public class AttackHitbox : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if(!other.TryGetComponent(out EnemyHitDetector target)) return;
+        if(!other.TryGetComponent(out HitDetector target)) return;
         
         if(!_canDamage.Contains(target.DamageReceiver.TargetType)) {return;}
         

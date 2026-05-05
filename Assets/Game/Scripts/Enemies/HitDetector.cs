@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHitDetector : MonoBehaviour
+public class HitDetector : MonoBehaviour
 {
     [SerializeField] private DamageReceiver _damageReceiver;
     [SerializeField] private HealthComponent _healthComponent;

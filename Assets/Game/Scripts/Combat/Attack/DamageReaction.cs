@@ -6,7 +6,7 @@ public class DamageReaction : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioData _audio;
-    [SerializeField] private EnemyHitDetector _enemyHitDetector;
+    [SerializeField] private HitDetector hitDetector;
 
     private void OnEnable()
     {
@@ -41,7 +41,7 @@ public class DamageReaction : MonoBehaviour
     
     private void OnAir(InAirEvent e)
     {
-        if(e.target != _enemyHitDetector?.gameObject) return;
+        if(e.target != hitDetector?.gameObject) return;
         
         _animator?.SetBool("InAir", true);
         //EventBus.Publish(new PitchedSoundEvent(gameObject, _audio.soundSet.hitSound, _audio.pitchSoundOffsets));

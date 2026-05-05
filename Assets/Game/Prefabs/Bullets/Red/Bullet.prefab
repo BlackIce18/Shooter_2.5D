@@ -271,3 +271,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttackHitbox
   _ownerTargetType: 0
   _canDamage: 01000000
+  _inAirEffect: {fileID: 11400000, guid: cd2247ba3369a134c8a5738e8ff9819e, type: 2}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectsManager : MonoBehaviour
 {
-    private readonly List<Effects> _activeEffects = new();
+    [SerializeField]private  List<Effects> _activeEffects = new();
 
     private void Update()
     {

@@ -10,8 +10,11 @@ public class MovementTrap : Trap
     protected void Update()
     {
         base.Update();
-        _agent.Goal = _patrol.CurrentPoint;
-        _patrol.MoveBetweenPoints();
+        _agent.Goal = _patrol?.CurrentPoint;
+        if (_agent.Goal != null)
+        {
+            _patrol.MoveBetweenPoints();
+        }
     }
     protected override void PerformAttack(HealthComponent target)
     {

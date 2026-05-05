@@ -18,7 +18,12 @@ namespace Game.Scripts
 
         public Transform CurrentPoint
         {
-            get => _patrolPoints[_currentPoint];
+            get
+            {
+                if (_patrolPoints.Count > 0)  {return _patrolPoints[_currentPoint];}
+
+                return null;
+            }
         }
 
         public void MoveBetweenPoints()

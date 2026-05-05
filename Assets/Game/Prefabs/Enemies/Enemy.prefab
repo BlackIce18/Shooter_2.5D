@@ -802,6 +802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReaction
   _animator: {fileID: 7426503912661531304}
   _audio: {fileID: 3976370866996730497}
+  hitDetector: {fileID: 1588340582319820669}
 --- !u!114 &864340179345450842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,7 +817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
   _targetType: 0
   _healthComponent: {fileID: 1173531515299565300}
-  _effectsManager: {fileID: 0}
+  _effectsManager: {fileID: 5847402885068819582}
 --- !u!114 &6974377666361384079
 MonoBehaviour:
   m_ObjectHideFlags: 0

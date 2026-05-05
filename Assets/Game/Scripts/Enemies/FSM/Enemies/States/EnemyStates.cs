@@ -79,7 +79,7 @@ public class EnemyPatrolState : IState<EnemyFSM>
     {
         //Debug.Log($"{owner.name} начинает патрулирование");
         if(owner.Patrol.PatrolPoints.Count > 0)
-            owner.NavMeshAgent.Goal = owner.Patrol.CurrentPoint;
+            owner.NavMeshAgent.Goal = owner.Patrol?.CurrentPoint;
     }
 
     public void Update(EnemyFSM owner)
