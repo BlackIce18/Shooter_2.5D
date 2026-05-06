@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
             Vector2 mousePosition = Mouse.current.position.ReadValue();
             Vector2 mouseDirection =
-                _camera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y,
+                GameSettings.MainCamera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y,
                     _camera.transform.position.z * -1)) - Vector3.one / 2;
             mouseDirection.Normalize();
 

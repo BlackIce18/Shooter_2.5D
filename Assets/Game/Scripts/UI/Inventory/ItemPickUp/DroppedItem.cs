@@ -5,8 +5,6 @@ public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 {
     [SerializeField] private ItemBaseScriptableObject itemBaseScriptableObject;
     public ItemBaseScriptableObject ItemBaseScriptableObject => itemBaseScriptableObject;
-    public FloatingWindow windowUI;
-    public TextMeshProUGUI textField;
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -17,27 +15,27 @@ public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
             
             EventBus.Publish(new PickUpItemEvent(ItemBaseScriptableObject));
             Destroy(gameObject);
-            windowUI.transform.gameObject.SetActive(false);
-            windowUI.Hide();
+            Global.Instance.UI.DropFloatingWindow.transform.gameObject.SetActive(false);
+            Global.Instance.UI.DropFloatingWindow.Hide();
         }
 
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        windowUI.transform.gameObject.SetActive(true);
-        textField.text = ItemBaseScriptableObject.Name;
-        windowUI.Show();
+        Global.Instance.UI.DropFloatingWindow.transform.gameObject.SetActive(true);
+        Global.Instance.UI.DropFloatingWindow.ChangeText(ItemBaseScriptableObject.Name);
+        Global.Instance.UI.DropFloatingWindow.Show();
     }
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        windowUI.Show();
+        Global.Instance.UI.DropFloatingWindow.Show();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        windowUI.transform.gameObject.SetActive(false);
-        windowUI.Hide();
+        Global.Instance.UI.DropFloatingWindow.transform.gameObject.SetActive(false);
+        Global.Instance.UI.DropFloatingWindow.Hide();
     }
 }

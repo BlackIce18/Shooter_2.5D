@@ -9,7 +9,7 @@ public class HPMPUIUpdater : MonoBehaviour
 
     private void Start()
     {
-        _characteristics = UIFacade.Instance.Characteristics;
+        _characteristics = GamePlayFacade.Instance.Characteristics;
     }
 
     private void OnEnable()

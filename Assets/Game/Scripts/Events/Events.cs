@@ -1,5 +1,38 @@
 using UnityEngine;
 
+public struct GlobalInitEvent { }
+
+public struct EnvironmentFacadeInitEvent
+{
+    public EnvironmentFacade facade;
+
+    public EnvironmentFacadeInitEvent(EnvironmentFacade facade)
+    {
+        this.facade = facade;
+    }
+
+}
+
+public struct UIFacadeInitEvent
+{
+    public UIFacade facade;
+
+    public UIFacadeInitEvent(UIFacade facade)
+    {
+        this.facade = facade;
+    }
+}
+
+public struct GameplayInitEvent
+{
+    public GamePlayFacade facade;
+
+    public GameplayInitEvent(GamePlayFacade facade)
+    {
+        this.facade = facade;
+    }
+}
+
 public struct DamageEvent
 {
     public GameObject target;

@@ -4,11 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class EntryPoint : MonoBehaviour
 {
+    public Global global;
     public GameSettings gameSettings;
     public CameraService cameraService;
 
     private void Awake()
     {
+        global.Initialize();
         gameSettings.Initialize();
     }
 

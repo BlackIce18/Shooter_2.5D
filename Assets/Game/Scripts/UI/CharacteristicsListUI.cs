@@ -31,8 +31,8 @@ public class CharacteristicsListUI : KeyCommand
     private void UnequipEvent(UnequipEvent unequipEvent) { UpdateCharacteristics(); }
     public void Initialize()
     {
-        Debug.Log(UIFacade.Instance);
-        _characteristics = UIFacade.Instance.Characteristics;
+        Debug.Log(GamePlayFacade.Instance);
+        _characteristics = GamePlayFacade.Instance.Characteristics;
         
         foreach (var keyValue in _characteristics.CharacteristicsList)
         {
