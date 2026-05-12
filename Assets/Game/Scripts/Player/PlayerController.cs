@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour
     public Vector3 TargetVelocity => _targetVelocity;
     public Vector3 CurrentVelocity => _currentVelocity;
     public Collider Collider => _collider;
-    private void Start()
+
+    public void Initialize()
     {
         //_rigidbody = GetComponent<Rigidbody>();
         _rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
             Vector2 mousePosition = Mouse.current.position.ReadValue();
             Vector2 mouseDirection =
-                GameSettings.MainCamera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y,
+                _camera.ScreenToViewportPoint(new Vector3(mousePosition.x, mousePosition.y,
                     _camera.transform.position.z * -1)) - Vector3.one / 2;
             mouseDirection.Normalize();
 

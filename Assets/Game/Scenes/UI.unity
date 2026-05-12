@@ -12589,6 +12589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 640885219}
+  - component: {fileID: 640885220}
   - component: {fileID: 640885218}
   - component: {fileID: 640885217}
   m_Layer: 0
@@ -12655,6 +12656,19 @@ Transform:
   - {fileID: 1055291826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &640885220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640885216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2af78907ea6974583d365fc0fab422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIFacade
+  _dropFloatingWindow: {fileID: 711947517}
 --- !u!1 &641099509
 GameObject:
   m_ObjectHideFlags: 0
@@ -16463,8 +16477,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 730084871}
   m_HandleRect: {fileID: 730084870}
   m_Direction: 0
-  m_Value: -0.00000044114208
-  m_Size: 0.49557292
+  m_Value: -0.00000025208118
+  m_Size: 0.49552032
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -20488,51 +20502,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueRunner
   ui: {fileID: 1205101186}
---- !u!1 &1206898031
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1206898033}
-  - component: {fileID: 1206898032}
-  m_Layer: 0
-  m_Name: UIFacade
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1206898032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206898031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dbf4f1f4236b7e48833eee246bd1068, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIFacade
-  _dropFloatingWindow: {fileID: 0}
---- !u!4 &1206898033
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206898031}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1208149048
 GameObject:
   m_ObjectHideFlags: 0
@@ -29643,8 +29612,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 217906672}
   m_HandleRect: {fileID: 217906671}
   m_Direction: 2
-  m_Value: 1.0000005
-  m_Size: 0.49212962
+  m_Value: 1.0000002
+  m_Size: 0.4920774
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -30042,7 +30011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -951.49915, y: 531.4995}
+  m_AnchoredPosition: {x: -951.4995, y: 531.4997}
   m_SizeDelta: {x: 3840, y: 2160}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1882084392
@@ -34776,4 +34745,3 @@ SceneRoots:
   m_Roots:
   - {fileID: 640885219}
   - {fileID: 1205101184}
-  - {fileID: 1206898033}

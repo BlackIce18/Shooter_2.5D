@@ -9,15 +9,15 @@ public class Global : MonoBehaviour, IFacadeService
         get { return _instance; }
     }
 
-    [HideInInspector] public UIFacade UI;
-    [HideInInspector] public GamePlayFacade GamePlay;
-    [HideInInspector] public EnvironmentFacade Environment;
-
+    public UIFacade UI;
+    public GamePlayFacade GamePlay;
+    public EnvironmentFacade Environment;
+    
     public void Initialize()
     {
         _instance = this;
-        DontDestroyOnLoad(this);
-        EventBus.Publish(new GlobalInitEvent());
+        DontDestroyOnLoad(gameObject);
+        //EventBus.Publish(new GlobalInitEvent(this));
     }
     
     private void OnEnable()
@@ -28,9 +28,9 @@ public class Global : MonoBehaviour, IFacadeService
     }
     private void OnDisable()
     {
-        EventBus.Subscribe<GameplayInitEvent>(InitializeGamePlay);
-        EventBus.Subscribe<EnvironmentFacadeInitEvent>(InitializeEnvironment);
-        EventBus.Subscribe<UIFacadeInitEvent>(InitializeUI);
+        EventBus.Unsubscribe<GameplayInitEvent>(InitializeGamePlay);
+        EventBus.Unsubscribe<EnvironmentFacadeInitEvent>(InitializeEnvironment);
+        EventBus.Unsubscribe<UIFacadeInitEvent>(InitializeUI);
     }
 
     private void InitializeUI(UIFacadeInitEvent e)

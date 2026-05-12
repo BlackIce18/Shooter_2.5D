@@ -16,6 +16,7 @@ public class PickupZone : MonoBehaviour
     private IEnumerator Timer(Collider other)
     {
         PickupItemUI item = other.GetComponent<PickupItemUI>();
+        if(item == null) yield break;
         item.Canvas.gameObject.SetActive(true);
         item.Text.text = item.Money.ToString();
         item.Mesh.gameObject.SetActive(false);

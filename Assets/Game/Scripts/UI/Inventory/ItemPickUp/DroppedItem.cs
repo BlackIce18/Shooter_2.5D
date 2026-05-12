@@ -1,24 +1,29 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerExitHandler
+using UnityEngine.InputSystem;
+
+public class DroppedItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerMoveHandler,
+    IPointerExitHandler
 {
     [SerializeField] private ItemBaseScriptableObject itemBaseScriptableObject;
     public ItemBaseScriptableObject ItemBaseScriptableObject => itemBaseScriptableObject;
+
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log(eventData);
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             // Условия:
             // Расстояние до игрока < n
             // Есть место в инвентаре для расположения предмета
-            
+
             EventBus.Publish(new PickUpItemEvent(ItemBaseScriptableObject));
             Destroy(gameObject);
             Global.Instance.UI.DropFloatingWindow.transform.gameObject.SetActive(false);
             Global.Instance.UI.DropFloatingWindow.Hide();
         }
-
     }
 
     public void OnPointerEnter(PointerEventData eventData)

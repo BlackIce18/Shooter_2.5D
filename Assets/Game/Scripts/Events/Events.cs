@@ -1,7 +1,5 @@
 using UnityEngine;
 
-public struct GlobalInitEvent { }
-
 public struct EnvironmentFacadeInitEvent
 {
     public EnvironmentFacade facade;

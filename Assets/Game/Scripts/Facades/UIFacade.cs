@@ -12,16 +12,7 @@ public class UIFacade : MonoBehaviour, IFacadeService
         get => _dropFloatingWindow;
     }
 
-    private void OnEnable()
-    {
-        EventBus.Subscribe<GlobalInitEvent>(Initialize);
-    }
-    private void OnDisable()
-    {
-        EventBus.Subscribe<GlobalInitEvent>(Initialize);
-    }
-
-    public void Initialize(GlobalInitEvent g)
+    private void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -29,6 +20,6 @@ public class UIFacade : MonoBehaviour, IFacadeService
 
     public void Initialize()
     {
-        throw new NotImplementedException();
+        Global.Instance.UI = this;
     }
 }

@@ -17,15 +17,7 @@ public class GamePlayFacade : MonoBehaviour, IFacadeService
     {
         get => _lvlSystem;
     }
-    private void OnEnable()
-    {
-        EventBus.Subscribe<GlobalInitEvent>(Initialize);
-    }
-    private void OnDisable()
-    {
-        EventBus.Subscribe<GlobalInitEvent>(Initialize);
-    }
-    public void Initialize(GlobalInitEvent g)
+    private void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -33,6 +25,6 @@ public class GamePlayFacade : MonoBehaviour, IFacadeService
 
     public void Initialize()
     {
-        throw new NotImplementedException();
+        Global.Instance.GamePlay = this;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnvironmentFacade : MonoBehaviour, IFacadeService
@@ -10,16 +11,8 @@ public class EnvironmentFacade : MonoBehaviour, IFacadeService
     {
         get => _dropsParent;
     }
-    private void OnEnable()
-    {
-        EventBus.Subscribe<GlobalInitEvent>(Initialize);
-    }
-    private void OnDisable()
-    {
-        EventBus.Subscribe<GlobalInitEvent>(Initialize);
-    }
 
-    public void Initialize(GlobalInitEvent g)
+    private void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -27,6 +20,6 @@ public class EnvironmentFacade : MonoBehaviour, IFacadeService
 
     public void Initialize()
     {
-        throw new System.NotImplementedException();
+        Global.Instance.Environment = this;
     }
 }
